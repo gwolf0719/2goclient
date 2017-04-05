@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.silence5105.nosy.partner2go">
+
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher_"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCUsIl_cWyMdE4uG3j4yHFsUiOb2i-Dj-Q"></meta-data>
+        <!--<receiver android:name=".MainActivity$GcmBrodacasReceiver"-->
+
+        <!--<service android:name=".ActivityFragment.Hleperservice"></service>-->
+        <!--<receiver-->
+        <!--android:name=".MainActivity$GcmBrodacasReceiver"-->
+        <!--android:permission="com.google.android.c2dm.permission.SEND">-->
+        <!--<intent-filter>-->
+        <!--<action android:name="com.google.android.c2dm.intent.RECEIVE" />-->
+        <!--<category android:name="com.silence5105.nosy.partner2go" />-->
+        <!--</intent-filter>-->
+        <!--</receiver>-->
+
+        <receiver
+            android:name=".GcmBrodacasReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <category android:name="com.silence5105.nosy.partner2go" />
+            </intent-filter>
+        </receiver>
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCUsIl_cWyMdE4uG3j4yHFsUiOb2i-Dj-Q"></meta-data>
+
+
+        <activity
+            android:name=".ActivityFragment.TitleActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ActivityFragment.Loginactivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ActivityFragment.CreateUserFragment"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ActivityFragment.OTPActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ActivityFragment.ForgetPassWordActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ActivityFragment.NewPassWordActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ActivityFragment.ForgetPWOTPActivity"
+            android:screenOrientation="portrait" />
+
+        <activityr
+            android:name=".ActivityFragment.MyprofileActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ActivityFragment.FaqsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ActivityFragment.OrderHaveDriverActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ActivityFragment.StartDriverActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ActivityFragment.NewBookingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ActivityFragment.VerifiedActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ActivityFragment.WaitDriverActivtiy"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ActivityFragment.LoginContainerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ActivityFragment.ClientSafelyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ActivityFragment.RatdriverActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ActivityFragment.newOrderHaveDriverActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ActivityFragment.TobeVerifiedActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".ActivityFragment.OfficleReservationSActivity"
+            android:screenOrientation="portrait"/>
+    </application>
+
+</manifest>

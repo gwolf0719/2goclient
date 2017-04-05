@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/login_bg_black">
+
+    <TextView
+        android:id="@+id/textView34"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="50dp"
+        android:text="Please enter your details. Only drivers assigned to you will seen them"
+        android:textAlignment="center"
+        android:textColor="#ffff"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/nameeditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/numbertxt"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="14dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="17dp"
+        android:layout_marginTop="39dp"
+        android:ems="10"
+        android:hint="Full Name"
+        android:inputType="textPersonName"
+        android:textColor="#ffffff"
+        android:textColorHint="#b3ffffff" />
+
+    <EditText
+        android:id="@+id/mailedittxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nameeditText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="17dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:textColor="#ffffff"
+        android:textColorHint="#b3ffffff" />
+
+    <EditText
+        android:id="@+id/pwedittxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mailedittxt"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="17dp"
+        android:layout_marginTop="9dp"
+        android:ems="10"
+        android:hint="password"
+        android:inputType="textPassword"
+        android:textColor="#ffffff"
+        android:textColorHint="#b3ffffff" />
+
+    <EditText
+        android:id="@+id/apwedittxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pwedittxt"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="17dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="password confirmation"
+        android:inputType="textPassword"
+        android:textColor="#ffffff"
+        android:textColorHint="#b3ffffff" />
+
+    <RelativeLayout
+        android:id="@+id/donebtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/apwedittxt"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="34dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="40dp"
+        android:background="@mipmap/button_white">
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+
+
+            android:text="Submit"
+            android:textColor="#ffffff"
+
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/numbertxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView34"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="53dp"
+        android:text="TextView"
+        android:textColor="#ffffff"
+        android:textColorHint="#b3ffffff"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/imageView25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView34"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:background="@mipmap/line_white" />
+</RelativeLayout>

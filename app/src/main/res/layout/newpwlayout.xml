@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorPrimary">
+
+        <ImageView
+            android:id="@+id/imageView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:background="@mipmap/menu_bar_logo" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/newpwbackbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"
+        android:text="Back"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_below="@+id/title"
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorPrimaryDark"
+        android:text="new PassWord"
+        android:textAlignment="center"
+        android:textColor="#FAFAFA"
+        android:textStyle="normal|bold|italic" />
+
+    <EditText
+        android:id="@+id/newapwedittxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/newpwedittxt"
+        android:layout_alignStart="@+id/newpwedittxt"
+        android:layout_centerVertical="true"
+        android:ems="10"
+        android:hint="Pass Word again"
+        android:inputType="textPassword" />
+
+    <EditText
+        android:id="@+id/newpwedittxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/newapwedittxt"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:ems="10"
+        android:hint="PassWord"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/nwepwdonebtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/newapwedittxt"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="48dp"
+        android:text="Done" />
+
+</RelativeLayout>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/login_bg_black">
+
+    <TextView
+        android:id="@+id/textView31"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="37dp"
+        android:layout_marginRight="36dp"
+android:textSize="16sp"
+        android:layout_marginTop="108dp"
+        android:text="Please enter your phone number."
+        android:textAlignment="center"
+        android:textColor="#ffffff" />
+
+    <LinearLayout
+        android:id="@+id/numaberlayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView23"
+        android:layout_marginLeft="32.3dp"
+        android:layout_marginTop="32dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:background="@mipmap/icon_malaysia" />
+
+        <TextView
+            android:id="@+id/plusnumbertxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="9dp"
+            android:text="+60"
+            android:textColor="#b2ffffff"
+            android:textSize="16dp" />
+
+        <EditText
+
+            android:id="@+id/phonenumbertxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="34dp"
+            android:ems="10"
+            android:hint="Phone Number"
+            android:inputType="number"
+            android:textColor="#ffffff"
+            android:textColorHint="#b2ffffff" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/nexttxt"
+        android:layout_width="100dp"
+        android:layout_marginLeft="279dp"
+        android:layout_marginRight="14dp"
+        android:layout_below="@+id/numaberlayout"
+        android:layout_marginTop="68dp"
+        android:background="@mipmap/button_white_short"
+        android:layout_height="wrap_content">
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="Next"
+            android:textColor="#ffffff" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/backbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="41dp"
+        android:background="@mipmap/arrow_left_white" />
+
+    <ImageView
+        android:id="@+id/imageView23"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView31"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:background="@mipmap/line_white" />
+
+
+</RelativeLayout>

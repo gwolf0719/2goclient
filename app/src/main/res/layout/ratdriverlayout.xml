@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/textView44"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="68dp"
+        android:text="Rated Your Driver"
+        android:textSize="16sp" />
+
+    <!--<TextView-->
+    <!--android:id="@+id/endadresstxt"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:text="123"-->
+    <!--android:textStyle="bold"-->
+    <!--android:layout_marginBottom="20dp"-->
+    <!--android:layout_marginTop="20dp"/>-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/startadresstxt"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="22222"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:textStyle="bold"-->
+    <!--android:layout_above="@+id/endadresstxt"-->
+    <!--/>-->
+
+    <ImageView
+        android:id="@+id/imageView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView44"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        android:background="@mipmap/line_black" />
+
+    <ImageView
+        android:id="@+id/imageView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView15"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="37dp"
+        android:background="@mipmap/driver_cycle_small" />
+
+    <!--<ImageView-->
+    <!--android:id="@+id/budgetimg"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_below="@+id/imageView15"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:layout_centerVertical="true"-->
+    <!--android:layout_marginTop="80dp"-->
+    <!--android:background="@mipmap/driver_car_red"-->
+    <!--android:visibility="gone" />-->
+
+    <!--<ImageView-->
+    <!--android:id="@+id/exectuiveimg"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_below="@+id/imageView15"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:layout_marginTop="80dp"-->
+
+    <!--android:background="@mipmap/driver_car_blue"-->
+    <!--android:visibility="invisible" />-->
+
+    <!--<ImageView-->
+    <!--android:id="@+id/teks1mimg"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_below="@+id/imageView15"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:layout_marginTop="80dp"-->
+    <!--android:background="@mipmap/driver_car_golden"-->
+    <!--android:visibility="invisible" />-->
+
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ratingBar"
+        android:layout_marginTop="61dp"
+        android:layout_below="@+id/imageView19"
+        android:rating="3"
+        android:layout_centerHorizontal="true" />
+
+    <RelativeLayout
+        android:id="@+id/ratebtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@mipmap/button_red">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:text="Sent"
+            android:textColor="#ffffff"
+            android:textSize="16dp" />
+    </RelativeLayout>
+</RelativeLayout>

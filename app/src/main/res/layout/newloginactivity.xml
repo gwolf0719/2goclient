@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@mipmap/login_bg_black">
+
+    <RelativeLayout
+        android:id="@+id/phoneloginbtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/button_white"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="33dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:text="SIGN UP WITH MOBILE NUMBER"
+            android:textAlignment="center" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/imageView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="108dp"
+        android:layout_centerHorizontal="true"
+        android:background="@mipmap/logo" />
+
+    <TextView
+        android:id="@+id/textView27"
+        android:layout_marginTop="25dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView13"
+        android:layout_centerHorizontal="true"
+        android:text="This is the way 2GO"
+        android:textColor="#ffffff"
+        android:textSize="34sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView50"
+        android:layout_marginTop="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView27"
+        android:layout_centerHorizontal="true"
+        android:textSize="16sp"
+        android:text="Your daily commute just got better, safer \n and cheaper."
+        android:textAlignment="center"
+        android:textColor="#ffffff" />
+
+    <!--<TextView-->
+        <!--android:id="@+id/textView51"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textColor="#ffffff"-->
+        <!--android:layout_marginTop="3dp"-->
+        <!--android:textSize="16sp"-->
+        <!--android:layout_below="@+id/textView50"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:text="" />-->
+
+    <ImageView
+        android:id="@+id/backbtn"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@mipmap/arrow_left_white" />
+
+    <ImageView
+        android:id="@+id/imageView18"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView50"
+        android:layout_centerHorizontal="true"
+        android:background="@mipmap/line_white" />
+
+
+    <!--<RelativeLayout-->
+    <!--android:id="@+id/createbtn"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="50dp"-->
+    <!--android:layout_alignParentBottom="true"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:layout_marginBottom="50dp"-->
+    <!--android:layout_marginLeft="10dp"-->
+    <!--android:layout_marginRight="10dp"-->
+    <!--android:layout_marginTop="10dp">-->
+
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:layout_centerVertical="true"-->
+    <!--android:gravity="center"-->
+    <!--android:text="CREATE A NEW ACCOUNT"-->
+    <!--android:textAlignment="center"-->
+    <!--android:textStyle="bold" />-->
+    <!--</RelativeLayout>-->
+</RelativeLayout>

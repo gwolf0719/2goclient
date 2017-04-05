@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/payment"
+            android:icon="@mipmap/icon_payment"
+            android:textSize="16sp"
+            android:title="2Go Payment" />
+        <item
+            android:id="@+id/mybookings"
+            android:icon="@mipmap/icon_booking"
+            android:textSize="16sp"
+            android:title="My Booking" />
+        <item
+            android:id="@+id/pickupfavourites"
+            android:icon="@mipmap/icon_favorite"
+            android:textSize="16sp"
+            android:title="Favorites" />
+        <item
+            android:id="@+id/verification"
+            android:icon="@mipmap/icon_verification"
+            android:textSize="16sp"
+            android:title="Verification" />
+        <item
+            android:id="@+id/remotevotrol"
+            android:icon="@mipmap/icon_help"
+            android:textSize="16sp"
+
+            android:title="Help" />
+        <!--<item-->
+            <!--android:id="@+id/verified"-->
+            <!--android:title="to be verified"></item>-->
+        <item
+            android:id="@+id/faq"
+            android:icon="@mipmap/icon_setting"
+            android:textSize="16sp"
+            android:title="Setting" />
+        <!--<item-->
+            <!--android:id="@+id/logout"-->
+            <!--android:icon="@mipmap/logout"-->
+            <!--android:title="Logout" />-->
+
+
+    </group>
+
+
+
+    <!--<item android:title="Communicate">-->
+    <!--<menu>-->
+
+    <!--</menu>-->
+    <!--</item>-->
+
+</menu>

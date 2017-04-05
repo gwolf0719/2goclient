@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/login_bg_black">
+
+
+    <TextView
+        android:id="@+id/textView29"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="108dp"
+        android:textSize="16dp"
+        android:text="Please enter your phone number."
+        android:textColor="#ffff" />
+
+    <!--<EditText-->
+        <!--android:id="@+id/phoneedittxt"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!---->
+        <!--android:ems="10"-->
+        <!--android:hint="Phone number"-->
+        <!--android:inputType="number"-->
+        <!--android:text="+886"-->
+        <!--android:textColor="#ffffff" />-->
+
+    <LinearLayout
+        android:id="@+id/numaberlayout"
+        android:layout_below="@+id/textView29"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="46dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32.3dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:background="@mipmap/icon_malaysia" />
+
+        <TextView
+            android:id="@+id/plusnumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="9dp"
+            android:text="+60"
+            android:textColor="#b2ffffff"
+            android:textSize="16dp" />
+
+        <EditText
+
+            android:id="@+id/phoneedittxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="34dp"
+            android:ems="10"
+            android:hint="Phone Number"
+            android:inputType="number"
+            android:textColor="#ffffff"
+            android:textColorHint="#b2ffffff" />
+    </LinearLayout>
+    <EditText
+        android:id="@+id/pwedittxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:textColor="#ffffff"
+        android:hint="password"
+        android:textColorHint="#b3ffffff"
+        android:inputType="textPassword"
+        android:layout_marginTop="18dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/numaberlayout"/>
+<RelativeLayout
+    android:id="@+id/loginbtn"
+    android:layout_width="wrap_content"
+    android:background="@mipmap/button_white"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:layout_marginBottom="34dp"
+    android:layout_marginLeft="40dp"
+    android:layout_marginRight="40dp"
+    android:layout_centerHorizontal="true">
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="34dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="Submit"
+        android:textSize="16dp"
+        android:textColor="#ffffff"
+        />
+</RelativeLayout>
+    <ImageView
+        android:id="@+id/backbtn"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@mipmap/arrow_left_white" />
+
+    <ImageView
+        android:id="@+id/imageView24"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView29"
+        android:layout_centerHorizontal="true"
+        android:background="@mipmap/line_white" />
+
+    <!--<TextView-->
+    <!--android:id="@+id/loginbtn"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_below="@+id/pwedittxt"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:layout_marginTop="48dp"-->
+    <!--android:text="Login"-->
+    <!--android:textColor="#ffffff"-->
+    <!--android:textStyle="bold" />-->
+</RelativeLayout>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:background="@mipmap/login_bg"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/loginbtn"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/createbtn"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="10dp"
+        android:background="@mipmap/button_white"
+        android:layout_marginRight="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:text="LOGIN"
+            android:textAlignment="center"
+
+            android:textColor="#ffffff" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/createbtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="64dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+
+        android:layout_marginTop="23dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:text="CREATE A NEW ACCOUNT"
+            android:textAlignment="center"
+            android:textColor="#ffffff" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_marginTop="108dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="@mipmap/logo" />
+
+    <TextView
+        android:id="@+id/textView47"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView12"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:text="Welcome!"
+        android:textColor="#ffffff"
+        android:textSize="34sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView48"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView47"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="38dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginRight="38dp"
+        android:textSize="16sp"
+        android:text="User-friendliness to passengers in \n hailing taxi services."
+        android:textAlignment="center"
+        android:textColor="#ffffff" />
+
+    <ImageView
+        android:id="@+id/imageView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView48"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:background="@mipmap/line_white" />
+
+
+    <!--<TextView-->
+        <!--android:id="@+id/textView49"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@+id/textView48"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_marginTop="3dp"-->
+        <!--android:textColor="#ffffff"-->
+        <!--android:text="" />-->
+</RelativeLayout>

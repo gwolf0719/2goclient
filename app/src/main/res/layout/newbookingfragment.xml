@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+
+    <TextView
+        android:text="Booking Options"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/textView17"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="3dp"
+        android:textStyle="normal|bold"
+        android:textSize="24sp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@mipmap/delete"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="3dp"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/bookingclosebtn" />
+
+    <TextView
+        android:text="Choose this vehicle type below"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:textColor="#FAFAFA"
+        android:layout_below="@+id/bookingclosebtn"
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorPrimaryDark"
+        android:id="@+id/textView18"
+        android:textAlignment="center"
+        android:textStyle="normal|bold|italic" />
+
+    <LinearLayout
+        android:id="@+id/choosecar"
+        android:orientation="vertical"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/textView18"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@mipmap/budget"
+                android:id="@+id/budgetbtn"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@mipmap/executive"
+                android:id="@+id/exectuivebtn"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@mipmap/nearest"
+                android:id="@+id/nearestbtn"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@mipmap/teks1m"
+                android:id="@+id/teks1mbtn"
+                android:layout_weight="1" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:text="Fare"
+        android:layout_below="@+id/choosecar"
+        android:textColor="#FAFAFA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/textView21"
+        android:layout_marginBottom="5dp"
+        android:textStyle="normal|bold"
+        android:textSize="18sp" />
+
+    <TextView
+        android:text="Fare"
+        android:textColor="@color/colorPrimaryDark"
+        android:background="#FAFAFA"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_below="@+id/textView21"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/faretxt"
+        android:textStyle="normal|bold"
+        android:textSize="18sp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="30dp"
+        android:textAlignment="center" />
+
+    <TextView
+        android:text="Choos Payment type"
+        android:layout_width="match_parent"
+        android:id="@+id/textView23"
+        android:textColor="@color/colorPrimary"
+        android:background="@color/colorPrimaryDark"
+        android:layout_below="@+id/faretxt"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:layout_height="25dp"
+        android:visibility="gone"
+        android:textSize="18sp" />
+
+    <TextView
+        android:text="Confirm"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spinner"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/bookingconfirmbtn"
+        android:textStyle="normal|bold"
+        android:visibility="gone"
+        android:layout_marginBottom="10dp"
+        android:textSize="18sp" />
+
+    <!--<Spinner-->
+        <!--android:layout_marginBottom="5dp"-->
+
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@+id/textView23"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:layout_marginTop="16dp"-->
+        <!--android:id="@+id/spinner" />-->
+    <Spinner
+        android:layout_below="@+id/textView23"
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"></Spinner>
+
+</RelativeLayout>

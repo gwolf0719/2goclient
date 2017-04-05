@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">2GO</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+
+    <string name="customerregistration">Customer Registration</string>
+    <string name="officialbookingok"><font fgcolor='#0255a6'>OK</font></string>
+    <string name="budgettxtaction"><font fgcolor='#c63725'>BUDGET</font></string>
+    <string name="teks1mtxtaction"><font fgcolor='#c63725'>TEKS1M</font></string>
+    <string name="exexutivetxtaction"><font fgcolor='#c63725'>EXECUTIVE</font></string>
+    <string name="budgettxt"><font fgcolor='#000000'>BUDGET</font></string>
+    <string name="teks1mtxt"><font fgcolor='#000000'>TEKS1M</font></string>
+    <string name="exexutivetxt"><font fgcolor='#000000'>EXECUTIVE</font></string>
+    <string name="officialbookingcancel"><font fgcolor='#0255a6'>CANCEL</font></string>
+    <string name="status_running"><font fgcolor='#FF4CD964'>Running</font></string>
+</resources>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        app:srcCompat="@mipmap/menu_bar_logo" />
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_below="@+id/imageView11"
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorPrimaryDark"
+        android:text="Finding a vehicle for you"
+        android:textAlignment="center"
+        android:textColor="#FAFAFA"
+        android:textSize="18sp"
+        android:textStyle="normal|bold|italic" />
+
+    <VideoView
+        android:id="@+id/videoView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView22"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+
+        android:text="cancel"
+        android:layout_below="@id/videoView"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bookingcancelbtn"
+        android:textStyle="normal|bold"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:textSize="18sp"/>
+    <LinearLayout
+        android:id="@+id/waiteditlayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/videoView"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal"
+        android:visibility="invisible">
+
+        <Button
+            android:id="@+id/Retrybtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Retry" />
+
+
+
+        <Button
+            android:id="@+id/closebtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Close" />
+    </LinearLayout>
+
+</RelativeLayout>

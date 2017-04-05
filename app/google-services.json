@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "623860776221",
+    "firebase_url": "https://go-gpo.firebaseio.com",
+    "project_id": "go-gpo",
+    "storage_bucket": "go-gpo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:623860776221:android:1e7b58d30b2ac30d",
+        "android_client_info": {
+          "package_name": "com.silence5105.nosy.partner2go"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "623860776221-lk2b3svavuvfbrs44marco14g68iofdk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBV8jQAnhjqPR8T_wtXQi980MGFuqhyOEE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="#ffffff"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:id="@+id/title"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:text="The driver is heading."
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView25"
+            android:textColor="#FAFAFA"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:textSize="18sp"
+            android:textAlignment="center"
+            android:textStyle="normal|bold|italic" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/numberlayout"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:text="number:"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView26"
+            android:textSize="18sp"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="normal|bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/numbertxt"
+            android:textSize="18sp"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_weight="1"
+            android:textStyle="normal|bold" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/distancelayout"
+        android:layout_below="@+id/numberlayout"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="distance:"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textSize="18sp"
+            android:textColor="@color/colorPrimary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView28"
+            android:textStyle="normal|bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/distancetxt"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="normal|bold" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_below="@id/distancelayout"
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="estimated time."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView30"
+            android:textSize="18sp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="normal|bold" />
+
+        <TextView
+            android:text=""
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/estimatedtimetxt"
+            android:textSize="18sp"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_weight="1"
+            android:textStyle="normal|bold" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/calldriverbtn"
+        android:layout_width="match_parent"
+        android:layout_height="36.7dp"
+        android:background="#ff6962"
+        android:gravity="center"
+        android:text="Contact the driver"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:textAlignment="center"
+        android:textColor="#FAFAFA"
+        android:textSize="18sp"
+        android:textStyle="normal|bold"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>

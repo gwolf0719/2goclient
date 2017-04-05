@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:background="@mipmap/login_bg_black"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView35"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="37dp"
+        android:layout_marginRight="36dp"
+        android:textSize="16sp"
+        android:layout_marginTop="108dp"
+        android:text="Please enter the 5-digit activation code \n that was sent to the number below"
+        android:textAlignment="center"
+        android:textColor="#ffffff" />
+
+    <EditText
+        android:id="@+id/otpedittxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="43dp"
+        android:ems="10"
+        android:textColor="#ffffff"
+        android:hint="OTP"
+        android:textColorHint="#b2ffffff"
+        android:inputType="number"
+        android:layout_below="@+id/numbertxt"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/textView36"
+        android:textColor="#ffffff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="29dp"
+        android:text=" Didn't get SMS?"
+        android:textStyle="bold"
+        android:layout_below="@+id/otpedittxt"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/donetxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView36"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:text="Done"
+        android:textColor="#ffffff"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/numbertxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="203dp"
+        android:text=""
+        android:textSize="22sp"
+
+        android:textColor="#ffff"/>
+
+    <ImageView
+        android:id="@+id/backbtn"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@mipmap/arrow_left_white" />
+</RelativeLayout>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/colorPrimary"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:background="@mipmap/menu_bar_logo" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/otpbackbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"
+        android:text="Back"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/donbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="done"
+        android:textSize="14sp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/otpeditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="OTP"
+        android:inputType="number"
+        android:layout_above="@+id/donbtn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="33dp" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Resend OTP"
+        android:layout_marginTop="35dp"
+        android:layout_below="@+id/donbtn"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:text="OTP"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="#FAFAFA"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/textView20"
+        android:textStyle="normal|bold|italic"
+        android:textAlignment="center" />
+
+</RelativeLayout>
