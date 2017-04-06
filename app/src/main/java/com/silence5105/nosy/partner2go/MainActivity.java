@@ -138,12 +138,12 @@ public class MainActivity extends AppCompatActivity
     RelativeLayout showview, callbtn;
     Button avgbtn, okbtn;
     double nowlng;
-    RelativeLayout btnFindPath, container1, where2golayout, loadlinearlayoout, officfindpathbtn, onthewaylayout, icarlayout;
+    RelativeLayout containermenubtn, menubtn, btnFindPath, container1, where2golayout, loadlinearlayoout, officfindpathbtn, onthewaylayout, icarlayout;
     LinearLayout linearLayout, btnlayout, checklayout, viewlayout, icslectlayout;
     AQuery aQuery;
     GoogleApiClient googleApiClient;
     TextView numbertxt, dtxt, rattxt, nametxt, iccartxt, iccnametxt, iccrate;
-    ImageView menubtn, redimg, blueimg, containermenubtn, sosbtn;
+    ImageView menuimg, redimg, blueimg, sosbtn;
     PlaceAutocompleteAdapter placeAutocompleteAdapter;
     TextView menunametxt;
 
@@ -347,8 +347,9 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
         aQuery = new AQuery(this);
         bottoncontainer = (RelativeLayout) findViewById(R.id.bottoncontainer);
-        containermenubtn = (ImageView) findViewById(R.id.containermenubtn);
+        containermenubtn = (RelativeLayout) findViewById(R.id.containermenubtn);
         containermenubtn.setOnClickListener(this);
+        menuimg = (ImageView) findViewById(R.id.menuimg);
         sosbtn = (ImageView) findViewById(R.id.sosbtn);
         iccnametxt = (TextView) findViewById(R.id.iccnametext);
         iccrate = (TextView) findViewById(R.id.iccratetxt);
@@ -373,7 +374,7 @@ public class MainActivity extends AppCompatActivity
         avgbtn = (Button) findViewById(R.id.avgbtn);
         avgbtn.setBackgroundResource(R.layout.testbtn);
         viewlayout = (LinearLayout) findViewById(R.id.viewlayout);
-        menubtn = (ImageView) findViewById(R.id.menubtn);
+        menubtn = (RelativeLayout) findViewById(R.id.menubtn);
         menubtn.setOnClickListener(this);
         okbtn = (Button) findViewById(R.id.okbtn);
         okbtn.setBackgroundResource(R.layout.testbtn);
@@ -1928,23 +1929,25 @@ public class MainActivity extends AppCompatActivity
     }
 
     public class BookSelectTimeFragment1 extends Fragment implements View.OnClickListener {
-        TextView nextbtn, mytxt, dtimetxt, cancelbtn, officletxt;
+        TextView mytxt, dtimetxt, officletxt, oktxt, canceltxt;
         DatePickerDialog datePickerDialog;
         private int mYear, mMonth, mDay, mH, mm;
         DatePickerDialog dpd;
         TimePickerDialog timePicker;
-
+        RelativeLayout cancelbtn, nextbtn;
 
         @Nullable
         @Override
         public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
             View view = inflater.inflate(R.layout.bookselecttimelayout, container, false);
-            nextbtn = (TextView) view.findViewById(R.id.nextbtn);
+            nextbtn = (RelativeLayout) view.findViewById(R.id.nextbtn);
             mytxt = (TextView) view.findViewById(R.id.mytxt);
+            oktxt = (TextView) view.findViewById(R.id.oktxt);
+            canceltxt = (TextView) view.findViewById(R.id.canceltxt);
             mytxt.setOnClickListener(this);
             dtimetxt = (TextView) view.findViewById(R.id.dtimetxt);
             nextbtn.setOnClickListener(this);
-            cancelbtn = (TextView) view.findViewById(R.id.canclebtn);
+            cancelbtn = (RelativeLayout) view.findViewById(R.id.canclebtn);
             cancelbtn.setOnClickListener(this);
             officletxt = (TextView) view.findViewById(R.id.officletxt);
             SimpleDateFormat sDateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -1991,8 +1994,8 @@ public class MainActivity extends AppCompatActivity
 //        dpd.show();
             if (PrefsHelper.setofficalbooking(getActivity()).equals("1")) {
                 officletxt.setVisibility(View.VISIBLE);
-                nextbtn.setText(R.string.officialbookingok);
-                cancelbtn.setText(R.string.officialbookingcancel);
+                oktxt.setText(R.string.officialbookingok);
+                canceltxt.setText(R.string.officialbookingcancel);
             }
             return view;
         }
@@ -2043,7 +2046,7 @@ public class MainActivity extends AppCompatActivity
         where2golayout.setVisibility(View.VISIBLE);
         blueimg.setVisibility(View.GONE);
         redimg.setVisibility(View.VISIBLE);
-        menubtn.setImageDrawable(getResources().getDrawable(R.mipmap.menu_black));
+        menuimg.setImageDrawable(getResources().getDrawable(R.mipmap.menu_black));
         loadlinearlayoout.setVisibility(View.INVISIBLE);
         btnFindPath.setVisibility(View.INVISIBLE);
         officfindpathbtn.setVisibility(View.INVISIBLE);

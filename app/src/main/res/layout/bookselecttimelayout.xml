@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:background="#ffffff"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="#ffffff">
 
     <TextView
         android:id="@+id/textView38"
@@ -12,43 +12,32 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="15dp"
-        android:textColor="#000000"
         android:layout_marginTop="14dp"
         android:text="Make a reservation"
+        android:textColor="#000000"
         android:textSize="20sp"
         android:textStyle="bold" />
+
     <TextView
         android:id="@+id/officletxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView38"
+        android:layout_alignStart="@+id/textView38"
+        android:layout_alignTop="@+id/canclebtn"
         android:text="Need advance 45m"
         android:textColor="#c63725"
         android:textSize="16sp"
-        android:visibility="invisible"
-        android:layout_alignTop="@+id/canclebtn"
-        android:layout_alignLeft="@+id/textView38"
-        android:layout_alignStart="@+id/textView38" />
+        android:visibility="invisible" />
 
-    <TextView
-        android:id="@+id/nextbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/dtimetxt"
-        android:layout_marginBottom="14dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="15dp"
-        android:text="OK"
-        android:textAlignment="center"
-        android:textColor="#c63725"
-        android:textSize="18sp" />
+
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_marginLeft="21.5dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/textView38"
+        android:layout_marginLeft="21.5dp"
         android:layout_marginTop="8dp"
-        android:orientation="vertical"
-        android:layout_height="wrap_content">
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/mytxt"
@@ -67,26 +56,58 @@
         android:id="@+id/dtimetxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textSize="18dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginRight="56dp"
-        android:textColor="#de000000"
-        android:textStyle="bold"
-        android:layout_below="@+id/textView38"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-    <TextView
+        android:layout_below="@+id/textView38"
+        android:layout_marginRight="56dp"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        android:textColor="#de000000"
+        android:textSize="18dp"
+        android:textStyle="bold" />
+
+    <RelativeLayout
+        android:id="@+id/nextbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/dtimetxt"
+        android:layout_marginBottom="14dp"
+        android:layout_marginTop="15dp">
+
+        <TextView
+            android:id="@+id/oktxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="30dp"
+            android:text="OK"
+            android:textAlignment="center"
+            android:textColor="#c63725"
+            android:textSize="14sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
         android:id="@+id/canclebtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="CANCEL"
-        android:textSize="18dp"
-        android:textColor="#c63725"
-        android:layout_marginRight="38.5dp"
         android:layout_alignBaseline="@+id/nextbtn"
         android:layout_alignBottom="@+id/nextbtn"
         android:layout_toLeftOf="@+id/nextbtn"
-        android:layout_toStartOf="@+id/nextbtn" />
+        android:layout_toStartOf="@+id/nextbtn">
+
+        <TextView
+            android:id="@+id/canceltxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+
+            android:layout_marginRight="18.5dp"
+            android:text="CANCEL"
+            android:textColor="#c63725"
+            android:textSize="14dp" />
+    </RelativeLayout>
 
 </RelativeLayout>

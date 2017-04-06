@@ -278,6 +278,7 @@
                     android:layout_marginLeft="24dp"
                     android:layout_marginTop="10dp"
                     app:srcCompat="@mipmap/line_personal" />
+
                 <ImageView
                     android:id="@+id/blueimg"
                     android:layout_width="wrap_content"
@@ -289,7 +290,7 @@
                     android:layout_marginLeft="24dp"
                     android:layout_marginTop="10dp"
                     android:visibility="gone"
-                    app:srcCompat="@mipmap/line_official"/>
+                    app:srcCompat="@mipmap/line_official" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -325,19 +326,26 @@
         </RelativeLayout>
 
 
+    </fragment>
+
+    <RelativeLayout
+        android:id="@+id/menubtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
         <ImageView
-            android:id="@+id/menubtn"
+            android:id="@+id/menuimg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
 
             android:layout_alignParentTop="true"
+            android:layout_marginBottom="10dp"
             android:layout_marginLeft="16dp"
+            android:layout_marginRight="10dp"
             android:layout_marginTop="41dp"
             app:srcCompat="@mipmap/menu_black" />
-
-
-    </fragment>
+    </RelativeLayout>
     <!--<RelativeLayout-->
 
     <!--android:layout_width="match_parent"-->
@@ -362,8 +370,8 @@
         android:layout_alignParentLeft="true"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="15dp"
-        android:visibility="invisible"
-        android:background="@mipmap/button_booking_red">
+        android:background="@mipmap/button_booking_red"
+        android:visibility="invisible">
 
         <TextView
             android:layout_width="wrap_content"
@@ -373,6 +381,7 @@
             android:text="Personal\nBooking"
             android:textColor="#ffffff" />
     </RelativeLayout>
+
     <RelativeLayout
         android:id="@+id/officbtnFindPath"
         android:layout_width="wrap_content"
@@ -381,8 +390,8 @@
         android:layout_alignParentRight="true"
         android:layout_centerHorizontal="true"
         android:layout_marginRight="15dp"
-        android:visibility="invisible"
-        android:background="@mipmap/button_booking_blue">
+        android:background="@mipmap/button_booking_blue"
+        android:visibility="invisible">
 
         <TextView
             android:layout_width="wrap_content"
@@ -404,7 +413,6 @@
         android:visibility="invisible">
 
 
-
     </RelativeLayout>
 
     <RelativeLayout
@@ -413,44 +421,54 @@
         android:layout_height="match_parent"
         android:clickable="true"
         android:visibility="gone">
-        <ImageView
-            android:id="@+id/containermenubtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:visibility="gone"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="41dp"
-            app:srcCompat="@mipmap/arrow_left_black" />
-
-        <!--<RelativeLayout-->
-            <!--android:id="@+id/blockbg"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:visibility=""-->
-            <!--android:background="#99000000">-->
-
-        </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/showview"
+            android:id="@+id/containermenubtn"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="8dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp">
+            android:layout_height="wrap_content">
 
+            <ImageView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="41dp"
+                android:visibility="visible"
+                app:srcCompat="@mipmap/arrow_left_black" />
         </RelativeLayout>
+
+        <!--<RelativeLayout-->
+        <!--android:id="@+id/blockbg"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:visibility=""-->
+        <!--android:background="#99000000">-->
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/showview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp">
+
+    </RelativeLayout>
+
     <RelativeLayout
         android:id="@+id/onthewaylayout"
-        android:visibility="gone"
-        android:background="#ffffff"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentBottom="true"
+        android:background="#ffffff"
+        android:visibility="gone">
 
         <TextView
             android:id="@+id/titletxt"
@@ -473,6 +491,13 @@
             android:textColor="#757575"
             android:textSize="14sp" />
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="58dp"
+            android:background="@mipmap/line" />
+
         <TextView
             android:id="@+id/nametext"
             android:layout_width="wrap_content"
@@ -486,89 +511,95 @@
             />
 
         <TextView
+            android:id="@+id/dtxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/titletxt"
+            android:layout_marginRight="17dp"
             android:text="1234"
             android:textColor="#c63725"
-            android:textSize="40sp"
-            android:id="@+id/dtxt"
-            android:layout_marginRight="17dp"
-            android:layout_alignTop="@+id/titletxt"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:textSize="40sp" />
 
         <ImageView
+            android:id="@+id/imageView22"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/nametext"
             android:layout_marginLeft="93dp"
             android:layout_marginTop="8dp"
-            android:background="@mipmap/star_active"
-            android:id="@+id/imageView22" />
+            android:background="@mipmap/star_active" />
 
         <TextView
             android:id="@+id/ratetxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#c63725"
-            android:textSize="19sp"
-            android:text="1234"
-            android:layout_marginLeft="2dp"
-            android:layout_marginBottom="64dp"
             android:layout_alignTop="@+id/imageView22"
+            android:layout_marginBottom="64dp"
+            android:layout_marginLeft="2dp"
+            android:layout_toEndOf="@+id/imageView22"
             android:layout_toRightOf="@+id/imageView22"
-            android:layout_toEndOf="@+id/imageView22" />
+            android:text="1234"
+            android:textColor="#c63725"
+            android:textSize="19sp" />
 
     </RelativeLayout>
+
     <LinearLayout
         android:id="@+id/otwselectlayout"
-        android:visibility="gone"
-        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:visibility="gone">
+
         <RelativeLayout
+            android:id="@+id/msnbtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="5"
-            android:layout_marginRight="2.5dp"
             android:layout_marginLeft="16dp"
-            android:id="@+id/msnbtn"
+            android:layout_marginRight="2.5dp"
+            android:layout_weight="5"
             android:background="@mipmap/button_driver_message">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Message"
+                android:layout_centerHorizontal="true"
                 android:layout_marginTop="8dp"
-                android:textColor="#ffffff"
-                android:layout_centerHorizontal="true"/>
+                android:text="Message"
+                android:textColor="#ffffff" />
         </RelativeLayout>
+
         <RelativeLayout
+            android:id="@+id/callbtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="5"
-            android:id="@+id/callbtn"
             android:layout_marginLeft="2.5dp"
             android:layout_marginRight="16dp"
+            android:layout_weight="5"
             android:background="@mipmap/button_driver_message">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Call"
+                android:layout_centerHorizontal="true"
                 android:layout_marginTop="8dp"
-                android:textColor="#ffffff"
-                android:layout_centerHorizontal="true"/>
+                android:text="Call"
+                android:textColor="#ffffff" />
         </RelativeLayout>
     </LinearLayout>
+
     <ImageView
         android:id="@+id/sosbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="89dp"
-        android:layout_marginRight="18dp"
         android:layout_alignParentRight="true"
-        android:visibility="gone"
+        android:layout_marginRight="18dp"
+        android:layout_marginTop="89dp"
         android:background="@mipmap/icon_sos"
-        />
+        android:visibility="gone" />
+
     <RelativeLayout
         android:id="@+id/incarlayout"
         android:layout_width="match_parent"
@@ -597,6 +628,13 @@
             android:text="number"
             android:textColor="#757575"
             android:textSize="14sp" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="58dp"
+            android:background="@mipmap/line"
+            />
 
         <TextView
             android:id="@+id/iccnametext"
@@ -609,7 +647,6 @@
             android:textSize="16sp"
 
             />
-
 
 
         <ImageView
@@ -663,10 +700,7 @@
     </LinearLayout>
 
 
+</RelativeLayout>
 
 
-    </RelativeLayout>
-
-
-
-<!--</RelativeLayout>-->
+    <!--</RelativeLayout>-->
