@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="#ececec"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:background="#c63725">
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/backbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@mipmap/arrow_left_white" />
+
+    <TextView
+        android:id="@+id/textView39"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="27dp"
+        android:layout_marginTop="14dp"
+        android:layout_toEndOf="@+id/backbtn"
+        android:layout_toRightOf="@+id/backbtn"
+        android:text="Setting"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <RelativeLayout
+        android:id="@+id/titlelayout"
+        android:layout_width="match_parent"
+        android:layout_height="195dp"
+        android:layout_below="@+id/relativeLayout3"
+        android:background="#c63725">
+
+        <ImageView
+            android:id="@+id/logoimg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@mipmap/logo" />
+
+        <TextView
+            android:id="@+id/nametxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/logoimg"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="12dp"
+            android:text="1111111111"
+            android:textColor="#ffffff"
+
+            android:textSize="16sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="3dp"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@+id/phonenumbertxt"
+            android:layout_toStartOf="@+id/phonenumbertxt"
+            android:background="@mipmap/icon_malaysia" />
+
+        <TextView
+            android:id="@+id/phonenumbertxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/nametxt"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="11dp"
+            android:text="22222222"
+            android:textColor="#ffffff"
+            android:textSize="16sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/changpassword"
+        android:layout_width="match_parent"
+        android:layout_height="72.8dp"
+        android:layout_below="@+id/titlelayout"
+        android:layout_marginBottom="1dp"
+        android:background="#ffffff">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="18dp"
+            android:text="Change Passwrod"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="19dp"
+            android:background="@mipmap/arrow_right_black" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/businessbtn"
+        android:layout_width="match_parent"
+        android:layout_height="72.8dp"
+        android:layout_below="@id/changpassword"
+        android:background="#ffffff">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="18dp"
+            android:text="Business Information"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="19dp"
+            android:background="@mipmap/arrow_right_black" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/logoutbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="42dp"
+        android:text="Log Out"
+        android:textColor="#c63725"
+        android:textSize="14sp" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/titlelayout"
+        android:id="@id/container"
+        android:visibility="invisible"
+        android:clickable="true"
+        android:background="#ffffff"
+        ></RelativeLayout>
+
+</RelativeLayout>

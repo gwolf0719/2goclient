@@ -159,7 +159,7 @@ public class GcmBrodacasReceiver extends BroadcastReceiver {
 //                    IntentService.sendLocalNotification(context, NOTIFICATION_ID, R.mipmap.ic_launcher_, "乘客", "感謝妳的搭乘", "", true, PendingIntent.getActivity(context, 0, i, PendingIntent.FLAG_CANCEL_CURRENT));
                     PrefsHelper.gethaved(context, "2");
                     Intent intent1 = new Intent();
-                    intent1.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                    intent1.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     intent1.setClass(context, MainActivity.class);
                     context.startActivity(intent1);
                 }
@@ -167,7 +167,7 @@ public class GcmBrodacasReceiver extends BroadcastReceiver {
                 if (extras.getString("gcm.notification.click_action").equals("8")) {
                     PrefsHelper.getlast30m(context,"1");
                     Intent intent1 = new Intent();
-                    intent1.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                    intent1.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     intent1.setClass(context, MainActivity.class);
                     context.startActivity(intent1);
                     System.out.println("gcm ====== 8 ");
@@ -186,7 +186,7 @@ public class GcmBrodacasReceiver extends BroadcastReceiver {
                 if (extras.getString("gcm.notification.click_action").equals("7")) {
                     PrefsHelper.getlast5m(context,"1");
                     Intent intent1 = new Intent();
-                    intent1.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                    intent1.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     intent1.setClass(context, MainActivity.class);
                     context.startActivity(intent1);
                     System.out.println("gcm ====== 7 ");

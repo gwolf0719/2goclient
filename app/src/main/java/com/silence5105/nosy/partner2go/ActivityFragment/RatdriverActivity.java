@@ -7,7 +7,7 @@ import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.RatingBar;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import com.androidquery.AQuery;
 import com.androidquery.callback.AjaxCallback;
@@ -26,6 +26,7 @@ import org.json.JSONObject;
 public class RatdriverActivity extends Activity implements View.OnClickListener {
     RatingBar ratingBar;
     float rate;
+    TextView drivernametxt;
     RelativeLayout ratebtn;
     AQuery aQuery;
 
@@ -43,6 +44,8 @@ public class RatdriverActivity extends Activity implements View.OnClickListener 
     }
 
     private void initview() {
+        drivernametxt = (TextView) findViewById(R.id.drivernametxt);
+        drivernametxt.setText(PrefsHelper.setdrivername(getApplication()));
         ratingBar = (RatingBar) findViewById(R.id.ratingBar);
         ratebtn = (RelativeLayout) findViewById(R.id.ratebtn);
         ratebtn.setOnClickListener(this);

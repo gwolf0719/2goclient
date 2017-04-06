@@ -132,6 +132,10 @@
             android:screenOrientation="portrait" />
         <activity android:name=".ActivityFragment.OfficleReservationSActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".ActivityFragment.SettingActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ActivityFragment.PWCangeOkActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

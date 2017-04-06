@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="#ffffff"
+    android:layout_height="match_parent">
+
+
+    <EditText
+        android:id="@+id/opweditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="19dp"
+        android:layout_marginTop="33dp"
+        android:ems="10"
+        android:hint="Old Password"
+        android:inputType="textPassword"
+        android:textColorHint="#000000" />
+
+    <EditText
+        android:id="@+id/newpwedittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/opweditText"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="19dp"
+        android:layout_marginTop="9dp"
+        android:ems="10"
+        android:hint="New Password"
+        android:inputType="textPassword"
+        android:textColorHint="#000000" />
+
+    <EditText
+        android:id="@+id/cpwedittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/newpwedittext"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="19dp"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:hint="Password confirmation"
+        android:inputType="textPassword"
+        android:textColorHint="#000000" />
+
+    <RelativeLayout
+        android:layout_width="329dp"
+        android:id="@+id/savebtn"
+        android:layout_height="53dp"
+        android:layout_below="@+id/cpwedittext"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:background="#c63725">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="Save"
+            android:textColor="#ffffff"
+            android:textSize="16dp" />
+    </RelativeLayout>
+
+</RelativeLayout>

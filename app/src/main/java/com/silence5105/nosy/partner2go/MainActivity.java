@@ -87,6 +87,7 @@ import com.silence5105.nosy.partner2go.ActivityFragment.Last5minFragment;
 import com.silence5105.nosy.partner2go.ActivityFragment.Loginactivity;
 import com.silence5105.nosy.partner2go.ActivityFragment.NewBookingActivity;
 import com.silence5105.nosy.partner2go.ActivityFragment.OrderHaveDFragement;
+import com.silence5105.nosy.partner2go.ActivityFragment.SettingActivity;
 import com.silence5105.nosy.partner2go.ActivityFragment.VerifiedActivity;
 import com.silence5105.nosy.partner2go.ActivityFragment.WaitDriverActivtiy;
 
@@ -144,8 +145,8 @@ public class MainActivity extends AppCompatActivity
     TextView numbertxt, dtxt, rattxt, nametxt, iccartxt, iccnametxt, iccrate;
     ImageView menubtn, redimg, blueimg, containermenubtn, sosbtn;
     PlaceAutocompleteAdapter placeAutocompleteAdapter;
-    AutoCompleteTextView autoCompleteTextView;
-    GcmBrodacasReceiver gcmBrodacasReceiver;
+    TextView menunametxt;
+
     private static final LatLngBounds BOUNDS_GREATER_SYDNEY = new LatLngBounds(
             new LatLng(-34.041458, 150.790100), new LatLng(-33.682247, 151.383362));
 
@@ -383,6 +384,8 @@ public class MainActivity extends AppCompatActivity
                 btnlayout.setVisibility(View.VISIBLE);
             }
         });
+//        menunametxt = (TextView) findViewById(R.id.menunametxt);
+//        menunametxt.setText(PrefsHelper.setusername(getApplication()));
         otwselectlayout = (LinearLayout) findViewById(R.id.otwselectlayout);
         container1 = (RelativeLayout) findViewById(R.id.container1);
         loadlinearlayoout.getBackground().setAlpha(240);
@@ -1179,6 +1182,9 @@ public class MainActivity extends AppCompatActivity
 //                relativeLayout.setVisibility(View.VISIBLE);
 //                getFragmentManager().beginTransaction().replace(R.id.container, new FaqsActivity()).commit();
 //                Intent intent5  ntent5);
+                Intent intent2 = new Intent();
+                intent2.setClass(MainActivity.this, SettingActivity.class);
+                startActivity(intent2);
                 break;
 //            case R.id.logout:
 //                new AlertDialog.Builder(this)

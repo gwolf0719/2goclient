@@ -38,5 +38,5 @@ public enum  PreferenceKeys {
     ,LAST30M
     ,LAST5M
     ,ORDERTYPE
-
+    ,USERNAME
 }

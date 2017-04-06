@@ -77,6 +77,7 @@ public class PhoneLoginFragment extends Fragment implements View.OnClickListener
                     if (object.getString("sys_code").equals("200")) {
                         PrefsHelper.getofficaltype(getActivity(), object.getString("official").toString());
                         PrefsHelper.getcarclass(getActivity(),object.getString("partner_class").toString());
+                        PrefsHelper.getusername(getActivity(),object.getString("member_name").toString());
                         Intent intent = new Intent();
                         intent.setClass(getActivity(), MainActivity.class);
                         startActivity(intent);

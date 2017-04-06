@@ -8,6 +8,17 @@ import android.content.SharedPreferences;
  */
 
 public class PrefsHelper {
+    public static void getusername(Context context, String username) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("username", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(PreferenceKeys.USERNAME.toString(), username);
+        editor.commit();
+    }
+
+    public static String setusername(Context context) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("username", Context.MODE_PRIVATE);
+        return sharedPreferences.getString(PreferenceKeys.USERNAME.toString(), null);
+    }
     public static void getordertype(Context context, String ordertype) {
         SharedPreferences sharedPreferences = context.getSharedPreferences("ordertype", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
