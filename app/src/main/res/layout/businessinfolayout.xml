@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f2f2f2">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:background="#c63725">
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/backbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@mipmap/arrow_left_white" />
+
+    <TextView
+        android:id="@+id/textView39"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="27dp"
+        android:layout_marginTop="14dp"
+        android:layout_toEndOf="@+id/backbtn"
+        android:layout_toRightOf="@+id/backbtn"
+        android:text="Business Information"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:id="@+id/namelayout"
+        android:layout_width="match_parent"
+        android:layout_height="102dp"
+        android:layout_below="@+id/relativeLayout3"
+        android:background="#ffffff"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="69.6dp"
+            android:layout_height="69.6dp"
+            android:layout_marginLeft="17.1dp"
+            android:layout_marginTop="17.3dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/bnametxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16.3dp"
+                android:layout_marginTop="25dp"
+                android:text=""
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/bjobtxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/bnametxt"
+                android:layout_marginLeft="16.3dp"
+                android:layout_marginTop="3dp"
+                android:text=""
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/profiletxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/namelayout"
+        android:layout_marginLeft="17.9dp"
+        android:layout_marginTop="16.4dp"
+        android:text="Profiles"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <RelativeLayout
+        android:id="@+id/enamelayout"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:layout_below="@+id/profiletxt"
+        android:layout_marginTop="12.6dp"
+        android:background="#ffffff">
+
+        <TextView
+            android:id="@+id/eidtxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:text=""
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/eidtxt"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="3dp"
+            android:text="Employee ID"
+            android:textColor="#8b000000" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/maillayout"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:layout_below="@+id/enamelayout"
+        android:layout_marginTop="1dp"
+        android:background="#ffffff">
+
+        <TextView
+            android:id="@+id/emailtxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:text=""
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/emailtxt"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="3dp"
+            android:text="Employee Email"
+            android:textColor="#8b000000" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/joblayout"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:layout_below="@+id/maillayout"
+        android:layout_marginTop="1dp"
+        android:background="#ffffff">
+
+        <TextView
+            android:id="@+id/jobtxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:text=""
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/jobtxt"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="3dp"
+            android:text="Selangor State Government"
+            android:textColor="#8b000000"
+            android:textSize="14sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:layout_below="@+id/joblayout"
+        android:layout_marginTop="1dp"
+        android:background="#ffffff">
+
+        <TextView
+            android:id="@+id/bcartxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16sp"
+            android:layout_marginTop="16dp"
+            android:text=""
+            android:textColor="#000000"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bcartxt"
+            android:layout_marginLeft="16dp"
+            android:textColor="#8b000000"
+            android:layout_marginTop="3dp"
+            android:text="Taxi entitlement" />
+    </RelativeLayout>
+
+
+</RelativeLayout>

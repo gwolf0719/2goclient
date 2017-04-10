@@ -22,7 +22,7 @@ import com.silence5105.nosy.partner2go.R;
  */
 
 public class SettingActivity extends Activity implements View.OnClickListener {
-    RelativeLayout changepw, businessbtn,container;
+    RelativeLayout changepw, businessbtn, container;
     TextView nametxt, mobilenumber, logout;
     ImageView backbtn;
 
@@ -78,28 +78,39 @@ public class SettingActivity extends Activity implements View.OnClickListener {
                 fragmentTransaction.commit();
                 break;
             case R.id.businessbtn:
-                new android.support.v7.app.AlertDialog.Builder(this)
-                        .setTitle("")
-                        .setMessage("This service is for Official Out of Office Business Travel/Meeting Services. If interested, kindly inform your employer to register or kindly email your request to below email and we will contact your employer for further details")
-                        //
-                        .setNegativeButton("Confirm", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
+                if (PrefsHelper.setofficaltype(getApplication()) != null) {
+                    if (PrefsHelper.setofficaltype(getApplication()).equals("true")) {
+                        Intent intent = new Intent();
+                        intent.setClass(SettingActivity.this, BusinessInfoActivity.class);
+                        startActivity(intent);
+                    }
+                }
+                if (PrefsHelper.setofficaltype(getApplication()) != null) {
+                    if (PrefsHelper.setofficaltype(getApplication()).equals("false")) {
+                        new android.support.v7.app.AlertDialog.Builder(this)
+                                .setTitle("")
+                                .setMessage("This service is for Official Out of Office Business Travel/Meeting Services. If interested, kindly inform your employer to register or kindly email your request to below email and we will contact your employer for further details")
+                                //
+                                .setNegativeButton("Confirm", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
 
-                            }
-                        })
-                        .setPositiveButton("baharidris@2go.com.my", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
+                                    }
+                                })
+                                .setPositiveButton("baharidris@2go.com.my", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
 //                                    Intent intent = new Intent((Intent.ACTION_VIEW);
 //                                    intent = getPackageManager().getLaunchIntentForPackage("com.google.android.gm");
 
 //                                    startActivity(intent);
-                                Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", "baharidris@2go.com.my", null));
-                                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "");
-                                getApplication().startActivity(Intent.createChooser(emailIntent, null));
-                            }
-                        }).show();
+                                        Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", "baharidris@2go.com.my", null));
+                                        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "");
+                                        getApplication().startActivity(Intent.createChooser(emailIntent, null));
+                                    }
+                                }).show();
+                    }
+                }
                 break;
             case R.id.backbtn:
                 this.finish();

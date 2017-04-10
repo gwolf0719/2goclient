@@ -47,15 +47,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.RelativeLayout.LayoutParams;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.RelativeLayout.LayoutParams;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -102,9 +103,11 @@ import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Locale;
@@ -135,7 +138,7 @@ public class MainActivity extends AppCompatActivity
     private AutoCompleteTextView etDestination;
     double nowlat;
     DrawerLayout drawer;
-    RelativeLayout showview, callbtn;
+    RelativeLayout showview, menuback, callbtn;
     Button avgbtn, okbtn;
     double nowlng;
     RelativeLayout containermenubtn, menubtn, btnFindPath, container1, where2golayout, loadlinearlayoout, officfindpathbtn, onthewaylayout, icarlayout;
@@ -385,6 +388,8 @@ public class MainActivity extends AppCompatActivity
                 btnlayout.setVisibility(View.VISIBLE);
             }
         });
+        menuback = (RelativeLayout) findViewById(R.id.menuback);
+        menuback.setOnClickListener(this);
 //        menunametxt = (TextView) findViewById(R.id.menunametxt);
 //        menunametxt.setText(PrefsHelper.setusername(getApplication()));
         otwselectlayout = (LinearLayout) findViewById(R.id.otwselectlayout);
@@ -432,7 +437,20 @@ public class MainActivity extends AppCompatActivity
         etOrigin = (AutoCompleteTextView) findViewById(R.id.etOrigin);
 //        etOrigin.setBackgroundResource(R.layout.testedittxt);
         etOrigin.setOnItemClickListener(mAutocompleteClickListener);
+        etOrigin.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                System.out.println("keyevent ===== : " + event);
+                return false;
+            }
+        });
         etDestination = (AutoCompleteTextView) findViewById(R.id.etDestination);
+        etDestination.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                return false;
+            }
+        });
         etDestination.setOnItemClickListener(mAutocompleteClickListener);
         etDestination.addTextChangedListener(new TextWatcher() {
             @Override
@@ -1525,6 +1543,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void offcialsRequest() {
+//        menuback.setVisibility(View.VISIBLE);
         String origin = etOrigin.getText().toString();
         String destination = etDestination.getText().toString();
         if (origin.isEmpty()) {
@@ -1576,6 +1595,7 @@ public class MainActivity extends AppCompatActivity
         try {
             new DirectionFinder(this, origin, destination).execute();
             container1.setVisibility(View.VISIBLE);
+//            menuback.setVisibility(View.VISIBLE);
 //            blockbg.setVisibility(View.VISIBLE);
             showview.setVisibility(View.VISIBLE);
             btnFindPath.setVisibility(View.INVISIBLE);
@@ -1817,6 +1837,9 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
+            case R.id.menuback:
+                cleanmap();
+                break;
             case R.id.sosbtn:
                 SmsManager smsMgr = SmsManager.getDefault();
                 smsMgr.sendTextMessage("0920516317", null, "sos", null, null);
@@ -1837,6 +1860,7 @@ public class MainActivity extends AppCompatActivity
             case R.id.where2golayout:
                 where2golayout.setVisibility(View.INVISIBLE);
                 mapsetonlongclick();
+                menuback.setVisibility(View.VISIBLE);
 //                btnFindPath.setVisibility(View.VISIBLE);
 //                officfindpathbtn.setVisibility(View.VISIBLE);
                 loadlinearlayoout.setVisibility(View.VISIBLE);
@@ -1935,6 +1959,7 @@ public class MainActivity extends AppCompatActivity
         DatePickerDialog dpd;
         TimePickerDialog timePicker;
         RelativeLayout cancelbtn, nextbtn;
+        Date nowdate, chosdate, ynowdate, ychosdate;
 
         @Nullable
         @Override
@@ -1950,14 +1975,20 @@ public class MainActivity extends AppCompatActivity
             cancelbtn = (RelativeLayout) view.findViewById(R.id.canclebtn);
             cancelbtn.setOnClickListener(this);
             officletxt = (TextView) view.findViewById(R.id.officletxt);
-            SimpleDateFormat sDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-            SimpleDateFormat dDateFormat = new SimpleDateFormat("HH:mm");
-
+            final SimpleDateFormat sDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            final SimpleDateFormat dDateFormat = new SimpleDateFormat("HH:mm");
 //        String date=sdf.format(new java.util.Date());
 //            mytxt.setText(sDateFormat.format(new java.util.Date()));
 //            dtimetxt.setText(dDateFormat.format(new java.util.Date()));
             mytxt.setText(Html.fromHtml("<u>" + sDateFormat.format(new java.util.Date()) + "</u>"));
             dtimetxt.setText(Html.fromHtml("<u>" + dDateFormat.format(new java.util.Date()) + "</u>"));
+//            System.out.println("time ===== : " + testformat.format(new Date()));
+            try {
+                nowdate = dDateFormat.parse(dDateFormat.format(new Date()));
+                ynowdate = sDateFormat.parse(sDateFormat.format(new Date()));
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
             dtimetxt.setOnClickListener(this);
             GregorianCalendar gregorianCalendar = new GregorianCalendar();
 
@@ -1978,6 +2009,25 @@ public class MainActivity extends AppCompatActivity
                                               int monthOfYear, int dayOfMonth) {
                             mytxt.setText(year + "-" + (monthOfYear + 1) + "-"
                                     + dayOfMonth);
+                            try {
+                                ychosdate = sDateFormat.parse(mytxt.getText().toString());
+                            } catch (ParseException e) {
+                                e.printStackTrace();
+                            }
+                            if (PrefsHelper.setofficalbooking(getActivity()) != null) {
+                                if (PrefsHelper.setofficalbooking(getActivity()).equals("1")) {
+                                    Long ynowt = ynowdate.getTime();
+                                    Long ychost = ychosdate.getTime();
+                                    Long yanser = ychost - ynowt;
+                                    Long ydt = yanser / 86400000;
+                                    System.out.println("TIME Y ====== + " + yanser + " " + ynowt + " " + ychost);
+                                    if (ydt >= 1) {
+                                        oktxt.setVisibility(View.VISIBLE);
+                                    }
+
+
+                                }
+                            }
 
                         }
                     }, mYear, mMonth, mDay);
@@ -1985,14 +2035,38 @@ public class MainActivity extends AppCompatActivity
                     new TimePickerDialog.OnTimeSetListener() {
                         public void onTimeSet(TimePicker view, int hourOfDay,
                                               int minute) {
-                            // 完成選擇，顯示時間
+
                             dtimetxt.setText(hourOfDay + ":" + minute);
+                            try {
+                                chosdate = dDateFormat.parse(dtimetxt.getText().toString());
+                                System.out.println("time ======= : " + nowdate + " " + chosdate);
+                            } catch (ParseException e) {
+                                e.printStackTrace();
+                            }
+                            if (PrefsHelper.setofficalbooking(getActivity()) != null) {
+                                if (PrefsHelper.setofficalbooking(getActivity()).equals("1")) {
+                                    Long nowt = nowdate.getTime();
+                                    Long chost = chosdate.getTime();
+                                    Long ansert = chost - nowt;
+                                    Long min = ansert / 60000;
+                                    if (min >= 45) {
+                                        oktxt.setVisibility(View.VISIBLE);
+                                    }
+                                    if (min < 45) {
+                                        Toast.makeText(MainActivity.this, "Need to advance 45 minutes ahead of time", Toast.LENGTH_SHORT).show();
+                                    }
+                                    System.out.println("Time 2 ======== : " + min + " " + ansert);
+                                }
+                            }
+
+
 //                        hh = String.valueOf(hourOfDay);
 //                        hh = hourOfDay;
                         }
                     }, mH, mm, false);
 //        dpd.show();
             if (PrefsHelper.setofficalbooking(getActivity()).equals("1")) {
+                oktxt.setVisibility(View.INVISIBLE);
                 officletxt.setVisibility(View.VISIBLE);
                 oktxt.setText(R.string.officialbookingok);
                 canceltxt.setText(R.string.officialbookingcancel);
@@ -2039,6 +2113,7 @@ public class MainActivity extends AppCompatActivity
     public void cleanmap() {
         container1.setVisibility(View.INVISIBLE);
         etDestination.setText("");
+        menuback.setVisibility(View.INVISIBLE);
         containermenubtn.setVisibility(View.GONE);
         menubtn.setVisibility(View.VISIBLE);
         showview.setVisibility(View.INVISIBLE);
