@@ -159,5 +159,15 @@
         android:clickable="true"
         android:background="#ffffff"
         ></RelativeLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="3dp"
+        android:textSize="10sp"
+        android:text="1.5.5"
+        />
 
 </RelativeLayout>

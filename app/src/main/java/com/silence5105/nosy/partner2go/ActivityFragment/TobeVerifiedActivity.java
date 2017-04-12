@@ -83,6 +83,7 @@ public class TobeVerifiedActivity extends Activity implements View.OnClickListen
                     public void callback(String url, JSONObject object, AjaxStatus status) {
                         super.callback(url, object, status);
                         System.out.println("agress ===== : " + object);
+                        finish();
                     }
                 });
                 break;
@@ -93,6 +94,7 @@ public class TobeVerifiedActivity extends Activity implements View.OnClickListen
                     public void callback(String url, JSONObject object, AjaxStatus status) {
                         super.callback(url, object, status);
                         System.out.println(" refusebtnclick ====== : " + object);
+                        finish();
                     }
                 });
                 break;

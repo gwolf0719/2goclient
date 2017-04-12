@@ -47,7 +47,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -1960,6 +1959,7 @@ public class MainActivity extends AppCompatActivity
         TimePickerDialog timePicker;
         RelativeLayout cancelbtn, nextbtn;
         Date nowdate, chosdate, ynowdate, ychosdate;
+        int AM_PM;
 
         @Nullable
         @Override
@@ -2001,8 +2001,10 @@ public class MainActivity extends AppCompatActivity
             mYear = gregorianCalendar.get(Calendar.YEAR);
             mMonth = gregorianCalendar.get(Calendar.MONTH);
             mDay = gregorianCalendar.get(Calendar.DAY_OF_MONTH);
-            mH = gregorianCalendar.get(Calendar.HOUR);
+            mH = gregorianCalendar.get(Calendar.HOUR_OF_DAY);
             mm = gregorianCalendar.get(Calendar.MINUTE);
+            AM_PM = gregorianCalendar.get(Calendar.AM_PM);
+            System.out.println("TIME ====== : AM_PM  " + AM_PM);
             dpd = new DatePickerDialog(getActivity(),
                     new DatePickerDialog.OnDateSetListener() {
                         public void onDateSet(DatePicker view, int year,
@@ -2031,10 +2033,19 @@ public class MainActivity extends AppCompatActivity
 
                         }
                     }, mYear, mMonth, mDay);
+
             timePicker = new TimePickerDialog(getActivity(),
                     new TimePickerDialog.OnTimeSetListener() {
                         public void onTimeSet(TimePicker view, int hourOfDay,
                                               int minute) {
+
+
+//                            if (hourOfDay < 12) {
+//                                AM_PM = false;
+//                            }if(hourOfDay>12){
+//                                AM_PM = true;
+//                            }
+
 
                             dtimetxt.setText(hourOfDay + ":" + minute);
                             try {
@@ -2063,7 +2074,7 @@ public class MainActivity extends AppCompatActivity
 //                        hh = String.valueOf(hourOfDay);
 //                        hh = hourOfDay;
                         }
-                    }, mH, mm, false);
+                    }, mH, mm, true);
 //        dpd.show();
             if (PrefsHelper.setofficalbooking(getActivity()).equals("1")) {
                 oktxt.setVisibility(View.INVISIBLE);
@@ -2088,6 +2099,7 @@ public class MainActivity extends AppCompatActivity
                     String alltime = mytxt.getText().toString() + " " + dtimetxt.getText().toString();
 //                getActivity().imvblockbg();
 //                    imvblockbg();
+                    System.out.println("alltime ====== : " + alltime);
                     menubtn.setVisibility(View.GONE);
                     containermenubtn.setVisibility(View.VISIBLE);
 //                    BookSelectTimeFragment1 bookSelectTimeFragment1 = new BookSelectTimeFragment1();
@@ -2240,7 +2252,7 @@ public class MainActivity extends AppCompatActivity
                                         + "&distance=" + PrefsHelper.setkm(getActivity())
                                         + "&times=" + PrefsHelper.settimes(getActivity())
                                         + "&payment=cash"
-                                        + "&cost=" + faretxt.getText().toString()
+                                        + "&cost=" + PrefsHelper.setcost(getActivity())
                                         + "&expected_time_onboard=" + PrefsHelper.setalltime(getActivity());
 //                            String testdata = "email=testpppp@gmail.com&class=Budget&start_address=123&end_address=321&start_location=123&end_location=321&distance=1";
                                 OutputStream outputStream = httpURLConnection.getOutputStream();
@@ -2472,7 +2484,10 @@ public class MainActivity extends AppCompatActivity
 //                Intent intent = new Intent();
 //                intent.setClass(getActivity(), WaitDriverActivtiy.class);
 //                startActivity(intent);
+                                                            progressDialog = ProgressDialog.show(getActivity(), "Please wait.",
+                                                                    "", true);
                                                             System.out.println("official bookingcarselectfragment ===== " + PrefsHelper.setphonenumber(getActivity()));
+
                                                             new Thread(new Runnable() {
 
 
@@ -2589,6 +2604,7 @@ public class MainActivity extends AppCompatActivity
                             try {
 //                            if (object.getString("sys_code").equals("200")) {
                                 faretxt.setText("RM " + object.getJSONObject("price").getString("Teks1m").toString());
+                                PrefsHelper.getcost(getActivity(), object.getJSONObject("price").getString("Budget").toString());
 //                            }
                                 new Thread(new Runnable() {
                                     @Override
@@ -2613,22 +2629,13 @@ public class MainActivity extends AppCompatActivity
 //                t1mtxt.setTextColor(R.color.colorPrimary);
                     break;
                 case R.id.buggetbtn:
-                    dialog = ProgressDialog.show(
-
-                            getActivity(), "",
-                            "please wait.", true);
+                    dialog = ProgressDialog.show(getActivity(), "", "please wait.", true);
                     dialog.show();
                     teks1mtxt.setText(R.string.teks1mtxt);
                     budgettxt.setText(R.string.budgettxtaction);
                     executivetxt.setText(R.string.exexutivetxt);
-                    PrefsHelper.getcarclass(
-
-                            getActivity(), "Budget");
-                    t1mimg.setImageDrawable(
-
-                            getResources().
-
-                                    getDrawable(R.mipmap.choose_car));
+                    PrefsHelper.getcarclass(getActivity(), "Budget");
+                    t1mimg.setImageDrawable(getResources().getDrawable(R.mipmap.choose_car));
                     budgetimg.setImageDrawable(
 
                             getResources().
@@ -2650,6 +2657,7 @@ public class MainActivity extends AppCompatActivity
                             try {
 //                            if (object.getString("sys_code").equals("200")) {
                                 faretxt.setText("RM " + object.getJSONObject("price").getString("Budget").toString());
+                                PrefsHelper.getcost(getActivity(), object.getJSONObject("price").getString("Budget").toString());
 //                            }
                                 new Thread(new Runnable() {
                                     @Override
@@ -2709,6 +2717,7 @@ public class MainActivity extends AppCompatActivity
                             try {
 //                            if (object.getString("sys_code").equals("200")) {
                                 faretxt.setText("RM " + object.getJSONObject("price").getString("Executive").toString());
+                                PrefsHelper.getcost(getActivity(), object.getJSONObject("price").getString("Budget").toString());
 //                            }
                                 new Thread(new Runnable() {
                                     @Override
