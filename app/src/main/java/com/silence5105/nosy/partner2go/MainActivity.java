@@ -83,6 +83,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.silence5105.nosy.partner2go.ActivityFragment.BottomToast;
+import com.silence5105.nosy.partner2go.ActivityFragment.FaqsActivity;
+import com.silence5105.nosy.partner2go.ActivityFragment.JoinMe;
 import com.silence5105.nosy.partner2go.ActivityFragment.Last5minFragment;
 import com.silence5105.nosy.partner2go.ActivityFragment.Loginactivity;
 import com.silence5105.nosy.partner2go.ActivityFragment.NewBookingActivity;
@@ -252,7 +254,7 @@ public class MainActivity extends AppCompatActivity
 //                        public void run() {
 ////                 booking = null;
 //                            try {
-//                                URL booking = new URL("http://2go.ladesign.tw/api_booking/get_once");
+//                                URL booking = new URL("https://my.here2go.asia/api_booking/get_once");
 //                                httpURLConnection = (HttpURLConnection) booking.openConnection();
 //                                httpURLConnection.setRequestMethod("POST");
 //                                httpURLConnection.setDoOutput(true);
@@ -374,12 +376,12 @@ public class MainActivity extends AppCompatActivity
         loadlinearlayoout = (RelativeLayout) findViewById(R.id.linearlayoout);
         btnlayout = (LinearLayout) findViewById(R.id.btnlayout);
         avgbtn = (Button) findViewById(R.id.avgbtn);
-        avgbtn.setBackgroundResource(R.layout.testbtn);
+//        avgbtn.setBackgroundResource(R.layout.testbtn);
         viewlayout = (LinearLayout) findViewById(R.id.viewlayout);
         menubtn = (RelativeLayout) findViewById(R.id.menubtn);
         menubtn.setOnClickListener(this);
         okbtn = (Button) findViewById(R.id.okbtn);
-        okbtn.setBackgroundResource(R.layout.testbtn);
+//        okbtn.setBackgroundResource(R.layout.testbtn);
         okbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -406,7 +408,7 @@ public class MainActivity extends AppCompatActivity
         sosbtn.setOnClickListener(this);
         checkbtn = (Button) findViewById(R.id.checkbtn);
 
-        checkbtn.setBackgroundResource(R.layout.testbtn);
+//        checkbtn.setBackgroundResource(R.layout.testbtn);
         checkbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -520,6 +522,7 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.newdrawerlayout);
         initview();
+        PrefsHelper.getgoreservatione(getApplication(), "0");
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         if (PrefsHelper.setorderid(getApplication()) != null) {
             if (PrefsHelper.sethaved(getApplication()).equals("1")) {
@@ -792,7 +795,7 @@ public class MainActivity extends AppCompatActivity
             public void run() {
 //                 booking = null;
                 try {
-                    URL booking = new URL("http://2go.ladesign.tw/api_booking/get_once");
+                    URL booking = new URL("https://my.here2go.asia/api_booking/get_once");
                     httpURLConnection = (HttpURLConnection) booking.openConnection();
                     httpURLConnection.setRequestMethod("POST");
                     httpURLConnection.setDoOutput(true);
@@ -876,11 +879,12 @@ public class MainActivity extends AppCompatActivity
             if (PrefsHelper.sethaved(getApplication()).equals("1")) {
 
                 container1.setVisibility(View.VISIBLE);
-                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.setCustomAnimations(R.anim.fragment_slide_left_enter, R.anim.fragment_slide_left_exit);
-                fragmentTransaction.remove(new BookSelectTimeFragment1());
-                fragmentTransaction.replace(R.id.container1, new OrderHaveDFragement());
-                fragmentTransaction.commit();
+//                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+//                fragmentTransaction.setCustomAnimations(R.anim.fragment_slide_left_enter, R.anim.fragment_slide_left_exit);
+//                fragmentTransaction.remove(new BookSelectTimeFragment1());
+//                fragmentTransaction.replace(R.id.container1, new OrderHaveDFragement());
+//                fragmentTransaction.commit();
+                getFragmentManager().beginTransaction().replace(R.id.container1,new OrderHaveDFragement()).commit();
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
@@ -1007,7 +1011,7 @@ public class MainActivity extends AppCompatActivity
 //                 booking = null;
                 driverlocation = new ArrayList<>();
                 try {
-                    URL booking = new URL("http://2go.ladesign.tw/api_booking/get_once");
+                    URL booking = new URL("https://my.here2go.asia/api_booking/get_once");
                     httpURLConnection = (HttpURLConnection) booking.openConnection();
                     httpURLConnection.setRequestMethod("POST");
                     httpURLConnection.setDoOutput(true);
@@ -1183,16 +1187,19 @@ public class MainActivity extends AppCompatActivity
 //                i.setClass(MainActivity.this, MyprofileActivity.class);
 //                startActivity(i);
                 break;
-            case R.id.pickupfavourites:
+//            case R.id.pickupfavourites:
 //                relativeLayout.setVisibility(View.VISIBLE);
 //                getFragmentManager().beginTransaction().replace(R.id.container, new PickupFravouritesFragment()).commit();
-                break;
+//                break;
             case R.id.verification:
                 Intent intent1 = new Intent();
                 intent1.setClass(MainActivity.this, VerifiedActivity.class);
                 startActivity(intent1);
                 break;
             case R.id.remotevotrol:
+                Intent intent4 = new Intent();
+                intent4.setClass(MainActivity.this, FaqsActivity.class);
+                startActivity(intent4);
 //                relativeLayout.setVisibility(View.VISIBLE);
 //                getFragmentManager().beginTransaction().replace(R.id.container, new RemotecontrolFramgnet()).commit();
                 break;
@@ -1203,6 +1210,7 @@ public class MainActivity extends AppCompatActivity
                 Intent intent2 = new Intent();
                 intent2.setClass(MainActivity.this, SettingActivity.class);
                 startActivity(intent2);
+
                 break;
 //            case R.id.logout:
 //                new AlertDialog.Builder(this)
@@ -1227,6 +1235,11 @@ public class MainActivity extends AppCompatActivity
 //                intent1.setClass(MainActivity.this, VerifiedActivity.class);
 //                startActivity(intent1);
 //                break;
+            case R.id.joinme:
+                Intent intent3 = new Intent();
+                intent3.setClass(MainActivity.this, JoinMe.class);
+                startActivity(intent3);
+                break;
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
@@ -1359,7 +1372,7 @@ public class MainActivity extends AppCompatActivity
 
             } else {
                 //附近車機
-                String url = "http://2go.ladesign.tw/api_booking/get_near?lat=" + nowlat + "&lng=" + nowlng;
+                String url = "https://my.here2go.asia/api_booking/get_near?lat=" + nowlat + "&lng=" + nowlng;
                 aQuery.ajax(url, null, JSONObject.class, new AjaxCallback<JSONObject>() {
                     @Override
                     public void callback(String url, JSONObject object, AjaxStatus status) {
@@ -1571,6 +1584,7 @@ public class MainActivity extends AppCompatActivity
             fragmentTransaction.remove(new BookSelectTimeFragment1());
             fragmentTransaction.replace(R.id.showview, new BookSelectTimeFragment1());
             fragmentTransaction.commit();
+
 //            getFragmentManager().beginTransaction().replace(R.id.showview, new BookSelectTimeFragment1()).commit();
 //            new BookingFragment().show(getFragmentManager(), "");
         } catch (UnsupportedEncodingException e) {
@@ -1693,29 +1707,29 @@ public class MainActivity extends AppCompatActivity
                     timerExit.schedule(task, 1000);
                 }
             } else {
-                new AlertDialog.Builder(this)
-                        .setTitle("")
-                        .setMessage("exit app?")
-                        .setNegativeButton("no", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                            }
-                        })
-                        .setPositiveButton("yes", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-
-                                System.exit(0);
-
-                            }
-                        }).show();
+//                new AlertDialog.Builder(this)
+//                        .setTitle("")
+//                        .setMessage("exit app?")
+//                        .setNegativeButton("no", new DialogInterface.OnClickListener() {
+//                            @Override
+//                            public void onClick(DialogInterface dialog, int which) {
+//                            }
+//                        })
+//                        .setPositiveButton("yes", new DialogInterface.OnClickListener() {
+//                            @Override
+//                            public void onClick(DialogInterface dialog, int which) {
+//
+//                                System.exit(0);
+//
+//                            }
+//                        }).show();
             }
         }
         return false;
     }
 
     public void loadnearcar() {
-        String url = "http://2go.ladesign.tw/api_booking/get_near?lat=" + nowlat + "&lng=" + nowlng;
+        String url = "https://my.here2go.asia/api_booking/get_near?lat=" + nowlat + "&lng=" + nowlng;
 //        String url="http://uat.fofo.tw/2go_be/api/get_partner_once?lat=" + nowlat + "&lng=" + nowlng;
         aQuery.ajax(url, null, JSONObject.class, new AjaxCallback<JSONObject>() {
             @Override
@@ -1974,6 +1988,7 @@ public class MainActivity extends AppCompatActivity
             nextbtn.setOnClickListener(this);
             cancelbtn = (RelativeLayout) view.findViewById(R.id.canclebtn);
             cancelbtn.setOnClickListener(this);
+            PrefsHelper.getlistselect(getActivity(), 0);
             officletxt = (TextView) view.findViewById(R.id.officletxt);
             final SimpleDateFormat sDateFormat = new SimpleDateFormat("yyyy-MM-dd");
             final SimpleDateFormat dDateFormat = new SimpleDateFormat("HH:mm");
@@ -1991,13 +2006,6 @@ public class MainActivity extends AppCompatActivity
             }
             dtimetxt.setOnClickListener(this);
             GregorianCalendar gregorianCalendar = new GregorianCalendar();
-
-//        DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
-//            @Override
-//            public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
-//                mytxt.setText(i + "/" + i1 + "/" + i2);
-//            }
-//        });
             mYear = gregorianCalendar.get(Calendar.YEAR);
             mMonth = gregorianCalendar.get(Calendar.MONTH);
             mDay = gregorianCalendar.get(Calendar.DAY_OF_MONTH);
@@ -2015,6 +2023,16 @@ public class MainActivity extends AppCompatActivity
                                 ychosdate = sDateFormat.parse(mytxt.getText().toString());
                             } catch (ParseException e) {
                                 e.printStackTrace();
+                            }
+                            if (PrefsHelper.setgoreservatione(getActivity())!=null||PrefsHelper.setgoreservatione(getActivity())==null){
+                                Long ynowt = ynowdate.getTime();
+                                Long ychost = ychosdate.getTime();
+                                Long yanser = ychost - ynowt;
+                                Long ydt = yanser / 86400000;
+                                System.out.println("TIME Y ====== + " + yanser + " " + ynowt + " " + ychost);
+                                if (ydt >= 1) {
+                                    PrefsHelper.getgoreservatione(getActivity(),"1");
+                                }
                             }
                             if (PrefsHelper.setofficalbooking(getActivity()) != null) {
                                 if (PrefsHelper.setofficalbooking(getActivity()).equals("1")) {
@@ -2053,6 +2071,20 @@ public class MainActivity extends AppCompatActivity
                                 System.out.println("time ======= : " + nowdate + " " + chosdate);
                             } catch (ParseException e) {
                                 e.printStackTrace();
+                            }
+                            if (PrefsHelper.setofficalbooking(getActivity()) != null || PrefsHelper.setofficalbooking(getActivity()) == null) {
+                                if (PrefsHelper.setofficalbooking(getActivity()).equals("0")) {
+                                    Long nowt = nowdate.getTime();
+                                    Long chost = chosdate.getTime();
+                                    Long ansert = chost - nowt;
+                                    Long min = ansert / 60000;
+                                    if (min >= 30) {
+                                        PrefsHelper.getgoreservatione(getActivity(), "1");
+                                    }
+                                    if (min < 30) {
+                                        PrefsHelper.getgoreservatione(getActivity(), "0");
+                                    }
+                                }
                             }
                             if (PrefsHelper.setofficalbooking(getActivity()) != null) {
                                 if (PrefsHelper.setofficalbooking(getActivity()).equals("1")) {
@@ -2228,128 +2260,213 @@ public class MainActivity extends AppCompatActivity
                     dialog = ProgressDialog.show(getActivity(), "",
                             "please wait.", true);
                     dialog.show();
+                    if (PrefsHelper.setgoreservatione(getActivity()) != null || PrefsHelper.setgoreservatione(getActivity()) == null) {
+
+                        if (PrefsHelper.setgoreservatione(getActivity()).equals("0")) {
 //                Intent intent = new Intent();
 //                intent.setClass(getActivity(), WaitDriverActivtiy.class);
 //                startActivity(intent);
-                    System.out.println("bookingcarselectfragment ===== " + PrefsHelper.setphonenumber(getActivity()));
-                    new Thread(new Runnable() {
-                        @Override
-                        public void run() {
+                            System.out.println("bookingcarselectfragment ===== " + PrefsHelper.setphonenumber(getActivity()));
+                            new Thread(new Runnable() {
+                                @Override
+                                public void run() {
 //                 booking = null;
 
-                            try {
-                                URL booking = new URL("http://2go.ladesign.tw/api_booking/order_create");
-                                httpURLConnection = (HttpURLConnection) booking.openConnection();
-                                httpURLConnection.setRequestMethod("POST");
-                                httpURLConnection.setDoOutput(true);
-                                httpURLConnection.setDoInput(true);
-                                String data = "member_id=" + PrefsHelper.setphonenumber(getActivity())
-                                        + "&class=" + PrefsHelper.setcarclass(getActivity())
-                                        + "&start_address=" + PrefsHelper.setstartadress(getActivity())
-                                        + "&end_address=" + PrefsHelper.setendaddress(getActivity())
-                                        + "&start_location=" + PrefsHelper.setstartlocation(getActivity())
-                                        + "&end_location=" + PrefsHelper.setendlocation(getActivity())
-                                        + "&distance=" + PrefsHelper.setkm(getActivity())
-                                        + "&times=" + PrefsHelper.settimes(getActivity())
-                                        + "&payment=cash"
-                                        + "&cost=" + PrefsHelper.setcost(getActivity())
-                                        + "&expected_time_onboard=" + PrefsHelper.setalltime(getActivity());
+                                    try {
+                                        URL booking = new URL("https://my.here2go.asia/api_booking/order_create");
+                                        httpURLConnection = (HttpURLConnection) booking.openConnection();
+                                        httpURLConnection.setRequestMethod("POST");
+                                        httpURLConnection.setDoOutput(true);
+                                        httpURLConnection.setDoInput(true);
+                                        String data = "member_id=" + PrefsHelper.setphonenumber(getActivity())
+                                                + "&class=" + PrefsHelper.setcarclass(getActivity())
+                                                + "&start_address=" + PrefsHelper.setstartadress(getActivity())
+                                                + "&end_address=" + PrefsHelper.setendaddress(getActivity())
+                                                + "&start_location=" + PrefsHelper.setstartlocation(getActivity())
+                                                + "&end_location=" + PrefsHelper.setendlocation(getActivity())
+                                                + "&distance=" + PrefsHelper.setkm(getActivity())
+                                                + "&times=" + PrefsHelper.settimes(getActivity())
+                                                + "&payment=cash"
+                                                + "&cost=" + PrefsHelper.setcost(getActivity())
+                                                + "&expected_time_onboard=" + PrefsHelper.setalltime(getActivity());
 //                            String testdata = "email=testpppp@gmail.com&class=Budget&start_address=123&end_address=321&start_location=123&end_location=321&distance=1";
-                                OutputStream outputStream = httpURLConnection.getOutputStream();
-                                outputStream.write(data.getBytes());
-                                outputStream.flush();
-                                outputStream.close();
-                                int responseCode = httpURLConnection.getResponseCode();
+                                        OutputStream outputStream = httpURLConnection.getOutputStream();
+                                        outputStream.write(data.getBytes());
+                                        outputStream.flush();
+                                        outputStream.close();
+                                        int responseCode = httpURLConnection.getResponseCode();
 //                            String sys_code = httpURLConnection.get;
-                                System.out.println("mainactivity data ===== : " + data);
-                                PrefsHelper.getmenucost(getActivity(), faretxt.getText().toString());
-                                BufferedReader reader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream(), "UTF-8"));
-                                StringBuilder sb = new StringBuilder();
-                                String line = null;
-                                while ((line = reader.readLine()) != null) {
-                                    sb.append(line + "\n");
-                                }
+                                        System.out.println("mainactivity data ===== : " + data);
+                                        PrefsHelper.getmenucost(getActivity(), faretxt.getText().toString());
+                                        BufferedReader reader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream(), "UTF-8"));
+                                        StringBuilder sb = new StringBuilder();
+                                        String line = null;
+                                        while ((line = reader.readLine()) != null) {
+                                            sb.append(line + "\n");
+                                        }
 
-                                System.out.println(" ==== responsecode" + sb);
-                                JSONObject jsonObject = new JSONObject(sb.toString());
-                                System.out.println("bookingcarselectfragment ===== :" + jsonObject.getString("sys_code").equals("200"));
-                                if (jsonObject.getString("sys_code").equals("200")) {
+                                        System.out.println(" ==== responsecode" + sb);
+                                        JSONObject jsonObject = new JSONObject(sb.toString());
+                                        System.out.println("bookingcarselectfragment ===== :" + jsonObject.getString("sys_code").equals("200"));
+                                        if (jsonObject.getString("sys_code").equals("200")) {
 //                                showview.setVisibility(View.INVISIBLE);
-                                    PrefsHelper.getclientorderid(getActivity(), jsonObject.getString("order_id").toString());
-                                    new Thread(new Runnable() {
-                                        @Override
-                                        public void run() {
-                                            try {
-                                                Thread.sleep(500);
+                                            PrefsHelper.getclientorderid(getActivity(), jsonObject.getString("order_id").toString());
+                                            new Thread(new Runnable() {
+                                                @Override
+                                                public void run() {
+                                                    try {
+                                                        Thread.sleep(500);
 
-                                            } catch (InterruptedException e) {
-                                                e.printStackTrace();
-                                            } finally {
-                                                dialog.dismiss();
-                                                Message message = new Message();
-                                                message.what = SHOWVIEWINV;
-                                                viewhandler.sendMessage(message);
-//                                                FragmentTransaction fragmentTransaction1 = getFragmentManager().beginTransaction();
-//                                                fragmentTransaction1.setCustomAnimations(R.anim.fragment_slide_left_enter, R.anim.fragment_slide_left_exit);
-//                                                fragmentTransaction1.replace(R.id.container, new WaitingdriverFragment()).commit();
-//                                                getActivity().getFragmentManager().beginTransaction().remove(new BookingCarSelectFragment1());
-//                                                getActivity().getFragmentManager().beginTransaction().replace(R.id.container1, new WaitingdriverFragment()).commit();
-                                                Intent intent = new Intent();
-                                                intent.setClass(getActivity(), WaitDriverActivtiy.class);
-                                                startActivity(intent);
-                                                getActivity().finish();
-                                            }
-                                        }
-                                    }).start();
-                                } else {
-                                    new Thread(new Runnable() {
-                                        @Override
-                                        public void run() {
-                                            try {
-                                                Thread.sleep(500);
-
-                                            } catch (InterruptedException e) {
-                                                e.printStackTrace();
-                                            } finally {
-                                                dialog.dismiss();
-                                            }
-                                        }
-                                    }).start();
-                                    Looper.prepare();
-                                    Toast.makeText(getActivity(), "sorry, Near no driver.plz change other car.", Toast.LENGTH_SHORT).show();
-//                                    new android.app.AlertDialog.Builder(getActivity())
-//                                            .setTitle("We are very sorry！")
-//                                            .setMessage("There was a situation that the driver can not reach your location.\n" +
-//                                                    "\n" +
-//                                                    "We will research the new driver for you. Thank you for your understanding.")
-////                                            .setNegativeButton("no", new DialogInterface.OnClickListener() {
-////                                                @Override
-////                                                public void onClick(DialogInterface dialog, int which) {
-////                                                }
-////                                            })
-//                                            .setPositiveButton("Try Again", new DialogInterface.OnClickListener() {
-//                                                @Override
-//                                                public void onClick(DialogInterface dialog, int which) {
+                                                    } catch (InterruptedException e) {
+                                                        e.printStackTrace();
+                                                    } finally {
+                                                        dialog.dismiss();
+                                                        Message message = new Message();
+                                                        message.what = SHOWVIEWINV;
+                                                        viewhandler.sendMessage(message);
 //
-//                                                }
-//                                            }).show();
+                                                        Intent intent = new Intent();
+                                                        intent.setClass(getActivity(), WaitDriverActivtiy.class);
+                                                        startActivity(intent);
+                                                        getActivity().finish();
+                                                    }
+                                                }
+                                            }).start();
+                                        } else {
+                                            new Thread(new Runnable() {
+                                                @Override
+                                                public void run() {
+                                                    try {
+                                                        Thread.sleep(500);
 
-                                    Looper.loop();//
+                                                    } catch (InterruptedException e) {
+                                                        e.printStackTrace();
+                                                    } finally {
+                                                        dialog.dismiss();
+                                                    }
+                                                }
+                                            }).start();
+                                            Looper.prepare();
+                                            Toast.makeText(getActivity(), "sorry, Near no driver.plz change other car.", Toast.LENGTH_SHORT).show();
+//
+
+                                            Looper.loop();//
 
 
+                                        }
+//                                        System.out.println(" ==== data : " + "https://my.here2go.asia/api_booking/order_create?" + data);
+                                    } catch (MalformedURLException e) {
+                                        e.printStackTrace();
+                                    } catch (IOException e) {
+                                        e.printStackTrace();
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
                                 }
-                                System.out.println(" ==== data : " + "http://2go.ladesign.tw/api_booking/order_create?" + data);
-                            } catch (MalformedURLException e) {
-                                e.printStackTrace();
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
+                            }).start();
                         }
-                    }).
+                    }
+                    if (PrefsHelper.setgoreservatione(getActivity()) != null || PrefsHelper.setgoreservatione(getActivity()) == null) {
+                        if (PrefsHelper.setgoreservatione(getActivity()).equals("1")) {
+                            new Thread(new Runnable() {
+                                @Override
+                                public void run() {
 
-                            start();
+                                    try {
+                                        URL booking = new URL("https://my.here2go.asia/api_booking/order_create");
+                                        httpURLConnection = (HttpURLConnection) booking.openConnection();
+                                        httpURLConnection.setRequestMethod("POST");
+                                        httpURLConnection.setDoOutput(true);
+                                        httpURLConnection.setDoInput(true);
+                                        String data = "member_id=" + PrefsHelper.setphonenumber(getActivity())
+                                                + "&class=" + PrefsHelper.setcarclass(getActivity())
+                                                + "&start_address=" + PrefsHelper.setstartadress(getActivity())
+                                                + "&end_address=" + PrefsHelper.setendaddress(getActivity())
+                                                + "&start_location=" + PrefsHelper.setstartlocation(getActivity())
+                                                + "&end_location=" + PrefsHelper.setendlocation(getActivity())
+                                                + "&distance=" + PrefsHelper.setkm(getActivity())
+                                                + "&times=" + PrefsHelper.settimes(getActivity())
+                                                + "&payment=cash"
+                                                + "&cost=" + PrefsHelper.setcost(getActivity())
+                                                + "&expected_time_onboard=" + PrefsHelper.setalltime(getActivity());
+//                            String testdata = "email=testpppp@gmail.com&class=Budget&start_address=123&end_address=321&start_location=123&end_location=321&distance=1";
+                                        OutputStream outputStream = httpURLConnection.getOutputStream();
+                                        outputStream.write(data.getBytes());
+                                        outputStream.flush();
+                                        outputStream.close();
+                                        int responseCode = httpURLConnection.getResponseCode();
+//                            String sys_code = httpURLConnection.get;
+                                        System.out.println("mainactivity data ===== : " + data);
+                                        PrefsHelper.getmenucost(getActivity(), faretxt.getText().toString());
+                                        BufferedReader reader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream(), "UTF-8"));
+                                        StringBuilder sb = new StringBuilder();
+                                        String line = null;
+                                        while ((line = reader.readLine()) != null) {
+                                            sb.append(line + "\n");
+                                        }
+
+                                        System.out.println(" ==== responsecode" + sb);
+                                        JSONObject jsonObject = new JSONObject(sb.toString());
+                                        System.out.println("bookingcarselectfragment ===== :" + jsonObject.getString("sys_code").equals("200"));
+                                        if (jsonObject.getString("sys_code").equals("200")) {
+//                                showview.setVisibility(View.INVISIBLE);
+                                            PrefsHelper.getclientorderid(getActivity(), jsonObject.getString("order_id").toString());
+                                            new Thread(new Runnable() {
+                                                @Override
+                                                public void run() {
+                                                    try {
+                                                        Thread.sleep(500);
+
+                                                    } catch (InterruptedException e) {
+                                                        e.printStackTrace();
+                                                    } finally {
+                                                        dialog.dismiss();
+                                                        Message message = new Message();
+                                                        message.what = SHOWVIEWINV;
+                                                        viewhandler.sendMessage(message);
+                                                        PrefsHelper.gethaved(getActivity(), "5");
+                                                        Intent intent = getIntent();
+                                                        finish();
+                                                        startActivity(intent);
+//                                                        cleanmap();
+                                                    }
+                                                }
+                                            }).start();
+                                        } else {
+                                            new Thread(new Runnable() {
+                                                @Override
+                                                public void run() {
+                                                    try {
+                                                        Thread.sleep(500);
+
+                                                    } catch (InterruptedException e) {
+                                                        e.printStackTrace();
+                                                    } finally {
+                                                        dialog.dismiss();
+
+                                                    }
+                                                }
+                                            }).start();
+                                            Looper.prepare();
+                                            Toast.makeText(getActivity(), "sorry, Near no driver.plz change other car.", Toast.LENGTH_SHORT).show();
+//
+
+                                            Looper.loop();//
+
+
+                                        }
+//                                        System.out.println(" ==== data : " + "https://my.here2go.asia/api_booking/order_create?" + data);
+                                    } catch (MalformedURLException e) {
+                                        e.printStackTrace();
+                                    } catch (IOException e) {
+                                        e.printStackTrace();
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                            }).start();
+                        }
+                    }
                     break;
                 case R.id.officebookingbtn:
                     //                    dialog = ProgressDialog.show(getActivity(), "",
@@ -2367,7 +2484,7 @@ public class MainActivity extends AppCompatActivity
 ////                 booking = null;
 //
 //                            try {
-//                                URL booking = new URL("http://2go.ladesign.tw/api_booking/order_create");
+//                                URL booking = new URL("https://my.here2go.asia/api_booking/order_create");
 //                                httpURLConnection = (HttpURLConnection) booking.openConnection();
 //                                httpURLConnection.setRequestMethod("POST");
 //                                httpURLConnection.setDoOutput(true);
@@ -2431,7 +2548,7 @@ public class MainActivity extends AppCompatActivity
 //                                    }).start();
 //
 //                                }
-//                                System.out.println(" ==== data : " + "http://2go.ladesign.tw/api_booking/order_create?" + data);
+//                                System.out.println(" ==== data : " + "https://my.here2go.asia/api_booking/order_create?" + data);
 //                            } catch (MalformedURLException e) {
 //                                e.printStackTrace();
 //                            } catch (IOException e) {
@@ -2496,7 +2613,7 @@ public class MainActivity extends AppCompatActivity
 //                 booking = null;
 
                                                                     try {
-                                                                        URL booking = new URL("http://2go.ladesign.tw/api_booking/order_create");
+                                                                        URL booking = new URL("https://my.here2go.asia/api_booking/order_create");
                                                                         httpURLConnection = (HttpURLConnection) booking.openConnection();
                                                                         httpURLConnection.setRequestMethod("POST");
                                                                         httpURLConnection.setDoOutput(true);
@@ -2549,7 +2666,7 @@ public class MainActivity extends AppCompatActivity
                                                                             Looper.loop();
 
                                                                         }
-                                                                        System.out.println(" ==== data : " + "http://2go.ladesign.tw/api_booking/order_create?" + data);
+//                                                                        System.out.println(" ==== data : " + "https://my.here2go.asia/api_booking/order_create?" + data);
                                                                     } catch (MalformedURLException e) {
                                                                         e.printStackTrace();
                                                                     } catch (IOException e) {
@@ -2593,7 +2710,7 @@ public class MainActivity extends AppCompatActivity
 
                                     getDrawable(R.mipmap.choose_car));
                     //                System.out.println("bookingcarselect ===== " + PrefsHelper.setkm(getActivity()));
-                    String url = "http://2go.ladesign.tw/api_booking/estimated_cost?distance=" + PrefsHelper.setkm(getActivity()) + "&h=" + PrefsHelper.sethtim(getActivity());
+                    String url = "https://my.here2go.asia/api_booking/estimated_cost?distance=" + PrefsHelper.setkm(getActivity()) + "&h=" + PrefsHelper.sethtim(getActivity());
                     aQuery.ajax(url, null, JSONObject.class, new AjaxCallback<JSONObject>()
 
                     {
@@ -2646,7 +2763,7 @@ public class MainActivity extends AppCompatActivity
                             getResources().
 
                                     getDrawable(R.mipmap.choose_car));
-                    String url1 = "http://2go.ladesign.tw/api_booking/estimated_cost?distance=" + PrefsHelper.setkm(getActivity()) + "&h=" + PrefsHelper.sethtim(getActivity());
+                    String url1 = "https://my.here2go.asia/api_booking/estimated_cost?distance=" + PrefsHelper.setkm(getActivity()) + "&h=" + PrefsHelper.sethtim(getActivity());
                     aQuery.ajax(url1, null, JSONObject.class, new AjaxCallback<JSONObject>()
 
                     {
@@ -2706,7 +2823,7 @@ public class MainActivity extends AppCompatActivity
                             getResources().
 
                                     getDrawable(R.mipmap.choose_car));
-                    String url2 = "http://2go.ladesign.tw/api_booking/estimated_cost?distance=" + PrefsHelper.setkm(getActivity()) + "&h=" + PrefsHelper.sethtim(getActivity());
+                    String url2 = "https://my.here2go.asia/api_booking/estimated_cost?distance=" + PrefsHelper.setkm(getActivity()) + "&h=" + PrefsHelper.sethtim(getActivity());
                     aQuery.ajax(url2, null, JSONObject.class, new AjaxCallback<JSONObject>()
 
                     {

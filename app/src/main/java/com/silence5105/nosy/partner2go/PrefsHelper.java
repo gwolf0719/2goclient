@@ -8,6 +8,17 @@ import android.content.SharedPreferences;
  */
 
 public class PrefsHelper {
+    public static void getgoreservatione(Context context, String goreservatione) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("goreservatione", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(PreferenceKeys.RESERVATION.toString(), goreservatione);
+        editor.commit();
+    }
+
+    public static String setgoreservatione(Context context) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("goreservatione", Context.MODE_PRIVATE);
+        return sharedPreferences.getString(PreferenceKeys.RESERVATION.toString(), null);
+    }
     public static void getusername(Context context, String username) {
         SharedPreferences sharedPreferences = context.getSharedPreferences("username", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();

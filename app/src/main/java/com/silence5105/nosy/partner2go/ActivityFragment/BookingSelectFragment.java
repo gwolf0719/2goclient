@@ -34,7 +34,7 @@ public class BookingSelectFragment extends Fragment implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.pbookbtn:
-                getActivity().getFragmentManager().beginTransaction().replace(R.id.container, new BookSelectTimeFragment()).commit();
+//                getActivity().getFragmentManager().beginTransaction().replace(R.id.container, new BookSelectTimeFragment()).commit();
                 break;
         }
     }

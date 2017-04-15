@@ -39,4 +39,5 @@ public enum  PreferenceKeys {
     ,LAST5M
     ,ORDERTYPE
     ,USERNAME
+    ,RESERVATION
 }

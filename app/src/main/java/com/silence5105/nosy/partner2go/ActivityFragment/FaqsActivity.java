@@ -16,7 +16,7 @@ import com.silence5105.nosy.partner2go.R;
 public class FaqsActivity extends Activity {
     WebView webView;
 
-    String url = "http://www.axlerate.com/PricingPolicy.HTM";
+    String url = "https://my.here2go.asia/help";
 
 //    @Nullable
 //    @Override

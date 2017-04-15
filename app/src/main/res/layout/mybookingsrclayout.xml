@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_marginTop="6dp"
-    android:layout_marginBottom="6dp"
+    android:background="#ffffff"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
@@ -10,6 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:background="#ffffff"
         android:id="@+id/linearLayout3">
 
         <ImageView
@@ -109,4 +109,9 @@
             android:layout_below="@+id/createtimetxt"
             android:text="TextView" />
     </RelativeLayout>
+    <RelativeLayout
+        android:layout_below="@+id/bglayout"
+        android:background="#ececec"
+        android:layout_width="match_parent"
+        android:layout_height="6dp"></RelativeLayout>
 </RelativeLayout>

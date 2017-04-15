@@ -35,7 +35,7 @@ public class BookSelectTimeFragment extends Fragment implements View.OnClickList
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.bookselecttimelayout, container, false);
-        nextbtn = (TextView) view.findViewById(R.id.nextbtn);
+//        nextbtn = (TextView) view.findViewById(R.id.nextbtn);
         mytxt = (TextView) view.findViewById(R.id.mytxt);
         mytxt.setOnClickListener(this);
         dtimetxt = (TextView) view.findViewById(R.id.dtimetxt);

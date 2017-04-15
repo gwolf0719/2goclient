@@ -1,10 +1,8 @@
 package com.silence5105.nosy.partner2go.ActivityFragment;
 
-import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -62,7 +60,7 @@ public class newOTPFragment extends Fragment implements View.OnClickListener {
     }
 
     public void otpurl() {
-        String url = "http://2go.ladesign.tw/api_member/chk_otp?member_id=" + PrefsHelper.setphonenumber(getActivity()) + "&otp=" + otpedittxt.getText().toString();
+        String url = "https://my.here2go.asia/api_member/chk_otp?member_id=" + PrefsHelper.setphonenumber(getActivity()) + "&otp=" + otpedittxt.getText().toString();
         aQuery.ajax(url, null, JSONObject.class, new AjaxCallback<JSONObject>() {
             @Override
             public void callback(String url, JSONObject object, AjaxStatus status) {
@@ -78,6 +76,7 @@ public class newOTPFragment extends Fragment implements View.OnClickListener {
                         fragmentTransaction.replace(R.id.container, new newPhoneCreateMemberFragment());
                         fragmentTransaction.addToBackStack(null);
                         fragmentTransaction.commit();
+//                        getActivity().getFragmentManager().beginTransaction().replace(R.id.container,new newPhoneCreateMemberFragment()).commit();
                         new Thread(new Runnable() {
                             @Override
                             public void run() {
@@ -126,6 +125,7 @@ public class newOTPFragment extends Fragment implements View.OnClickListener {
                 fragmentTransaction.replace(R.id.container, new PhoneCreateFragment());
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
+//                getActivity().getFragmentManager().beginTransaction().replace(R.id.container,new PhoneCreateFragment()).commit();
                 break;
         }
     }

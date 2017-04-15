@@ -140,6 +140,8 @@
             android:screenOrientation="portrait" />
         <activity android:name=".ActivityFragment.BusinessInfoActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".ActivityFragment.JoinMe"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

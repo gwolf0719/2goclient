@@ -49,7 +49,7 @@ public class ChangePWFragment extends Fragment implements View.OnClickListener {
                 if (oldpwedittxt.getText().toString() != null) {
                     System.out.println("click ==== yes");
                     if (newpwedittxt.getText().toString().equals(cpwedittxt.getText().toString())) {
-                        String url = "http://2go.ladesign.tw/api_member/passwd?member_id=" + PrefsHelper.setphonenumber(getActivity()) + "&old_password=" + oldpwedittxt.getText().toString() + "&new_password=" + newpwedittxt.getText().toString();
+                        String url = "https://my.here2go.asia/api_member/passwd?member_id=" + PrefsHelper.setphonenumber(getActivity()) + "&old_password=" + oldpwedittxt.getText().toString() + "&new_password=" + newpwedittxt.getText().toString();
                         aQuery.ajax(url, null, JSONObject.class, new AjaxCallback<JSONObject>() {
                             @Override
                             public void callback(String url, JSONObject object, AjaxStatus status) {

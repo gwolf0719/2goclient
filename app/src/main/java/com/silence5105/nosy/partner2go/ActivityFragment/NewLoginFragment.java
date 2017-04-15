@@ -7,7 +7,6 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
@@ -56,6 +55,7 @@ public class NewLoginFragment extends Fragment implements View.OnClickListener {
                 fragmentTransaction.replace(R.id.container, new PhoneCreateFragment());
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
+//                getActivity().getFragmentManager().beginTransaction().replace(R.id.container,new PhoneCreateFragment()).commit();
 
                 break;
             case R.id.backbtn:
@@ -65,6 +65,7 @@ public class NewLoginFragment extends Fragment implements View.OnClickListener {
                 fragmentTransaction1.replace(R.id.container, new LoginSelectFragment());
                 fragmentTransaction1.addToBackStack(null);
                 fragmentTransaction1.commit();
+//                getActivity().getFragmentManager().beginTransaction().replace(R.id.container,new LoginSelectFragment()).commit();
                 break;
         }
     }

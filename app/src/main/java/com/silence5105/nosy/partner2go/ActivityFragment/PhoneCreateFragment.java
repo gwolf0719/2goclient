@@ -50,7 +50,9 @@ public class PhoneCreateFragment extends Fragment implements View.OnClickListene
 
 
     public void apimember() {
-        String url = "http://2go.ladesign.tw/api_member/register?member_id=" + plusnumbertxt.getText().toString() + phonenumberedittxt.getText().toString();
+        //https://my.here2go.asia/api_member/register?member_id=
+        String url = "https://my.here2go.asia/api_member/register?member_id="+ plusnumbertxt.getText().toString() + phonenumberedittxt.getText().toString();
+
         aQuery.ajax(url, null, JSONObject.class, new AjaxCallback<JSONObject>() {
             @Override
             public void callback(String url, JSONObject object, AjaxStatus status) {
@@ -67,6 +69,7 @@ public class PhoneCreateFragment extends Fragment implements View.OnClickListene
                         fragmentTransaction.replace(R.id.container, new newOTPFragment());
                         fragmentTransaction.addToBackStack(null);
                         fragmentTransaction.commit();
+//                        getActivity().getFragmentManager().beginTransaction().replace(R.id.container,new newOTPFragment()).commit();
                         PrefsHelper.getphonenumber(getActivity(), plusnumbertxt.getText().toString() + phonenumberedittxt.getText().toString());
                         new Thread(new Runnable() {
                             @Override
@@ -90,6 +93,7 @@ public class PhoneCreateFragment extends Fragment implements View.OnClickListene
                         fragmentTransaction.replace(R.id.container, new newOTPFragment());
                         fragmentTransaction.addToBackStack(null);
                         fragmentTransaction.commit();
+//                        getActivity().getFragmentManager().beginTransaction().replace(R.id.container,new newOTPFragment()).commit();
                         PrefsHelper.getphonenumber(getActivity(), plusnumbertxt.getText().toString() + phonenumberedittxt.getText().toString());
                         new Thread(new Runnable() {
                             @Override
@@ -113,6 +117,7 @@ public class PhoneCreateFragment extends Fragment implements View.OnClickListene
                         fragmentTransaction.replace(R.id.container, new newPhoneCreateMemberFragment());
                         fragmentTransaction.addToBackStack(null);
                         fragmentTransaction.commit();
+//                        getActivity().getFragmentManager().beginTransaction().replace(R.id.container,new newPhoneCreateMemberFragment()).commit();
                         PrefsHelper.getphonenumber(getActivity(), plusnumbertxt.getText().toString() + phonenumberedittxt.getText().toString());
                         new Thread(new Runnable() {
                             @Override
@@ -152,6 +157,7 @@ public class PhoneCreateFragment extends Fragment implements View.OnClickListene
                 fragmentTransaction.replace(R.id.container, new NewLoginFragment());
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
+//                getActivity().getFragmentManager().beginTransaction().replace(R.id.container,new NewLoginFragment());
                 break;
         }
     }

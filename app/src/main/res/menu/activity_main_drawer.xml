@@ -12,11 +12,11 @@
             android:icon="@mipmap/icon_booking"
             android:textSize="16sp"
             android:title="My Booking" />
-        <item
-            android:id="@+id/pickupfavourites"
-            android:icon="@mipmap/icon_favorite"
-            android:textSize="16sp"
-            android:title="Favorites" />
+        <!--<item-->
+            <!--android:id="@+id/pickupfavourites"-->
+            <!--android:icon="@mipmap/icon_favorite"-->
+            <!--android:textSize="16sp"-->
+            <!--android:title="Favorites" />-->
         <item
             android:id="@+id/verification"
             android:icon="@mipmap/icon_verification"
@@ -41,7 +41,12 @@
             <!--android:icon="@mipmap/logout"-->
             <!--android:title="Logout" />-->
 
-
+<item
+    android:id="@+id/joinme"
+    android:title="Drive with 2GO"
+    android:textSize="16sp"
+    android:textColor="#9b9b9b"
+    ></item>
     </group>
 
 

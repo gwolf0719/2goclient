@@ -56,6 +56,7 @@ public class LoginSelectFragment extends Fragment implements View.OnClickListene
                 fragmentTransaction.replace(R.id.container, new PhoneLoginFragment());
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
+//                getActivity().getFragmentManager().beginTransaction().replace(R.id.container,new PhoneLoginFragment()).commit();
 
                 break;
             case R.id.createbtn:
@@ -69,6 +70,7 @@ public class LoginSelectFragment extends Fragment implements View.OnClickListene
                 fragmentTransaction1.replace(R.id.container, new NewLoginFragment());
                 fragmentTransaction1.addToBackStack(null);
                 fragmentTransaction1.commit();
+//                getActivity().getFragmentManager().beginTransaction().replace(R.id.container,new Newlogin)
                 break;
         }
     }

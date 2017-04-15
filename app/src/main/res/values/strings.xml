@@ -17,4 +17,11 @@
     <string name="exexutivetxt"><font fgcolor='#000000'>EXECUTIVE</font></string>
     <string name="officialbookingcancel"><font fgcolor='#0255a6'>CANCEL</font></string>
     <string name="status_running"><font fgcolor='#FF4CD964'>Running</font></string>
+
+    <!--api-->
+    <!--phonecreatfragment-->
+    <!--https://my.here2go.asia/api_member/register?member_id=-->
+    <string name="phonecreateidapi">https://my.here2go.asia/api_member/register?member_id=</string>
+    <string name="loginapi"></string>
+
 </resources>

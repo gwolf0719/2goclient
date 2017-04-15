@@ -1,8 +1,6 @@
 package com.silence5105.nosy.partner2go.ActivityFragment;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.FragmentTransaction;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
@@ -13,7 +11,6 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.silence5105.nosy.partner2go.MainActivity;
 import com.silence5105.nosy.partner2go.PrefsHelper;
 import com.silence5105.nosy.partner2go.R;
 
@@ -70,12 +67,14 @@ public class SettingActivity extends Activity implements View.OnClickListener {
 
                 break;
             case R.id.changpassword:
+                PrefsHelper.getlistselect(getApplication(), 1);
                 container.setVisibility(View.VISIBLE);
-                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.setCustomAnimations(R.anim.fragment_slide_left_enter, R.anim.fragment_slide_left_exit);
-//                fragmentTransaction.remove(new MainActivity.BookSelectTimeFragment1());
-                fragmentTransaction.replace(R.id.container, new ChangePWFragment());
-                fragmentTransaction.commit();
+//                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+//                fragmentTransaction.setCustomAnimations(R.anim.fragment_slide_left_enter, R.anim.fragment_slide_left_exit);
+////                fragmentTransaction.remove(new MainActivity.BookSelectTimeFragment1());
+//                fragmentTransaction.replace(R.id.container, new ChangePWFragment());
+//                fragmentTransaction.commit();
+                getFragmentManager().beginTransaction().replace(R.id.container,new ChangePWFragment()).commit();
                 break;
             case R.id.businessbtn:
                 if (PrefsHelper.setofficaltype(getApplication()) != null) {
@@ -113,7 +112,13 @@ public class SettingActivity extends Activity implements View.OnClickListener {
                 }
                 break;
             case R.id.backbtn:
-                this.finish();
+                if (PrefsHelper.setlistselect(getApplication()) == 0) {
+                    this.finish();
+                }
+                if (PrefsHelper.setlistselect(getApplication()) == 1) {
+                    container.setVisibility(View.GONE);
+                    PrefsHelper.getlistselect(getApplication(), 0);
+                }
                 break;
         }
     }

@@ -1,10 +1,8 @@
 package com.silence5105.nosy.partner2go.ActivityFragment;
 
-import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -58,7 +56,7 @@ public class newPhoneCreateMemberFragment extends Fragment implements View.OnCli
     }
 
     public void memberlistapi() {
-        String url = "http://2go.ladesign.tw/api_member/edit_member_first?member_id=" + PrefsHelper.setphonenumber(getActivity()) + "&email=" + emailedittxt.getText().toString()
+        String url = "https://my.here2go.asia/api_member/edit_member_first?member_id=" + PrefsHelper.setphonenumber(getActivity()) + "&email=" + emailedittxt.getText().toString()
                 + "&name=" + nameedittxt.getText().toString() + "&password=" + apwedittxt.getText().toString();
         aQuery.ajax(url, null, JSONObject.class, new AjaxCallback<JSONObject>() {
             @Override
@@ -75,6 +73,7 @@ public class newPhoneCreateMemberFragment extends Fragment implements View.OnCli
                         fragmentTransaction.replace(R.id.container, new SignupFragment());
                         fragmentTransaction.addToBackStack(null);
                         fragmentTransaction.commit();
+//                        getActivity().getFragmentManager().beginTransaction().replace(R.id.container,new SignupFragment()).commit();
                         new Thread(new Runnable() {
                             @Override
                             public void run() {

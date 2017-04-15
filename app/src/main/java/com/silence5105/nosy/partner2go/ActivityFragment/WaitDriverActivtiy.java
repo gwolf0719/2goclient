@@ -81,7 +81,7 @@ public class WaitDriverActivtiy extends Activity implements View.OnClickListener
 //                                        "please wait.", true);
 //                                dialog.show();
                                 System.out.println("Cancel btn  == == = : " + PrefsHelper.setclientorderid(getApplication()));
-                                String cancelurl = "http://2go.ladesign.tw/api_booking/cancel_order?order_id=" + PrefsHelper.setclientorderid(getApplication());
+                                String cancelurl = "https://my.here2go.asia/api_booking/cancel_order?order_id=" + PrefsHelper.setclientorderid(getApplication());
                                 aQuery.ajax(cancelurl, null, JSONObject.class, new AjaxCallback<JSONObject>() {
                                     @Override
                                     public void callback(String url, JSONObject object, AjaxStatus status) {

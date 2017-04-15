@@ -47,7 +47,7 @@ public class VerifiedActivity extends Activity implements View.OnClickListener {
     }
 
     public void loadverifiedlist() {
-        String url = "http://2go.ladesign.tw/api_official/pending_review?member_id=" + PrefsHelper.setphonenumber(getApplication());
+        String url = "https://my.here2go.asia/api_official/pending_review?member_id=" + PrefsHelper.setphonenumber(getApplication());
         aQuery.ajax(url, null, JSONObject.class, new AjaxCallback<JSONObject>() {
             @Override
             public void callback(String url, JSONObject object, AjaxStatus status) {
