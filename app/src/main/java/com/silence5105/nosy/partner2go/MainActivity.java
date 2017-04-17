@@ -254,7 +254,7 @@ public class MainActivity extends AppCompatActivity
 //                        public void run() {
 ////                 booking = null;
 //                            try {
-//                                URL booking = new URL("https://my.here2go.asia/api_booking/get_once");
+//                                URL booking = new URL("http://2go.ladesign.tw///api_booking/get_once");
 //                                httpURLConnection = (HttpURLConnection) booking.openConnection();
 //                                httpURLConnection.setRequestMethod("POST");
 //                                httpURLConnection.setDoOutput(true);
@@ -636,7 +636,7 @@ public class MainActivity extends AppCompatActivity
 //                dtxt.setText(PrefsHelper.setgotime(getApplication()));
                 PrefsHelper.getdriverotw(getApplication(), "0");
                 icarlayout.setVisibility(View.VISIBLE);
-                icslectlayout.setVisibility(View.VISIBLE);
+//                icslectlayout.setVisibility(View.VISIBLE);
                 sosbtn.setVisibility(View.VISIBLE);
                 where2golayout.setVisibility(View.INVISIBLE);
                 iccrate.setText(PrefsHelper.setrate(getApplication()));
@@ -795,7 +795,7 @@ public class MainActivity extends AppCompatActivity
             public void run() {
 //                 booking = null;
                 try {
-                    URL booking = new URL("https://my.here2go.asia/api_booking/get_once");
+                    URL booking = new URL("http://2go.ladesign.tw///api_booking/get_once");
                     httpURLConnection = (HttpURLConnection) booking.openConnection();
                     httpURLConnection.setRequestMethod("POST");
                     httpURLConnection.setDoOutput(true);
@@ -1011,7 +1011,7 @@ public class MainActivity extends AppCompatActivity
 //                 booking = null;
                 driverlocation = new ArrayList<>();
                 try {
-                    URL booking = new URL("https://my.here2go.asia/api_booking/get_once");
+                    URL booking = new URL("http://2go.ladesign.tw///api_booking/get_once");
                     httpURLConnection = (HttpURLConnection) booking.openConnection();
                     httpURLConnection.setRequestMethod("POST");
                     httpURLConnection.setDoOutput(true);
@@ -1372,7 +1372,7 @@ public class MainActivity extends AppCompatActivity
 
             } else {
                 //附近車機
-                String url = "https://my.here2go.asia/api_booking/get_near?lat=" + nowlat + "&lng=" + nowlng;
+                String url = "http://2go.ladesign.tw///api_booking/get_near?lat=" + nowlat + "&lng=" + nowlng;
                 aQuery.ajax(url, null, JSONObject.class, new AjaxCallback<JSONObject>() {
                     @Override
                     public void callback(String url, JSONObject object, AjaxStatus status) {
@@ -1729,7 +1729,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void loadnearcar() {
-        String url = "https://my.here2go.asia/api_booking/get_near?lat=" + nowlat + "&lng=" + nowlng;
+        String url = "http://2go.ladesign.tw///api_booking/get_near?lat=" + nowlat + "&lng=" + nowlng;
 //        String url="http://uat.fofo.tw/2go_be/api/get_partner_once?lat=" + nowlat + "&lng=" + nowlng;
         aQuery.ajax(url, null, JSONObject.class, new AjaxCallback<JSONObject>() {
             @Override
@@ -2273,7 +2273,7 @@ public class MainActivity extends AppCompatActivity
 //                 booking = null;
 
                                     try {
-                                        URL booking = new URL("https://my.here2go.asia/api_booking/order_create");
+                                        URL booking = new URL("http://2go.ladesign.tw///api_booking/order_create");
                                         httpURLConnection = (HttpURLConnection) booking.openConnection();
                                         httpURLConnection.setRequestMethod("POST");
                                         httpURLConnection.setDoOutput(true);
@@ -2354,7 +2354,7 @@ public class MainActivity extends AppCompatActivity
 
 
                                         }
-//                                        System.out.println(" ==== data : " + "https://my.here2go.asia/api_booking/order_create?" + data);
+//                                        System.out.println(" ==== data : " + "http://2go.ladesign.tw///api_booking/order_create?" + data);
                                     } catch (MalformedURLException e) {
                                         e.printStackTrace();
                                     } catch (IOException e) {
@@ -2373,7 +2373,7 @@ public class MainActivity extends AppCompatActivity
                                 public void run() {
 
                                     try {
-                                        URL booking = new URL("https://my.here2go.asia/api_booking/order_create");
+                                        URL booking = new URL("http://2go.ladesign.tw///api_booking/order_create");
                                         httpURLConnection = (HttpURLConnection) booking.openConnection();
                                         httpURLConnection.setRequestMethod("POST");
                                         httpURLConnection.setDoOutput(true);
@@ -2455,7 +2455,7 @@ public class MainActivity extends AppCompatActivity
 
 
                                         }
-//                                        System.out.println(" ==== data : " + "https://my.here2go.asia/api_booking/order_create?" + data);
+//                                        System.out.println(" ==== data : " + "http://2go.ladesign.tw///api_booking/order_create?" + data);
                                     } catch (MalformedURLException e) {
                                         e.printStackTrace();
                                     } catch (IOException e) {
@@ -2484,7 +2484,7 @@ public class MainActivity extends AppCompatActivity
 ////                 booking = null;
 //
 //                            try {
-//                                URL booking = new URL("https://my.here2go.asia/api_booking/order_create");
+//                                URL booking = new URL("http://2go.ladesign.tw///api_booking/order_create");
 //                                httpURLConnection = (HttpURLConnection) booking.openConnection();
 //                                httpURLConnection.setRequestMethod("POST");
 //                                httpURLConnection.setDoOutput(true);
@@ -2548,7 +2548,7 @@ public class MainActivity extends AppCompatActivity
 //                                    }).start();
 //
 //                                }
-//                                System.out.println(" ==== data : " + "https://my.here2go.asia/api_booking/order_create?" + data);
+//                                System.out.println(" ==== data : " + "http://2go.ladesign.tw///api_booking/order_create?" + data);
 //                            } catch (MalformedURLException e) {
 //                                e.printStackTrace();
 //                            } catch (IOException e) {
@@ -2613,7 +2613,7 @@ public class MainActivity extends AppCompatActivity
 //                 booking = null;
 
                                                                     try {
-                                                                        URL booking = new URL("https://my.here2go.asia/api_booking/order_create");
+                                                                        URL booking = new URL("http://2go.ladesign.tw///api_booking/order_create");
                                                                         httpURLConnection = (HttpURLConnection) booking.openConnection();
                                                                         httpURLConnection.setRequestMethod("POST");
                                                                         httpURLConnection.setDoOutput(true);
@@ -2666,7 +2666,7 @@ public class MainActivity extends AppCompatActivity
                                                                             Looper.loop();
 
                                                                         }
-//                                                                        System.out.println(" ==== data : " + "https://my.here2go.asia/api_booking/order_create?" + data);
+//                                                                        System.out.println(" ==== data : " + "http://2go.ladesign.tw///api_booking/order_create?" + data);
                                                                     } catch (MalformedURLException e) {
                                                                         e.printStackTrace();
                                                                     } catch (IOException e) {
@@ -2710,7 +2710,7 @@ public class MainActivity extends AppCompatActivity
 
                                     getDrawable(R.mipmap.choose_car));
                     //                System.out.println("bookingcarselect ===== " + PrefsHelper.setkm(getActivity()));
-                    String url = "https://my.here2go.asia/api_booking/estimated_cost?distance=" + PrefsHelper.setkm(getActivity()) + "&h=" + PrefsHelper.sethtim(getActivity());
+                    String url = "http://2go.ladesign.tw///api_booking/estimated_cost?distance=" + PrefsHelper.setkm(getActivity()) + "&h=" + PrefsHelper.sethtim(getActivity());
                     aQuery.ajax(url, null, JSONObject.class, new AjaxCallback<JSONObject>()
 
                     {
@@ -2763,7 +2763,7 @@ public class MainActivity extends AppCompatActivity
                             getResources().
 
                                     getDrawable(R.mipmap.choose_car));
-                    String url1 = "https://my.here2go.asia/api_booking/estimated_cost?distance=" + PrefsHelper.setkm(getActivity()) + "&h=" + PrefsHelper.sethtim(getActivity());
+                    String url1 = "http://2go.ladesign.tw///api_booking/estimated_cost?distance=" + PrefsHelper.setkm(getActivity()) + "&h=" + PrefsHelper.sethtim(getActivity());
                     aQuery.ajax(url1, null, JSONObject.class, new AjaxCallback<JSONObject>()
 
                     {
@@ -2823,7 +2823,7 @@ public class MainActivity extends AppCompatActivity
                             getResources().
 
                                     getDrawable(R.mipmap.choose_car));
-                    String url2 = "https://my.here2go.asia/api_booking/estimated_cost?distance=" + PrefsHelper.setkm(getActivity()) + "&h=" + PrefsHelper.sethtim(getActivity());
+                    String url2 = "http://2go.ladesign.tw///api_booking/estimated_cost?distance=" + PrefsHelper.setkm(getActivity()) + "&h=" + PrefsHelper.sethtim(getActivity());
                     aQuery.ajax(url2, null, JSONObject.class, new AjaxCallback<JSONObject>()
 
                     {

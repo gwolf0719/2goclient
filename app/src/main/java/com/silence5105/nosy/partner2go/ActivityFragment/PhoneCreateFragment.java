@@ -50,8 +50,8 @@ public class PhoneCreateFragment extends Fragment implements View.OnClickListene
 
 
     public void apimember() {
-        //https://my.here2go.asia/api_member/register?member_id=
-        String url = "https://my.here2go.asia/api_member/register?member_id="+ plusnumbertxt.getText().toString() + phonenumberedittxt.getText().toString();
+        //http://2go.ladesign.tw///api_member/register?member_id=
+        String url = "http://2go.ladesign.tw///api_member/register?member_id="+ plusnumbertxt.getText().toString() + phonenumberedittxt.getText().toString();
 
         aQuery.ajax(url, null, JSONObject.class, new AjaxCallback<JSONObject>() {
             @Override

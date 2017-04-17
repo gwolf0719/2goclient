@@ -77,7 +77,7 @@ public class BookingCarSelectFragment extends Fragment implements View.OnClickLi
                     public void run() {
 //                 booking = null;
                         try {
-                            URL booking = new URL("https://my.here2go.asia/api_booking/order_create");
+                            URL booking = new URL("http://2go.ladesign.tw///api_booking/order_create");
                             httpURLConnection = (HttpURLConnection) booking.openConnection();
                             httpURLConnection.setRequestMethod("POST");
                             httpURLConnection.setDoOutput(true);
@@ -114,7 +114,7 @@ public class BookingCarSelectFragment extends Fragment implements View.OnClickLi
                             if (jsonObject.getString("sys_code").equals("200")) {
 
                             }
-                            System.out.println(" ==== data : " + "https://my.here2go.asia/api_booking/order_create?" + data);
+                            System.out.println(" ==== data : " + "http://2go.ladesign.tw///api_booking/order_create?" + data);
                         } catch (MalformedURLException e) {
                             e.printStackTrace();
                         } catch (IOException e) {
@@ -134,7 +134,7 @@ public class BookingCarSelectFragment extends Fragment implements View.OnClickLi
                 budgetimg.setImageDrawable(getResources().getDrawable(R.mipmap.choose_car));
                 extimg.setImageDrawable(getResources().getDrawable(R.mipmap.choose_car));
 //                System.out.println("bookingcarselect ===== " + PrefsHelper.setkm(getActivity()));
-                String url = "https://my.here2go.asia/api_booking/estimated_cost?distance=" + PrefsHelper.setkm(getActivity()) + "&h=" + PrefsHelper.sethtim(getActivity());
+                String url = "http://2go.ladesign.tw///api_booking/estimated_cost?distance=" + PrefsHelper.setkm(getActivity()) + "&h=" + PrefsHelper.sethtim(getActivity());
                 aQuery.ajax(url, null, JSONObject.class, new AjaxCallback<JSONObject>() {
                     @Override
                     public void callback(String url, JSONObject object, AjaxStatus status) {
@@ -174,7 +174,7 @@ public class BookingCarSelectFragment extends Fragment implements View.OnClickLi
                 t1mimg.setImageDrawable(getResources().getDrawable(R.mipmap.choose_car));
                 budgetimg.setImageDrawable(getResources().getDrawable(R.mipmap.choose_car_active));
                 extimg.setImageDrawable(getResources().getDrawable(R.mipmap.choose_car));
-                String url1 = "https://my.here2go.asia/api_booking/estimated_cost?distance=" + PrefsHelper.setkm(getActivity()) + "&h=" + PrefsHelper.sethtim(getActivity());
+                String url1 = "http://2go.ladesign.tw///api_booking/estimated_cost?distance=" + PrefsHelper.setkm(getActivity()) + "&h=" + PrefsHelper.sethtim(getActivity());
                 aQuery.ajax(url1, null, JSONObject.class, new AjaxCallback<JSONObject>() {
                     @Override
                     public void callback(String url, JSONObject object, AjaxStatus status) {
@@ -212,7 +212,7 @@ public class BookingCarSelectFragment extends Fragment implements View.OnClickLi
                 t1mimg.setImageDrawable(getResources().getDrawable(R.mipmap.choose_car));
                 extimg.setImageDrawable(getResources().getDrawable(R.mipmap.choose_car_active));
                 budgetimg.setImageDrawable(getResources().getDrawable(R.mipmap.choose_car));
-                String url2 = "https://my.here2go.asia/api_booking/estimated_cost?distance=" + PrefsHelper.setkm(getActivity()) + "&h=" + PrefsHelper.sethtim(getActivity());
+                String url2 = "http://2go.ladesign.tw///api_booking/estimated_cost?distance=" + PrefsHelper.setkm(getActivity()) + "&h=" + PrefsHelper.sethtim(getActivity());
                 aQuery.ajax(url2, null, JSONObject.class, new AjaxCallback<JSONObject>() {
                     @Override
                     public void callback(String url, JSONObject object, AjaxStatus status) {

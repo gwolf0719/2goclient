@@ -66,7 +66,7 @@ public class PhoneLoginFragment extends Fragment implements View.OnClickListener
     }
 
     public void loginapi() {
-        String url = "https://my.here2go.asia/api_member/login?member_id=" + plusnumbertxt.getText().toString() + mobilenumberedittxt.getText().toString()
+        String url = "http://2go.ladesign.tw///api_member/login?member_id=" + plusnumbertxt.getText().toString() + mobilenumberedittxt.getText().toString()
                 + "&password=" + passwordedittxt.getText().toString();
         System.out.println("Loginactivity ===== : " + url);
         aQuery.ajax(url, null, JSONObject.class, new AjaxCallback<JSONObject>() {

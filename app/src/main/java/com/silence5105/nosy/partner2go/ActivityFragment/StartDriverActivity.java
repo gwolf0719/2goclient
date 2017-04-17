@@ -39,7 +39,7 @@ public class StartDriverActivity extends AppCompatActivity implements View.OnCli
         super.onCreate(savedInstanceState);
         setContentView(R.layout.startdrivrtlayout);
         initview();
-        String driverurl = "https://my.here2go.asia/api_booking/get_once?order_id=" + PrefsHelper.setclientorderid(getApplication());
+        String driverurl = "http://2go.ladesign.tw///api_booking/get_once?order_id=" + PrefsHelper.setclientorderid(getApplication());
         aQuery.ajax(driverurl, null, JSONObject.class, new AjaxCallback<JSONObject>() {
             @Override
             public void callback(String url, JSONObject object, AjaxStatus status) {

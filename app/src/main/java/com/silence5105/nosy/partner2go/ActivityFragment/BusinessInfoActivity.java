@@ -38,7 +38,7 @@ public class BusinessInfoActivity extends Activity implements View.OnClickListen
         backbtn = (ImageView) findViewById(R.id.backbtn);
         backbtn.setOnClickListener(this);
         aQuery = new AQuery(this);
-        String url = "https://my.here2go.asia/api_official/member_business_info?member_id=" + PrefsHelper.setphonenumber(getApplication());
+        String url = "http://2go.ladesign.tw///api_official/member_business_info?member_id=" + PrefsHelper.setphonenumber(getApplication());
         aQuery.ajax(url, null, JSONObject.class, new AjaxCallback<JSONObject>() {
             @Override
             public void callback(String url, JSONObject object, AjaxStatus status) {
