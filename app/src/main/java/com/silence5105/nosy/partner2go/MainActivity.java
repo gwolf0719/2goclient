@@ -118,7 +118,6 @@ import java.util.TimerTask;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, OnMapReadyCallback, GoogleMap.OnCameraIdleListener, DirectionFinderListener
         , GoogleApiClient.OnConnectionFailedListener, View.OnClickListener {
-    //    ImageView bookinglayout;
     GoogleMap mmap;
     LinearLayout otwselectlayout;
     LocationManager locationManager;
@@ -138,6 +137,7 @@ public class MainActivity extends AppCompatActivity
     private AutoCompleteTextView etOrigin;
     private AutoCompleteTextView etDestination;
     double nowlat;
+    TextView vnumbertxt;
     DrawerLayout drawer;
     RelativeLayout showview, menuback, callbtn;
     Button avgbtn, okbtn;
@@ -149,7 +149,8 @@ public class MainActivity extends AppCompatActivity
     TextView numbertxt, dtxt, rattxt, nametxt, iccartxt, iccnametxt, iccrate;
     ImageView menuimg, redimg, blueimg, sosbtn;
     PlaceAutocompleteAdapter placeAutocompleteAdapter;
-    TextView menunametxt;
+    LinearLayout paymentbtn, mybookingbtn, verificationbtn, helpbtn, settingbtn;
+    TextView drivetogobtn, menunumbertxt;
 
     private static final LatLngBounds BOUNDS_GREATER_SYDNEY = new LatLngBounds(
             new LatLng(-34.041458, 150.790100), new LatLng(-33.682247, 151.383362));
@@ -358,6 +359,20 @@ public class MainActivity extends AppCompatActivity
         iccnametxt = (TextView) findViewById(R.id.iccnametext);
         iccrate = (TextView) findViewById(R.id.iccratetxt);
         iccartxt = (TextView) findViewById(R.id.iccartxt);
+        vnumbertxt = (TextView) findViewById(R.id.vnumbertxt);
+        paymentbtn = (LinearLayout) findViewById(R.id.paymentbtn);
+        paymentbtn.setOnClickListener(this);
+        mybookingbtn = (LinearLayout) findViewById(R.id.mybookingbtn);
+        mybookingbtn.setOnClickListener(this);
+        verificationbtn = (LinearLayout) findViewById(R.id.verificationbtn);
+        verificationbtn.setOnClickListener(this);
+        menunumbertxt = (TextView) findViewById(R.id.menenumbertxt);
+        helpbtn = (LinearLayout) findViewById(R.id.helpbtn);
+        helpbtn.setOnClickListener(this);
+        settingbtn = (LinearLayout) findViewById(R.id.settingbtn);
+        settingbtn.setOnClickListener(this);
+        drivetogobtn = (TextView) findViewById(R.id.drivetogotxt);
+        drivetogobtn.setOnClickListener(this);
         officfindpathbtn = (RelativeLayout) findViewById(R.id.officbtnFindPath);
         officfindpathbtn.setOnClickListener(this);
         where2golayout = (RelativeLayout) findViewById(R.id.where2golayout);
@@ -662,6 +677,7 @@ public class MainActivity extends AppCompatActivity
                 PrefsHelper.getlast30m(getApplication(), "0");
             }
         }
+        loadverificationnumberapi();
     }
 
 
@@ -884,7 +900,7 @@ public class MainActivity extends AppCompatActivity
 //                fragmentTransaction.remove(new BookSelectTimeFragment1());
 //                fragmentTransaction.replace(R.id.container1, new OrderHaveDFragement());
 //                fragmentTransaction.commit();
-                getFragmentManager().beginTransaction().replace(R.id.container1,new OrderHaveDFragement()).commit();
+                getFragmentManager().beginTransaction().replace(R.id.container1, new OrderHaveDFragement()).commit();
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
@@ -1337,6 +1353,7 @@ public class MainActivity extends AppCompatActivity
         super.onStart();
 
         getCurrentLocation();
+        loadverificationnumberapi();
     }
 
     @Override
@@ -1847,9 +1864,58 @@ public class MainActivity extends AppCompatActivity
                 Toast.LENGTH_SHORT).show();
     }
 
+    public void loadverificationnumberapi() {
+        String url = "http://2go.ladesign.tw///api_official/pending_review?member_id=" + PrefsHelper.setphonenumber(getApplication());
+        aQuery.ajax(url, null, JSONObject.class, new AjaxCallback<JSONObject>() {
+            @Override
+            public void callback(String url, JSONObject object, AjaxStatus status) {
+                super.callback(url, object, status);
+                try {
+                    if (object.getString("sys_code").equals("200")) {
+                        if (object.getString("count").equals("0")) {
+                            vnumbertxt.setVisibility(View.INVISIBLE);
+                            menunumbertxt.setVisibility(View.INVISIBLE);
+                        } else {
+                            vnumbertxt.setText(object.getString("count"));
+                            menunumbertxt.setText(object.getString("count"));
+                        }
+
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
+            case R.id.drivetogotxt:
+                Intent intent4 = new Intent();
+                intent4.setClass(MainActivity.this, JoinMe.class);
+                startActivity(intent4);
+                break;
+            case R.id.settingbtn:
+                Intent intent3 = new Intent();
+                intent3.setClass(MainActivity.this, SettingActivity.class);
+                startActivity(intent3);
+                break;
+            case R.id.helpbtn:
+                Intent intent2 = new Intent();
+                intent2.setClass(MainActivity.this, FaqsActivity.class);
+                startActivity(intent2);
+                break;
+            case R.id.verificationbtn:
+                Intent intent1 = new Intent();
+                intent1.setClass(MainActivity.this, VerifiedActivity.class);
+                startActivity(intent1);
+                break;
+            case R.id.mybookingbtn:
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, NewBookingActivity.class);
+                startActivity(intent);
+                break;
             case R.id.menuback:
                 cleanmap();
                 break;
@@ -2024,14 +2090,14 @@ public class MainActivity extends AppCompatActivity
                             } catch (ParseException e) {
                                 e.printStackTrace();
                             }
-                            if (PrefsHelper.setgoreservatione(getActivity())!=null||PrefsHelper.setgoreservatione(getActivity())==null){
+                            if (PrefsHelper.setgoreservatione(getActivity()) != null || PrefsHelper.setgoreservatione(getActivity()) == null) {
                                 Long ynowt = ynowdate.getTime();
                                 Long ychost = ychosdate.getTime();
                                 Long yanser = ychost - ynowt;
                                 Long ydt = yanser / 86400000;
                                 System.out.println("TIME Y ====== + " + yanser + " " + ynowt + " " + ychost);
                                 if (ydt >= 1) {
-                                    PrefsHelper.getgoreservatione(getActivity(),"1");
+                                    PrefsHelper.getgoreservatione(getActivity(), "1");
                                 }
                             }
                             if (PrefsHelper.setofficalbooking(getActivity()) != null) {
