@@ -1,6 +1,7 @@
 package com.silence5105.nosy.partner2go.ActivityFragment;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -43,6 +44,16 @@ public class VerifiedActivity extends Activity implements View.OnClickListener {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplication());
         rv.setLayoutManager(linearLayoutManager);
         verificationAdapter = new VerificationAdapter(this, arrayList);
+        verificationAdapter.setOnItemClickLitener(new VerificationAdapter.OnItemClickLitener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                PrefsHelper.getlistselect(getApplication(), position);
+                Intent intent = new Intent();
+                intent.setClass(VerifiedActivity.this,TobeVerifiedActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 //        rv.setAdapter(verificationAdapter);
     }
 

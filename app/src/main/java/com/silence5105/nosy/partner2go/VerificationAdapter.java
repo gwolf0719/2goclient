@@ -22,6 +22,16 @@ public class VerificationAdapter extends RecyclerView.Adapter<VerificationAdapte
     ArrayList<VerificationItems> arrayList = new ArrayList<VerificationItems>();
     Context context;
     VerificationItems verificationItems;
+    OnItemClickLitener onItemClickLitener;
+
+    public interface OnItemClickLitener {
+        void onItemClick(View view, int position);
+    }
+
+    public void setOnItemClickLitener(OnItemClickLitener onItemClickLitener) {
+        this.onItemClickLitener = onItemClickLitener;
+
+    }
 
     public VerificationAdapter(Context context, ArrayList<VerificationItems> verificationItemses) {
         this.arrayList = verificationItemses;
@@ -35,7 +45,7 @@ public class VerificationAdapter extends RecyclerView.Adapter<VerificationAdapte
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, final int position) {
+    public void onBindViewHolder(final ViewHolder holder, final int position) {
         verificationItems = arrayList.get(position);
         holder.vnametxt.setText(verificationItems.official_id);
         holder.vtimetxt.setText(verificationItems.update_datetime);
@@ -44,10 +54,11 @@ public class VerificationAdapter extends RecyclerView.Adapter<VerificationAdapte
             @Override
             public void onClick(View v) {
                 System.out.println(" click ===== " + position);
-                PrefsHelper.getlistselect(context, position);
-                Intent intent = new Intent();
-                intent.setClass(context, TobeVerifiedActivity.class);
-                context.startActivity(intent);
+//                PrefsHelper.getlistselect(context, position);
+//                Intent intent = new Intent();
+//                intent.setClass(context, TobeVerifiedActivity.class);
+//                context.startActivity(intent);
+               onItemClickLitener.onItemClick(holder.listview,position);
 
             }
         });

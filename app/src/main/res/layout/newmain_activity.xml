@@ -345,38 +345,48 @@
             android:layout_marginRight="10dp"
             android:layout_marginTop="41dp"
             app:srcCompat="@mipmap/menu_black" />
-        <TextView
-            android:id="@+id/menenumbertxt"
-            android:text=""
-            android:textColor="#de000000"
-            android:textSize="16sp"
+
+        <RelativeLayout
+            android:id="@+id/menunumberimg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
             android:layout_alignLeft="@+id/menuimg"
             android:layout_alignStart="@+id/menuimg"
+            android:layout_centerVertical="true"
             android:layout_marginLeft="20dp"
-            android:layout_marginStart="20dp" />
+            android:layout_marginStart="20dp"
+            android:background="@mipmap/notification_bg">
 
+            <TextView
+                android:id="@+id/menenumbertxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text=""
+                android:textColor="#ffffff"
+                android:textSize="16sp" />
+        </RelativeLayout>
     </RelativeLayout>
+
     <RelativeLayout
         android:id="@+id/menuback"
-        android:visibility="invisible"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:visibility="invisible">
 
         <ImageView
+            android:id="@+id/imageView27"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
 
+            android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="41dp"
-            app:srcCompat="@mipmap/arrow_left_black"
-            android:id="@+id/imageView27" />
+            app:srcCompat="@mipmap/arrow_left_black" />
 
     </RelativeLayout>
     <!--<RelativeLayout-->
@@ -661,13 +671,13 @@
             android:text="number"
             android:textColor="#757575"
             android:textSize="14sp" />
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="58dp"
-            android:background="@mipmap/line"
-            />
+            android:background="@mipmap/line" />
 
         <TextView
             android:id="@+id/iccnametext"

@@ -15,9 +15,14 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import com.androidquery.AQuery;
+import com.androidquery.callback.AjaxCallback;
+import com.androidquery.callback.AjaxStatus;
 import com.silence5105.nosy.partner2go.MainActivity;
 import com.silence5105.nosy.partner2go.PrefsHelper;
 import com.silence5105.nosy.partner2go.R;
+
+import org.json.JSONObject;
 
 /**
  * Created by Nosy on 2017/1/24.
@@ -28,6 +33,7 @@ public class TitleActivity extends Activity {
     public static final int LOCATION_UPDATE_MIN_DISTANCE = 5;
     public static final int LOCATION_UPDATE_MIN_TIME = 3000;
     LocationManager locationManager;
+    private AQuery aQuery;
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
@@ -41,6 +47,20 @@ public class TitleActivity extends Activity {
                         String check = PrefsHelper.setautologin(getApplication());
                         if (check != null) {
                             if (check.equals("1")) {
+                                if (PrefsHelper.setpushkey(getApplication()) != null) {
+
+                                    String url = "http://2go.ladesign.tw///api_member/push_key?member_id=" + PrefsHelper.setphonenumber(getApplication()) + "&push_key=" + PrefsHelper.setpushkey(getApplication());
+//        if (aQuery != null) {
+                                    aQuery.ajax(url, null, JSONObject.class, new AjaxCallback<JSONObject>() {
+                                        @Override
+                                        public void callback(String url, JSONObject object, AjaxStatus status) {
+                                            super.callback(url, object, status);
+
+                                        }
+                                    });
+
+                                }
+                                System.out.println("title activity ==== 1 ");
                                 Intent i = new Intent();
                                 i.setClass(TitleActivity.this, MainActivity.class);
                                 startActivity(i);
@@ -85,6 +105,7 @@ public class TitleActivity extends Activity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.titleactivity);
         initview();
+        aQuery = new AQuery(this);
         System.out.println(" ===== titleactivity ===== :" + PrefsHelper.setautologin(getApplication()));
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
             new Handler().postDelayed(new Runnable() {
@@ -94,6 +115,20 @@ public class TitleActivity extends Activity {
                     if (check != null) {
                         if (check.equals("1")) {
                             Intent i = new Intent();
+                            System.out.println("title activity ======== 1 : ");
+                            if (PrefsHelper.setpushkey(getApplication()) != null) {
+
+                                String url = "http://2go.ladesign.tw///api_member/push_key?member_id=" + PrefsHelper.setphonenumber(getApplication()) + "&push_key=" + PrefsHelper.setpushkey(getApplication());
+//        if (aQuery != null) {
+                                aQuery.ajax(url, null, JSONObject.class, new AjaxCallback<JSONObject>() {
+                                    @Override
+                                    public void callback(String url, JSONObject object, AjaxStatus status) {
+                                        super.callback(url, object, status);
+
+                                    }
+                                });
+
+                            }
                             i.setClass(TitleActivity.this, MainActivity.class);
                             startActivity(i);
                             finish();
@@ -123,6 +158,20 @@ public class TitleActivity extends Activity {
                         String check = PrefsHelper.setautologin(getApplication());
                         if (check != null) {
                             if (check.equals("1")) {
+                                System.out.println("titleactivity ====== 2 :");
+                                if (PrefsHelper.setpushkey(getApplication()) != null) {
+
+                                    String url = "http://2go.ladesign.tw///api_member/push_key?member_id=" + PrefsHelper.setphonenumber(getApplication()) + "&push_key=" + PrefsHelper.setpushkey(getApplication());
+//        if (aQuery != null) {
+                                    aQuery.ajax(url, null, JSONObject.class, new AjaxCallback<JSONObject>() {
+                                        @Override
+                                        public void callback(String url, JSONObject object, AjaxStatus status) {
+                                            super.callback(url, object, status);
+
+                                        }
+                                    });
+
+                                }
                                 Intent i = new Intent();
                                 i.setClass(TitleActivity.this, MainActivity.class);
                                 startActivity(i);

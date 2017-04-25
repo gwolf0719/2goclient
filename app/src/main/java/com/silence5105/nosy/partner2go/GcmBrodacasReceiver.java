@@ -99,6 +99,7 @@ public class GcmBrodacasReceiver extends BroadcastReceiver {
 //                            if(PrefsHelper.sethav)
                             //order_type
                             JSONObject jsonObject = new JSONObject(String.valueOf(sb));
+                            PrefsHelper.getordertype(context, jsonObject.getJSONObject("order_info").getString("order_type").toString());
                             String cost = jsonObject.getJSONObject("order_info").getString("cost").toString();
                             PrefsHelper.getcost(context, cost);
                             String startlocation = jsonObject.getJSONObject("order_info").getString("start_address").toString();
@@ -118,9 +119,9 @@ public class GcmBrodacasReceiver extends BroadcastReceiver {
                             PrefsHelper.getdrivercarclass(context, jsonObject.getJSONObject("order_info").getString("class").toString());
                             PrefsHelper.getdriverlat(context, jsonObject.getJSONObject("order_info").getJSONObject("partner").getString("lat").toString());
                             PrefsHelper.getdriverlng(context, jsonObject.getJSONObject("order_info").getJSONObject("partner").getString("lng").toString());
-                            PrefsHelper.getordertype(context,jsonObject.getJSONObject("order_info").getString("order_type"));
 
-                            System.out.println(" gcm    ====== rate time mame number  " + rate + " " + drivername + " " + drivernumber + " " + gotime + " " + textnumber+ " "+jsonObject.getJSONObject("order_info").getString("order_type"));
+
+                            System.out.println(" gcm    ====== rate time mame number  " + rate + " " + drivername + " " + drivernumber + " " + gotime + " " + textnumber + " " + jsonObject.getJSONObject("order_info").getString("order_type"));
                             if (jsonObject.getString("sys_code").equals("200")) {
                                 PrefsHelper.getorderid(context, orderid);
 
@@ -165,7 +166,7 @@ public class GcmBrodacasReceiver extends BroadcastReceiver {
                 }
 
                 if (extras.getString("gcm.notification.click_action").equals("8")) {
-                    PrefsHelper.getlast30m(context,"1");
+                    PrefsHelper.getlast30m(context, "1");
                     Intent intent1 = new Intent();
                     intent1.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     intent1.setClass(context, MainActivity.class);
@@ -184,7 +185,7 @@ public class GcmBrodacasReceiver extends BroadcastReceiver {
                     context.startActivity(intent1);
                 }
                 if (extras.getString("gcm.notification.click_action").equals("7")) {
-                    PrefsHelper.getlast5m(context,"1");
+                    PrefsHelper.getlast5m(context, "1");
                     Intent intent1 = new Intent();
                     intent1.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     intent1.setClass(context, MainActivity.class);
@@ -204,25 +205,34 @@ public class GcmBrodacasReceiver extends BroadcastReceiver {
                 }
                 if (extras.getString("gcm.notification.click_action").equals("9")) {
 //                    IntentService.sendLocalNotification(context, NOTIFICATION_ID, R.mipmap.ic_launcher_, "乘客", "到達目的地", "", true, PendingIntent.getActivity(context, 0, i, PendingIntent.FLAG_CANCEL_CURRENT));
+
                     if (PrefsHelper.setdriverotw(context) != null) {
                         if (PrefsHelper.setdriverotw(context).equals("1")) {
                             PrefsHelper.gethaved(context, "9");
                         }
                     }
-                    if (PrefsHelper.setdriverotw(context) != null ) {
+                    if (PrefsHelper.setdriverotw(context) != null) {
                         if (!PrefsHelper.setdriverotw(context).equals("1")) {
                             PrefsHelper.gethaved(context, "7");
                         }
                     }
-                        if (PrefsHelper.setdriverotw(context) == null){
-                            PrefsHelper.gethaved(context, "7");
-                        }
+                    if (PrefsHelper.setdriverotw(context) == null) {
+                        PrefsHelper.gethaved(context, "7");
+                    }
+
+                    if (PrefsHelper.setbookingselect(context) != null) {
+                        if (PrefsHelper.setbookingselect(context).equals("0")) {
 //                    StartDriverActivity startDriverActivity = new StartDriverActivity();
 //                    startDriverActivity.ratlayout();
-                    Intent intent1 = new Intent();
-                    intent1.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    intent1.setClass(context, MainActivity.class);
-                    context.startActivity(intent1);
+                            Intent intent1 = new Intent();
+                            intent1.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            intent1.setClass(context, MainActivity.class);
+                            context.startActivity(intent1);
+                        }
+                        if (PrefsHelper.setbookingselect(context).equals("1")){
+
+                        }
+                    }
                 }
                 MainActivity mainActivity = new MainActivity();
 

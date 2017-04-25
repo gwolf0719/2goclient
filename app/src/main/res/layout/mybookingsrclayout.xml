@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/viewlayout"
     android:layout_width="match_parent"
-    android:background="#ffffff"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:background="#ffffff">
 
     <LinearLayout
+        android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:background="#ffffff"
-        android:id="@+id/linearLayout3">
+        android:orientation="horizontal">
 
         <ImageView
             android:id="@+id/redimg"
@@ -23,6 +24,7 @@
             android:layout_marginLeft="24dp"
             android:layout_marginTop="10dp"
             android:background="@mipmap/line_personal" />
+
         <ImageView
             android:id="@+id/blueimg"
             android:layout_width="wrap_content"
@@ -33,8 +35,8 @@
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="24dp"
             android:layout_marginTop="10dp"
-            android:visibility="gone"
-            android:background="@mipmap/line_official"/>
+            android:background="@mipmap/line_official"
+            android:visibility="gone" />
 
         <LinearLayout
             android:id="@+id/layout"
@@ -99,19 +101,102 @@
 
         <TextView
             android:id="@+id/bookingtypetxt"
-            android:textSize="14sp"
-            android:textColor="#ffffff"
-            android:layout_marginLeft="17dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/createtimetxt"
-            android:text="TextView" />
+            android:layout_marginLeft="17dp"
+            android:text="TextView"
+            android:textColor="#ffffff"
+            android:textSize="14sp" />
+
+        <RelativeLayout
+            android:id="@+id/detailcolor"
+            android:layout_width="123dp"
+            android:layout_height="29dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="16dp">
+
+            <TextView
+                android:id="@+id/detailtxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:textColor="#ffffff"
+                android:textSize="14sp" />
+
+
+            <TextView
+                android:id="@+id/bookingcartxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/bookingsubjecttxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/bookingcost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/bookinginfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/bookingdirvernametxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/bookingranktxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/bookingdrivernumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+            <TextView
+                android:id="@+id/bookingtexinumber"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/bookingpaymenttxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"/>
+            <TextView
+                android:id="@+id/bookingorferstautstxt"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/orderidtxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"/>
+
+        </RelativeLayout>
     </RelativeLayout>
+
     <RelativeLayout
-        android:layout_below="@+id/bglayout"
-        android:background="#ececec"
         android:layout_width="match_parent"
-        android:layout_height="6dp"></RelativeLayout>
+        android:layout_height="6dp"
+        android:layout_below="@+id/bglayout"
+        android:background="#ececec"></RelativeLayout>
 </RelativeLayout>

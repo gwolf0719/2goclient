@@ -121,6 +121,7 @@ public class MainActivity extends AppCompatActivity
     GoogleMap mmap;
     LinearLayout otwselectlayout;
     LocationManager locationManager;
+    RelativeLayout vnumberimg, menunumberimg;
     private final static String CALL = "android.intent.action.CALL";
     ProgressDialog progressDialog;
     private List<Marker> originMarkers = new ArrayList<>();
@@ -351,6 +352,9 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         aQuery = new AQuery(this);
+
+        menunumberimg = (RelativeLayout) findViewById(R.id.menunumberimg);
+        vnumberimg = (RelativeLayout) findViewById(R.id.vnumberimg);
         bottoncontainer = (RelativeLayout) findViewById(R.id.bottoncontainer);
         containermenubtn = (RelativeLayout) findViewById(R.id.containermenubtn);
         containermenubtn.setOnClickListener(this);
@@ -546,6 +550,9 @@ public class MainActivity extends AppCompatActivity
             }
 
         }
+//        PrefsHelper.getbookingselect(getApplication(), 0);
+        PrefsHelper.getbookingselect(getApplication(), "0");
+        PrefsHelper.getlistselect(getApplication(), 0);
         PrefsHelper.getofficalbooking(getApplication(), "0");
 //        loadorderinfo();
 //        new Thread(new Runnable() {
@@ -1191,8 +1198,10 @@ public class MainActivity extends AppCompatActivity
         switch (item.getItemId()) {
             case R.id.mybookings:
                 Intent intent = new Intent();
+//                PrefsHelper.getbookingselect(getApplication(), 1);
                 intent.setClass(MainActivity.this, NewBookingActivity.class);
                 startActivity(intent);
+                finish();
 //                relativeLayout.setVisibility(View.VISIBLE);
 //                getFragmentManager().beginTransaction().replace(R.id.container, new MybookingsFragment()).commit();
                 break;
@@ -1325,8 +1334,9 @@ public class MainActivity extends AppCompatActivity
         Geocoder gc = new Geocoder(MainActivity.this, Locale.TRADITIONAL_CHINESE);
         lstAddress = null;
 
+        System.out.println("mainactivity getcurrent ===== : " + location.toString() + " " + location);
 
-        if (location != null) {
+        if (location.toString() != null) {
             nowlat = location.getLatitude();
             nowlng = location.getLongitude();
             try {
@@ -1335,7 +1345,9 @@ public class MainActivity extends AppCompatActivity
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            etOrigin.setText(lstAddress.get(0).getAddressLine(0));
+            if (lstAddress != null) {
+                etOrigin.setText(lstAddress.get(0).getAddressLine(0));
+            }
 
         }
 //        if (!lstAddress.isEmpty()) {
@@ -1873,8 +1885,8 @@ public class MainActivity extends AppCompatActivity
                 try {
                     if (object.getString("sys_code").equals("200")) {
                         if (object.getString("count").equals("0")) {
-                            vnumbertxt.setVisibility(View.INVISIBLE);
-                            menunumbertxt.setVisibility(View.INVISIBLE);
+                            vnumberimg.setVisibility(View.INVISIBLE);
+                            menunumberimg.setVisibility(View.INVISIBLE);
                         } else {
                             vnumbertxt.setText(object.getString("count"));
                             menunumbertxt.setText(object.getString("count"));
@@ -1913,8 +1925,10 @@ public class MainActivity extends AppCompatActivity
                 break;
             case R.id.mybookingbtn:
                 Intent intent = new Intent();
+                PrefsHelper.getbookingselect(getApplication(), "1");
                 intent.setClass(MainActivity.this, NewBookingActivity.class);
                 startActivity(intent);
+                finish();
                 break;
             case R.id.menuback:
                 cleanmap();
@@ -2050,6 +2064,7 @@ public class MainActivity extends AppCompatActivity
             oktxt = (TextView) view.findViewById(R.id.oktxt);
             canceltxt = (TextView) view.findViewById(R.id.canceltxt);
             mytxt.setOnClickListener(this);
+
             dtimetxt = (TextView) view.findViewById(R.id.dtimetxt);
             nextbtn.setOnClickListener(this);
             cancelbtn = (RelativeLayout) view.findViewById(R.id.canclebtn);

@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -26,6 +27,8 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * Created by Nosy on 2017/3/5.
@@ -51,6 +54,7 @@ public class NewBookingActivity extends Activity implements View.OnClickListener
         dialog = ProgressDialog.show(this, "",
                 "please wait.", true);
         dialog.show();
+        PrefsHelper.getbookingtype(getApplication(), "now");
         nowbtn = (LinearLayout) findViewById(R.id.nowbtn);
         nowbtn.setOnClickListener(this);
         backbtn = (ImageView) findViewById(R.id.backbtn);
@@ -64,6 +68,15 @@ public class NewBookingActivity extends Activity implements View.OnClickListener
         rv.setLayoutManager(linearLayoutManager);
 //        GatewayAdpter gatewayAdpter = new GatewayAdpter(getActivity(), arrayList);
         myBookingAdapter = new MyBookingAdapter(this, myBookingItemses);
+        myBookingAdapter.setonitemclick(new MyBookingAdapter.Onitemclick() {
+            @Override
+            public void onitemclick(View view, int position) {
+                Intent intent = new Intent();
+                intent.setClass(NewBookingActivity.this, BookingDetailActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
         loadlist1();
 
     }
@@ -203,6 +216,7 @@ public class NewBookingActivity extends Activity implements View.OnClickListener
 
         switch (view.getId()) {
             case R.id.nowbtn:
+                PrefsHelper.getbookingtype(getApplication(), "now");
                 dialog = ProgressDialog.show(this, "",
                         "please wait.", true);
                 dialog.show();
@@ -211,6 +225,7 @@ public class NewBookingActivity extends Activity implements View.OnClickListener
                 loadlist1();
                 break;
             case R.id.pastbtn:
+                PrefsHelper.getbookingtype(getApplication(), "past");
                 dialog = ProgressDialog.show(this, "",
                         "please wait.", true);
                 dialog.show();
@@ -223,7 +238,39 @@ public class NewBookingActivity extends Activity implements View.OnClickListener
                 Intent intent = new Intent();
                 intent.setClass(NewBookingActivity.this, MainActivity.class);
                 startActivity(intent);
+
                 break;
         }
+    }
+
+    private static Boolean isExit = false;
+    private static Boolean hasTask = false;
+
+    Timer timerExit = new Timer();
+    TimerTask task = new TimerTask() {
+
+        @Override
+        public void run() {
+            isExit = false;
+            hasTask = true;
+        }
+    };
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+
+            if (isExit == false) {
+                isExit = true;
+
+                if (!hasTask) {
+                    timerExit.schedule(task, 1000);
+                }
+            } else {
+
+            }
+        }
+        return false;
     }
 }

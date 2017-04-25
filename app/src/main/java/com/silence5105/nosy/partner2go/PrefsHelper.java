@@ -8,6 +8,197 @@ import android.content.SharedPreferences;
  */
 
 public class PrefsHelper {
+    public static void getbookingselect(Context context, String bookingselect) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("bookingselect", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(PreferenceKeys.BOOKINGSELECT.toString(), bookingselect);
+        editor.commit();
+    }
+
+    public static String setbookingselect(Context context) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("bookingselect", Context.MODE_PRIVATE);
+        return sharedPreferences.getString(PreferenceKeys.BOOKINGSELECT.toString(), null);
+    }
+    public static void getbookingorderid(Context context, String bookingorderid) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("bookingorderid", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(PreferenceKeys.BOOKINGORDERID.toString(), bookingorderid);
+        editor.commit();
+    }
+
+    public static String setbookingorderid(Context context) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("bookingorderid", Context.MODE_PRIVATE);
+        return sharedPreferences.getString(PreferenceKeys.BOOKINGORDERID.toString(), null);
+    }
+
+    public static void getbookingtexinumber(Context context, String bookingtexinumber) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("bookingtexinumber", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(PreferenceKeys.BOOKINGTEXINUMBER.toString(), bookingtexinumber);
+        editor.commit();
+    }
+
+    public static String setbookingtexinumber(Context context) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("bookingtexinumber", Context.MODE_PRIVATE);
+        return sharedPreferences.getString(PreferenceKeys.BOOKINGTEXINUMBER.toString(), null);
+    }
+
+    public static void getbookingpayment(Context context, String bookingpayment) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("bookingpayment", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(PreferenceKeys.BOOKINGPAYMENT.toString(), bookingpayment);
+        editor.commit();
+    }
+
+    public static String setbookingpayment(Context context) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("bookingpayment", Context.MODE_PRIVATE);
+        return sharedPreferences.getString(PreferenceKeys.BOOKINGPAYMENT.toString(), null);
+    }
+
+    public static void getbookingdrivernumber(Context context, String bookingdrivernumber) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("bookingdrivernumber", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(PreferenceKeys.BOOKINGDRIVERNUMBER.toString(), bookingdrivernumber);
+        editor.commit();
+    }
+
+    public static String setbookingdrivernumber(Context context) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("bookingdrivernumber", Context.MODE_PRIVATE);
+        return sharedPreferences.getString(PreferenceKeys.BOOKINGDRIVERNUMBER.toString(), null);
+    }
+
+    public static void getbookingdrivername(Context context, String bookingdrivername) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("bookingdrivername", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(PreferenceKeys.BOOKINGDRIVERNAME.toString(), bookingdrivername);
+        editor.commit();
+    }
+
+    public static String setbookingdrivername(Context context) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("bookingdrivername", Context.MODE_PRIVATE);
+        return sharedPreferences.getString(PreferenceKeys.BOOKINGDRIVERNAME.toString(), null);
+    }
+
+    public static void getbookingorderstauts(Context context, String bookingorderstauts) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("bookingorderstauts", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(PreferenceKeys.BOOKINGORDERSTAUTS.toString(), bookingorderstauts);
+        editor.commit();
+    }
+
+    public static String setbookingorderstauts(Context context) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("bookingorderstauts", Context.MODE_PRIVATE);
+        return sharedPreferences.getString(PreferenceKeys.BOOKINGORDERSTAUTS.toString(), null);
+    }
+
+    public static void getbookingrank(Context context, String bookingrank) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("bookingrank", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(PreferenceKeys.BOOKINGRANK.toString(), bookingrank);
+        editor.commit();
+    }
+
+    public static String setbookingrank(Context context) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("bookingrank", Context.MODE_PRIVATE);
+        return sharedPreferences.getString(PreferenceKeys.BOOKINGRANK.toString(), null);
+    }
+
+    public static void getbookinginfo(Context context, String bookinginfo) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("bookinginfo", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(PreferenceKeys.BOOKINGINFO.toString(), bookinginfo);
+        editor.commit();
+    }
+
+    public static String setbookinginfo(Context context) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("bookinginfo", Context.MODE_PRIVATE);
+        return sharedPreferences.getString(PreferenceKeys.BOOKINGINFO.toString(), null);
+    }
+
+    public static void getbookingsubject(Context context, String bookingsubject) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("bookingsubject", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(PreferenceKeys.BOOKINGSUBJECT.toString(), bookingsubject);
+        editor.commit();
+    }
+
+    public static String setbookingsubject(Context context) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("bookingsubject", Context.MODE_PRIVATE);
+        return sharedPreferences.getString(PreferenceKeys.BOOKINGSUBJECT.toString(), null);
+    }
+
+    public static void getbookingcar(Context context, String bookingcar) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("bookingcar", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(PreferenceKeys.BOOKINGCAR.toString(), bookingcar);
+        editor.commit();
+    }
+
+    public static String setbookingcar(Context context) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("bookingcar", Context.MODE_PRIVATE);
+        return sharedPreferences.getString(PreferenceKeys.BOOKINGCAR.toString(), null);
+    }
+
+    public static void getbookingupdatetime(Context context, String bookingupdatetime) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("bookingupdatetime", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(PreferenceKeys.BOOKINGUPDATATIME.toString(), bookingupdatetime);
+        editor.commit();
+    }
+
+    public static String setbookingupdatetime(Context context) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("bookingupdatetime", Context.MODE_PRIVATE);
+        return sharedPreferences.getString(PreferenceKeys.BOOKINGUPDATATIME.toString(), null);
+    }
+
+    public static void getbookingcost(Context context, String bookingcost) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("bookingcost", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(PreferenceKeys.BOOKINGCOST.toString(), bookingcost);
+        editor.commit();
+    }
+
+    public static String setbookingcost(Context context) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("bookingcost", Context.MODE_PRIVATE);
+        return sharedPreferences.getString(PreferenceKeys.BOOKINGCOST.toString(), null);
+    }
+
+    public static void getbookingendadress(Context context, String bookingendadress) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("bookingendadress", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(PreferenceKeys.BOOKINGENDADRESS.toString(), bookingendadress);
+        editor.commit();
+    }
+
+    public static String setbookingendadress(Context context) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("bookingendadress", Context.MODE_PRIVATE);
+        return sharedPreferences.getString(PreferenceKeys.BOOKINGENDADRESS.toString(), null);
+    }
+
+    public static void getbookingstartadress(Context context, String bookingstartadress) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("bookingstartadress", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(PreferenceKeys.BOOKINGSTARTADRESS.toString(), bookingstartadress);
+        editor.commit();
+    }
+
+    public static String setbookingstartadress(Context context) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("bookingstartadress", Context.MODE_PRIVATE);
+        return sharedPreferences.getString(PreferenceKeys.BOOKINGSTARTADRESS.toString(), null);
+    }
+
+    public static void getbookingtype(Context context, String bookingtype) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("bookingtype", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(PreferenceKeys.BOOKINGTYPE.toString(), bookingtype);
+        editor.commit();
+    }
+
+    public static String setbookingtype(Context context) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("bookingtype", Context.MODE_PRIVATE);
+        return sharedPreferences.getString(PreferenceKeys.BOOKINGTYPE.toString(), null);
+    }
+
     public static void getgoreservatione(Context context, String goreservatione) {
         SharedPreferences sharedPreferences = context.getSharedPreferences("goreservatione", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -19,6 +210,7 @@ public class PrefsHelper {
         SharedPreferences sharedPreferences = context.getSharedPreferences("goreservatione", Context.MODE_PRIVATE);
         return sharedPreferences.getString(PreferenceKeys.RESERVATION.toString(), null);
     }
+
     public static void getusername(Context context, String username) {
         SharedPreferences sharedPreferences = context.getSharedPreferences("username", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -30,6 +222,7 @@ public class PrefsHelper {
         SharedPreferences sharedPreferences = context.getSharedPreferences("username", Context.MODE_PRIVATE);
         return sharedPreferences.getString(PreferenceKeys.USERNAME.toString(), null);
     }
+
     public static void getordertype(Context context, String ordertype) {
         SharedPreferences sharedPreferences = context.getSharedPreferences("ordertype", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -41,6 +234,7 @@ public class PrefsHelper {
         SharedPreferences sharedPreferences = context.getSharedPreferences("ordertype", Context.MODE_PRIVATE);
         return sharedPreferences.getString(PreferenceKeys.ORDERTYPE.toString(), null);
     }
+
     public static void getlast5m(Context context, String last5m) {
         SharedPreferences sharedPreferences = context.getSharedPreferences("last5m", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -64,6 +258,7 @@ public class PrefsHelper {
         SharedPreferences sharedPreferences = context.getSharedPreferences("last30m", Context.MODE_PRIVATE);
         return sharedPreferences.getString(PreferenceKeys.LAST30M.toString(), null);
     }
+
     public static void getlistselect(Context context, int listselect) {
         SharedPreferences sharedPreferences = context.getSharedPreferences("listselect", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -75,6 +270,7 @@ public class PrefsHelper {
         SharedPreferences sharedPreferences = context.getSharedPreferences("listselect", Context.MODE_PRIVATE);
         return sharedPreferences.getInt(PreferenceKeys.LISTSELECT.toString(), 0);
     }
+
     public static void getdriverotw(Context context, String driverotw) {
         SharedPreferences sharedPreferences = context.getSharedPreferences("driverotw", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -86,6 +282,7 @@ public class PrefsHelper {
         SharedPreferences sharedPreferences = context.getSharedPreferences("driverotw", Context.MODE_PRIVATE);
         return sharedPreferences.getString(PreferenceKeys.DRIVEROTW.toString(), null);
     }
+
     public static void getendlat(Context context, String endlat) {
         SharedPreferences sharedPreferences = context.getSharedPreferences("endlat", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -97,6 +294,7 @@ public class PrefsHelper {
         SharedPreferences sharedPreferences = context.getSharedPreferences("endlat", Context.MODE_PRIVATE);
         return sharedPreferences.getString(PreferenceKeys.ENDLAT.toString(), null);
     }
+
     public static void getendlng(Context context, String endlng) {
         SharedPreferences sharedPreferences = context.getSharedPreferences("endlng", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -108,6 +306,7 @@ public class PrefsHelper {
         SharedPreferences sharedPreferences = context.getSharedPreferences("endlng", Context.MODE_PRIVATE);
         return sharedPreferences.getString(PreferenceKeys.ENDLNG.toString(), null);
     }
+
     public static void getstartlng(Context context, String startlng) {
         SharedPreferences sharedPreferences = context.getSharedPreferences("startlng", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -119,6 +318,7 @@ public class PrefsHelper {
         SharedPreferences sharedPreferences = context.getSharedPreferences("startlng", Context.MODE_PRIVATE);
         return sharedPreferences.getString(PreferenceKeys.STARTLNG.toString(), null);
     }
+
     public static void getstartlat(Context context, String startlat) {
         SharedPreferences sharedPreferences = context.getSharedPreferences("startlat", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -130,6 +330,7 @@ public class PrefsHelper {
         SharedPreferences sharedPreferences = context.getSharedPreferences("startlat", Context.MODE_PRIVATE);
         return sharedPreferences.getString(PreferenceKeys.STARTLAT.toString(), null);
     }
+
     public static void getdriverlng(Context context, String driverlng) {
         SharedPreferences sharedPreferences = context.getSharedPreferences("driverlng", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -141,6 +342,7 @@ public class PrefsHelper {
         SharedPreferences sharedPreferences = context.getSharedPreferences("driverlng", Context.MODE_PRIVATE);
         return sharedPreferences.getString(PreferenceKeys.DRIVERLNG.toString(), null);
     }
+
     public static void getdriverlat(Context context, String driverlat) {
         SharedPreferences sharedPreferences = context.getSharedPreferences("driverlat", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -152,6 +354,7 @@ public class PrefsHelper {
         SharedPreferences sharedPreferences = context.getSharedPreferences("driverlat", Context.MODE_PRIVATE);
         return sharedPreferences.getString(PreferenceKeys.DRIVERLAT.toString(), null);
     }
+
     public static void getdrivercarclass(Context context, String drivercarclass) {
         SharedPreferences sharedPreferences = context.getSharedPreferences("drivercarclass", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -163,6 +366,7 @@ public class PrefsHelper {
         SharedPreferences sharedPreferences = context.getSharedPreferences("drivercarclass", Context.MODE_PRIVATE);
         return sharedPreferences.getString(PreferenceKeys.DRIVERCARCLASS.toString(), null);
     }
+
     public static void gettextnumber(Context context, String textnumber) {
         SharedPreferences sharedPreferences = context.getSharedPreferences("textnumber", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -174,6 +378,7 @@ public class PrefsHelper {
         SharedPreferences sharedPreferences = context.getSharedPreferences("textnumber", Context.MODE_PRIVATE);
         return sharedPreferences.getString(PreferenceKeys.TEXTNUMBER.toString(), null);
     }
+
     public static void getdriverphonenumber(Context context, String driverphonenumber) {
         SharedPreferences sharedPreferences = context.getSharedPreferences("driverphonenumber", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -185,6 +390,7 @@ public class PrefsHelper {
         SharedPreferences sharedPreferences = context.getSharedPreferences("driverphonenumber", Context.MODE_PRIVATE);
         return sharedPreferences.getString(PreferenceKeys.DRIVERPHONENUMBER.toString(), null);
     }
+
     public static void getgotime(Context context, String gotime) {
         SharedPreferences sharedPreferences = context.getSharedPreferences("gotime", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -196,6 +402,7 @@ public class PrefsHelper {
         SharedPreferences sharedPreferences = context.getSharedPreferences("gotime", Context.MODE_PRIVATE);
         return sharedPreferences.getString(PreferenceKeys.GOTIME.toString(), null);
     }
+
     public static void getrate(Context context, String rate) {
         SharedPreferences sharedPreferences = context.getSharedPreferences("rate", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -207,6 +414,7 @@ public class PrefsHelper {
         SharedPreferences sharedPreferences = context.getSharedPreferences("rate", Context.MODE_PRIVATE);
         return sharedPreferences.getString(PreferenceKeys.DRIVERRATE.toString(), null);
     }
+
     public static void getcost(Context context, String cost) {
         SharedPreferences sharedPreferences = context.getSharedPreferences("cost", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -230,6 +438,7 @@ public class PrefsHelper {
         SharedPreferences sharedPreferences = context.getSharedPreferences("drivername", Context.MODE_PRIVATE);
         return sharedPreferences.getString(PreferenceKeys.DRIVERNAME.toString(), null);
     }
+
     public static void getofficalbooking(Context context, String officalbooking) {
         SharedPreferences sharedPreferences = context.getSharedPreferences("officalbooking", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -241,6 +450,7 @@ public class PrefsHelper {
         SharedPreferences sharedPreferences = context.getSharedPreferences("officalbooking", Context.MODE_PRIVATE);
         return sharedPreferences.getString(PreferenceKeys.OFFICIALBOOKING.toString(), null);
     }
+
     public static void getofficaltype(Context context, String officaltype) {
         SharedPreferences sharedPreferences = context.getSharedPreferences("officaltype", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -252,6 +462,7 @@ public class PrefsHelper {
         SharedPreferences sharedPreferences = context.getSharedPreferences("officaltype", Context.MODE_PRIVATE);
         return sharedPreferences.getString(PreferenceKeys.OFFICIALTYPE.toString(), null);
     }
+
     public static void getclientorderid(Context context, String clientorderid) {
         SharedPreferences sharedPreferences = context.getSharedPreferences("clientorderid", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();

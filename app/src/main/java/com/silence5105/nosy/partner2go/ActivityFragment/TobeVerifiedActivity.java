@@ -1,8 +1,10 @@
 package com.silence5105.nosy.partner2go.ActivityFragment;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -16,6 +18,9 @@ import com.silence5105.nosy.partner2go.R;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * Created by Nosy on 2017/4/1.
@@ -55,7 +60,7 @@ public class TobeVerifiedActivity extends Activity implements View.OnClickListen
                 super.callback(url, object, status);
                 try {
                     if (object.getString("sys_code").equals("200")) {
-                        nametxt.setText(object.getJSONArray("data_list").getJSONObject(PrefsHelper.setlistselect(getApplication())).getString("official_id").toString());
+                        nametxt.setText(object.getJSONArray("data_list").getJSONObject(PrefsHelper.setlistselect(getApplication())).getString("member_name").toString());
                         jobtxt.setText(object.getJSONArray("data_list").getJSONObject(PrefsHelper.setlistselect(getApplication())).getString("official_subject").toString());
                         createtimetxt.setText(object.getJSONArray("data_list").getJSONObject(PrefsHelper.setlistselect(getApplication())).getString("create_datetime").toString());
                         updatatimetxt.setText(object.getJSONArray("data_list").getJSONObject(PrefsHelper.setlistselect(getApplication())).getString("update_datetime").toString());
@@ -83,7 +88,11 @@ public class TobeVerifiedActivity extends Activity implements View.OnClickListen
                     public void callback(String url, JSONObject object, AjaxStatus status) {
                         super.callback(url, object, status);
                         System.out.println("agress ===== : " + object);
+                        Intent intent = new Intent();
+                        intent.setClass(TobeVerifiedActivity.this, VerifiedActivity.class);
+                        startActivity(intent);
                         finish();
+
                     }
                 });
                 break;
@@ -94,13 +103,51 @@ public class TobeVerifiedActivity extends Activity implements View.OnClickListen
                     public void callback(String url, JSONObject object, AjaxStatus status) {
                         super.callback(url, object, status);
                         System.out.println(" refusebtnclick ====== : " + object);
+                        Intent intent = new Intent();
+                        intent.setClass(TobeVerifiedActivity.this, VerifiedActivity.class);
+                        startActivity(intent);
                         finish();
                     }
                 });
                 break;
             case R.id.backbtn:
-                this.finish();
+//                this.finish();
+                Intent intent = new Intent();
+                intent.setClass(TobeVerifiedActivity.this, VerifiedActivity.class);
+                startActivity(intent);
+                finish();
                 break;
         }
+    }
+
+    private static Boolean isExit = false;
+    private static Boolean hasTask = false;
+
+    Timer timerExit = new Timer();
+    TimerTask task = new TimerTask() {
+
+        @Override
+        public void run() {
+            isExit = false;
+            hasTask = true;
+        }
+    };
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+
+            if (isExit == false) {
+                isExit = true;
+
+                if (!hasTask) {
+                    timerExit.schedule(task, 1000);
+                }
+            } else {
+
+            }
+        }
+        return false;
     }
 }

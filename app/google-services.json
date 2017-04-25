@@ -1,35 +1,27 @@
 {
   "project_info": {
-    "project_number": "350397581906",
-    "firebase_url": "https://logintestdemo-7ceab.firebaseio.com",
-    "project_id": "logintestdemo-7ceab",
-    "storage_bucket": "logintestdemo-7ceab.appspot.com"
+    "project_number": "623860776221",
+    "firebase_url": "https://go-gpo.firebaseio.com",
+    "project_id": "go-gpo",
+    "storage_bucket": "go-gpo.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:350397581906:android:b310d075074eec9d",
+        "mobilesdk_app_id": "1:623860776221:android:1e7b58d30b2ac30d",
         "android_client_info": {
-          "package_name": "com.silence5105.nosy.a2gopartner"
+          "package_name": "com.silence5105.nosy.partner2go"
         }
       },
       "oauth_client": [
         {
-          "client_id": "350397581906-2fq4dv4rgqmrhr1cvri6a3htl3o4lbq4.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.silence5105.nosy.a2gopartner",
-            "certificate_hash": "800a192793bfab1ee58881181ac4aa620ccffe68"
-          }
-        },
-        {
-          "client_id": "350397581906-2jutskqi6ff5k96u1u07mq0i9lnvathd.apps.googleusercontent.com",
+          "client_id": "623860776221-lk2b3svavuvfbrs44marco14g68iofdk.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAYElkpLWdjni9vr1D-nZpgMKKZYfd-6dI"
+          "current_key": "AIzaSyBV8jQAnhjqPR8T_wtXQi980MGFuqhyOEE"
         }
       ],
       "services": {
@@ -37,20 +29,8 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 2,
-          "other_platform_oauth_client": [
-            {
-              "client_id": "350397581906-gpe4kcc4fdbphp06rvbfrku28em6qctr.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.fofo.taxi2go"
-              }
-            },
-            {
-              "client_id": "350397581906-2jutskqi6ff5k96u1u07mq0i9lnvathd.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "status": 1,
+          "other_platform_oauth_client": []
         },
         "ads_service": {
           "status": 2
@@ -59,28 +39,20 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:350397581906:android:1e7b58d30b2ac30d",
+        "mobilesdk_app_id": "1:623860776221:android:b310d075074eec9d",
         "android_client_info": {
-          "package_name": "com.silence5105.nosy.partner2go"
+          "package_name": "com.silence5105.nosy.a2gopartner"
         }
       },
       "oauth_client": [
         {
-          "client_id": "350397581906-gvfe42qqkbppppfilqd148n61r2kieno.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.silence5105.nosy.partner2go",
-            "certificate_hash": "800a192793bfab1ee58881181ac4aa620ccffe68"
-          }
-        },
-        {
-          "client_id": "350397581906-2jutskqi6ff5k96u1u07mq0i9lnvathd.apps.googleusercontent.com",
+          "client_id": "623860776221-lk2b3svavuvfbrs44marco14g68iofdk.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAYElkpLWdjni9vr1D-nZpgMKKZYfd-6dI"
+          "current_key": "AIzaSyBV8jQAnhjqPR8T_wtXQi980MGFuqhyOEE"
         }
       ],
       "services": {
@@ -88,20 +60,8 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 2,
-          "other_platform_oauth_client": [
-            {
-              "client_id": "350397581906-gpe4kcc4fdbphp06rvbfrku28em6qctr.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.fofo.taxi2go"
-              }
-            },
-            {
-              "client_id": "350397581906-2jutskqi6ff5k96u1u07mq0i9lnvathd.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "status": 1,
+          "other_platform_oauth_client": []
         },
         "ads_service": {
           "status": 2
