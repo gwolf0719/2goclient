@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.androidquery.AQuery;
 import com.androidquery.callback.AjaxCallback;
@@ -82,6 +83,10 @@ public class PhoneCreateFragment extends Fragment implements View.OnClickListene
                                 }
                             }
                         }).start();
+                    }
+                    if (object.getString("sys_code").equals("500")){
+                        Toast.makeText(getActivity(),"Account repeated.",Toast.LENGTH_SHORT).show();
+                        dialog.dismiss();
                     }
                     if (object.getString("sys_code").equals("501")) {
                         PrefsHelper.getphonenumber(getActivity(), phonenumberedittxt.getText().toString());

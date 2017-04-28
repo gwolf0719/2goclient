@@ -60,7 +60,7 @@ android:textSize="16sp"
     <RelativeLayout
         android:id="@+id/nexttxt"
         android:layout_width="100dp"
-        android:layout_marginLeft="279dp"
+        android:layout_alignParentRight="true"
         android:layout_marginRight="14dp"
         android:layout_below="@+id/numaberlayout"
         android:layout_marginTop="68dp"

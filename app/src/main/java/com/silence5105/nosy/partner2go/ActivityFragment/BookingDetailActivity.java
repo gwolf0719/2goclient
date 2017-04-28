@@ -189,6 +189,9 @@ public class BookingDetailActivity extends Activity implements View.OnClickListe
                 startActivity(call);
                 break;
             case R.id.backbtn:
+                Intent intent = new Intent();
+                intent.setClass(BookingDetailActivity.this, NewBookingActivity.class);
+                startActivity(intent);
                 finish();
                 break;
             case R.id.cancelbtn:
@@ -231,6 +234,7 @@ public class BookingDetailActivity extends Activity implements View.OnClickListe
                 break;
         }
     }
+
     private static Boolean isExit = false;
     private static Boolean hasTask = false;
 
