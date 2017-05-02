@@ -2053,7 +2053,10 @@ public class MainActivity extends AppCompatActivity
         TimePickerDialog timePicker;
         RelativeLayout cancelbtn, nextbtn;
         Date nowdate, chosdate, ynowdate, ychosdate;
+
         int AM_PM;
+        private RelativeLayout bnext;
+        private RelativeLayout bcancelbtn;
 
         @Nullable
         @Override
@@ -2061,10 +2064,14 @@ public class MainActivity extends AppCompatActivity
             View view = inflater.inflate(R.layout.bookselecttimelayout, container, false);
             nextbtn = (RelativeLayout) view.findViewById(R.id.nextbtn);
             mytxt = (TextView) view.findViewById(R.id.mytxt);
-            oktxt = (TextView) view.findViewById(R.id.oktxt);
-            canceltxt = (TextView) view.findViewById(R.id.canceltxt);
+//            oktxt = (TextView) view.findViewById(R.id.oktxt);
+//            canceltxt = (TextView) view.findViewById(R.id.canceltxt);
+            bcancelbtn = (RelativeLayout) view.findViewById(R.id.bcanclebtn);
+            bcancelbtn.setOnClickListener(this);
             mytxt.setOnClickListener(this);
-
+            bnext = (RelativeLayout) view.findViewById(R.id.bnextbtn);
+            bnext.setOnClickListener(this);
+            bnext.setVisibility(View.INVISIBLE);
             dtimetxt = (TextView) view.findViewById(R.id.dtimetxt);
             nextbtn.setOnClickListener(this);
             cancelbtn = (RelativeLayout) view.findViewById(R.id.canclebtn);
@@ -2123,7 +2130,8 @@ public class MainActivity extends AppCompatActivity
                                     Long ydt = yanser / 86400000;
                                     System.out.println("TIME Y ====== + " + yanser + " " + ynowt + " " + ychost);
                                     if (ydt >= 1) {
-                                        oktxt.setVisibility(View.VISIBLE);
+//                                        oktxt.setVisibility(View.VISIBLE);
+                                        bcancelbtn.setVisibility(View.VISIBLE);
                                     }
 
 
@@ -2174,7 +2182,8 @@ public class MainActivity extends AppCompatActivity
                                     Long ansert = chost - nowt;
                                     Long min = ansert / 60000;
                                     if (min >= 45) {
-                                        oktxt.setVisibility(View.VISIBLE);
+//                                        oktxt.setVisibility(View.VISIBLE);
+                                        bnext.setVisibility(View.VISIBLE);
                                     }
                                     if (min < 45) {
                                         Toast.makeText(MainActivity.this, "Need to advance 45 minutes ahead of time", Toast.LENGTH_SHORT).show();
@@ -2189,11 +2198,26 @@ public class MainActivity extends AppCompatActivity
                         }
                     }, mH, mm, true);
 //        dpd.show();
-            if (PrefsHelper.setofficalbooking(getActivity()).equals("1")) {
-                oktxt.setVisibility(View.INVISIBLE);
+            if (PrefsHelper.setofficalbooking(getActivity()).equals("0")) {
+//                oktxt.setVisibility(View.INVISIBLE);
                 officletxt.setVisibility(View.VISIBLE);
-                oktxt.setText(R.string.officialbookingok);
-                canceltxt.setText(R.string.officialbookingcancel);
+//                oktxt.setText(R.string.officialbookingok);
+                nextbtn.setVisibility(View.VISIBLE);
+                bnext.setVisibility(View.INVISIBLE);
+//                canceltxt.setText(R.string.officialbookingcancel);
+                cancelbtn.setVisibility(View.VISIBLE);
+                bcancelbtn.setVisibility(View.INVISIBLE);
+            }
+
+            if (PrefsHelper.setofficalbooking(getActivity()).equals("1")) {
+//                oktxt.setVisibility(View.INVISIBLE);
+                officletxt.setVisibility(View.VISIBLE);
+//                oktxt.setText(R.string.officialbookingok);
+//                bnext.setVisibility(View.VISIBLE);
+                nextbtn.setVisibility(View.INVISIBLE);
+                cancelbtn.setVisibility(View.INVISIBLE);
+                bcancelbtn.setVisibility(View.VISIBLE);
+//                canceltxt.setText(R.string.officialbookingcancel);
             }
             return view;
         }
@@ -2202,10 +2226,7 @@ public class MainActivity extends AppCompatActivity
         @Override
         public void onClick(View view) {
             switch (view.getId()) {
-                case R.id.canclebtn:
-                    cleanmap();
-                    break;
-                case R.id.nextbtn:
+                case R.id.bnextbtn:
                     String hh = dtimetxt.getText().toString().substring(0, 2);
                     PrefsHelper.gethtime(getActivity(), hh);
 //                getActivity().
@@ -2222,6 +2243,30 @@ public class MainActivity extends AppCompatActivity
                     fragmentTransaction.remove(new BookSelectTimeFragment1());
                     fragmentTransaction.replace(R.id.showview, new BookingCarSelectFragment1());
                     fragmentTransaction.commit();
+                    break;
+                case R.id.bcanclebtn:
+                    cleanmap();
+                    break;
+                case R.id.canclebtn:
+                    cleanmap();
+                    break;
+                case R.id.nextbtn:
+                    String hhh = dtimetxt.getText().toString().substring(0, 2);
+                    PrefsHelper.gethtime(getActivity(), hhh);
+//                getActivity().
+                    String alltime1 = mytxt.getText().toString() + " " + dtimetxt.getText().toString();
+//                getActivity().imvblockbg();
+//                    imvblockbg();
+                    System.out.println("alltime ====== : " + alltime1);
+                    menubtn.setVisibility(View.GONE);
+                    containermenubtn.setVisibility(View.VISIBLE);
+//                    BookSelectTimeFragment1 bookSelectTimeFragment1 = new BookSelectTimeFragment1();
+                    PrefsHelper.getalltime(getActivity(), alltime1);
+                    FragmentTransaction fragmentTransaction1 = getActivity().getFragmentManager().beginTransaction();
+                    fragmentTransaction1.setCustomAnimations(R.anim.fragment_slide_left_enter, R.anim.fragment_slide_left_exit);
+                    fragmentTransaction1.remove(new BookSelectTimeFragment1());
+                    fragmentTransaction1.replace(R.id.showview, new BookingCarSelectFragment1());
+                    fragmentTransaction1.commit();
 //                    getActivity().getFragmentManager().beginTransaction().replace(R.id.showview, new BookingCarSelectFragment1()).commit();
 
                     break;

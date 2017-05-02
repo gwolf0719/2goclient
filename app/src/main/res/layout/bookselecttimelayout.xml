@@ -85,7 +85,6 @@
             android:layout_marginTop="15dp">
 
             <TextView
-                android:id="@+id/oktxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
@@ -97,9 +96,31 @@
                 android:textColor="#c63725"
                 android:textSize="14sp" />
         </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/bnextbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="29dp"
+
+                android:text="OK"
+                android:textAlignment="center"
+                android:textColor="#0255a6"
+                android:textSize="14sp" />
+        </RelativeLayout>
+
 
         <RelativeLayout
             android:id="@+id/canclebtn"
+            android:layout_marginTop="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/nextbtn"
@@ -108,15 +129,37 @@
             android:layout_toStartOf="@+id/nextbtn">
 
             <TextView
-                android:id="@+id/canceltxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="14.5dp"
                 android:layout_marginLeft="10dp"
+
                 android:layout_marginRight="18.5dp"
                 android:text="CANCEL"
                 android:textColor="#c63725"
                 android:textSize="14dp" />
+
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/bcanclebtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/nextbtn"
+            android:layout_alignBottom="@+id/nextbtn"
+            android:layout_toLeftOf="@+id/nextbtn"
+            android:layout_toStartOf="@+id/nextbtn">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="14.5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="18.5dp"
+                android:text="CANCEL"
+                android:textColor="#0255a6"
+                android:textSize="14dp" />
+
 
         </RelativeLayout>
         <TextView
