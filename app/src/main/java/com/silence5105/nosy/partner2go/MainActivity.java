@@ -2131,7 +2131,7 @@ public class MainActivity extends AppCompatActivity
                                     System.out.println("TIME Y ====== + " + yanser + " " + ynowt + " " + ychost);
                                     if (ydt >= 1) {
 //                                        oktxt.setVisibility(View.VISIBLE);
-                                        bcancelbtn.setVisibility(View.VISIBLE);
+                                        bnext.setVisibility(View.VISIBLE);
                                     }
 
 
@@ -2200,7 +2200,7 @@ public class MainActivity extends AppCompatActivity
 //        dpd.show();
             if (PrefsHelper.setofficalbooking(getActivity()).equals("0")) {
 //                oktxt.setVisibility(View.INVISIBLE);
-                officletxt.setVisibility(View.VISIBLE);
+                officletxt.setVisibility(View.INVISIBLE);
 //                oktxt.setText(R.string.officialbookingok);
                 nextbtn.setVisibility(View.VISIBLE);
                 bnext.setVisibility(View.INVISIBLE);
