@@ -60,22 +60,22 @@ public class LoginContainerActivity extends Activity {
                     timerExit.schedule(task, 1000);
                 }
             } else {
-                new AlertDialog.Builder(this)
-                        .setTitle("")
-                        .setMessage("exit app?")
-                        .setNegativeButton("no", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                            }
-                        })
-                        .setPositiveButton("yes", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-
-                                System.exit(0);
-
-                            }
-                        }).show();
+//                new AlertDialog.Builder(this)
+//                        .setTitle("")
+//                        .setMessage("exit app?")
+//                        .setNegativeButton("no", new DialogInterface.OnClickListener() {
+//                            @Override
+//                            public void onClick(DialogInterface dialog, int which) {
+//                            }
+//                        })
+//                        .setPositiveButton("yes", new DialogInterface.OnClickListener() {
+//                            @Override
+//                            public void onClick(DialogInterface dialog, int which) {
+//
+//                                System.exit(0);
+//
+//                            }
+//                        }).show();
             }
         }
         return false;

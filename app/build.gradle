@@ -1,9 +1,9 @@
 apply plugin: 'com.android.application'
 
 android {
-//    lintOptions {
-//        abortOnError false
-//    }
+    lintOptions {
+        abortOnError false
+    }
     signingConfigs {
         releasekey {
             keyAlias 'Nosy'
@@ -18,8 +18,8 @@ android {
         applicationId "com.silence5105.nosy.partner2go"
         minSdkVersion 15
         targetSdkVersion 25
-        versionCode 1
-        versionName "1.6.2"
+        versionCode 2
+        versionName "1.6.2.r.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
     }

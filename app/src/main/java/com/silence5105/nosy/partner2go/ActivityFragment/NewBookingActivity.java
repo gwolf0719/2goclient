@@ -12,6 +12,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import com.androidquery.AQuery;
 import com.androidquery.callback.AjaxCallback;
@@ -41,7 +42,7 @@ public class NewBookingActivity extends Activity implements View.OnClickListener
     private ProgressDialog dialog;
     MyBookingAdapter myBookingAdapter;
     LinearLayout nowbtn, pastbtn;
-    ImageView backbtn;
+    RelativeLayout backbtn;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -57,7 +58,7 @@ public class NewBookingActivity extends Activity implements View.OnClickListener
         PrefsHelper.getbookingtype(getApplication(), "now");
         nowbtn = (LinearLayout) findViewById(R.id.nowbtn);
         nowbtn.setOnClickListener(this);
-        backbtn = (ImageView) findViewById(R.id.backbtn);
+        backbtn = (RelativeLayout) findViewById(R.id.backbtn);
         backbtn.setOnClickListener(this);
         nowbtn.setBackgroundColor(Color.parseColor("#33000000"));
         pastbtn = (LinearLayout) findViewById(R.id.pastbtn);

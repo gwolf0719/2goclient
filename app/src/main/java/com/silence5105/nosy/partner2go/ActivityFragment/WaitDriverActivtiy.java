@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -20,6 +21,9 @@ import com.silence5105.nosy.partner2go.R;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * Created by Nosy on 2017/3/14.
@@ -104,5 +108,53 @@ public class WaitDriverActivtiy extends Activity implements View.OnClickListener
                         }).show();
                 break;
         }
+    }
+
+    private static Boolean isExit = false;
+    private static Boolean hasTask = false;
+
+    Timer timerExit = new Timer();
+    TimerTask task = new TimerTask() {
+
+        @Override
+        public void run() {
+            isExit = false;
+            hasTask = true;
+        }
+    };
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        // 判斷是否按下Back
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+//            relativeLayout.setVisibility(View.INVISIBLE);
+            // 是否要退出
+            if (isExit == false) {
+                isExit = true; //記錄下一次要退出
+//                Toast.makeText(this, "再按一次返回離開程式", Toast.LENGTH_SHORT).show();
+                // 如果超過兩秒則恢復預設值
+                if (!hasTask) {
+                    timerExit.schedule(task, 1000);
+                }
+            } else {
+//                new AlertDialog.Builder(this)
+//                        .setTitle("")
+//                        .setMessage("exit app?")
+//                        .setNegativeButton("no", new DialogInterface.OnClickListener() {
+//                            @Override
+//                            public void onClick(DialogInterface dialog, int which) {
+//                            }
+//                        })
+//                        .setPositiveButton("yes", new DialogInterface.OnClickListener() {
+//                            @Override
+//                            public void onClick(DialogInterface dialog, int which) {
+//
+//                                System.exit(0);
+//
+//                            }
+//                        }).show();
+            }
+        }
+        return false;
     }
 }

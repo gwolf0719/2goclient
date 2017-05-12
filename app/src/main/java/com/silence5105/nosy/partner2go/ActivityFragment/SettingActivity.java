@@ -1,6 +1,7 @@
 package com.silence5105.nosy.partner2go.ActivityFragment;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
@@ -21,7 +22,7 @@ import com.silence5105.nosy.partner2go.R;
 public class SettingActivity extends Activity implements View.OnClickListener {
     RelativeLayout changepw, businessbtn, container;
     TextView nametxt, mobilenumber, logout;
-    ImageView backbtn;
+    RelativeLayout backbtn;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -37,7 +38,8 @@ public class SettingActivity extends Activity implements View.OnClickListener {
         mobilenumber = (TextView) findViewById(R.id.phonenumbertxt);
         mobilenumber.setText(PrefsHelper.setphonenumber(getApplication()));
         logout = (TextView) findViewById(R.id.logoutbtn);
-        backbtn = (ImageView) findViewById(R.id.backbtn);
+        logout.setOnClickListener(this);
+        backbtn = (RelativeLayout) findViewById(R.id.backbtn);
         backbtn.setOnClickListener(this);
         logout.setOnClickListener(this);
     }
@@ -46,24 +48,28 @@ public class SettingActivity extends Activity implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.logoutbtn:
-//                new AlertDialog.Builder(this)
-//                        .setTitle("")
-//                        .setMessage("do you want logout?")
-//                        .setNegativeButton("no", new DialogInterface.OnClickListener() {
-//                            @Override
-//                            public void onClick(DialogInterface dialog, int which) {
-//                            }
-//                        })
-//                        .setPositiveButton("yes", new DialogInterface.OnClickListener() {
-//                            @Override
-//                            public void onClick(DialogInterface dialog, int which) {
-//                                PrefsHelper.getautologin(getApplication(), "0");
+                new AlertDialog.Builder(this)
+                        .setTitle("")
+                        .setMessage("do you want logout?")
+                        .setNegativeButton("no", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                            }
+                        })
+                        .setPositiveButton("yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                PrefsHelper.getautologin(getApplication(), "0");
 //                                MainActivity mainActivity = new MainActivity();
 //                                System.runFinalizersOnExit(true);
 //                                System.exit(0);
-//
-//                            }
-//                        }).show();
+                                Intent intent = new Intent();
+                                intent.setClass(SettingActivity.this, LoginContainerActivity.class);
+                                startActivity(intent);
+                                finish();
+
+                            }
+                        }).show();
 
                 break;
             case R.id.changpassword:
@@ -74,7 +80,7 @@ public class SettingActivity extends Activity implements View.OnClickListener {
 ////                fragmentTransaction.remove(new MainActivity.BookSelectTimeFragment1());
 //                fragmentTransaction.replace(R.id.container, new ChangePWFragment());
 //                fragmentTransaction.commit();
-                getFragmentManager().beginTransaction().replace(R.id.container,new ChangePWFragment()).commit();
+                getFragmentManager().beginTransaction().replace(R.id.container, new ChangePWFragment()).commit();
                 break;
             case R.id.businessbtn:
                 if (PrefsHelper.setofficaltype(getApplication()) != null) {

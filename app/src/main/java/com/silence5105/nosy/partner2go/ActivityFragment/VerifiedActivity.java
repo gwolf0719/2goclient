@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 import com.androidquery.AQuery;
 import com.androidquery.callback.AjaxCallback;
@@ -30,7 +31,7 @@ public class VerifiedActivity extends Activity implements View.OnClickListener {
     AQuery aQuery;
     ArrayList<VerificationItems> arrayList = new ArrayList<VerificationItems>();
     VerificationAdapter verificationAdapter;
-    ImageView backbtn;
+    RelativeLayout backbtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +39,7 @@ public class VerifiedActivity extends Activity implements View.OnClickListener {
         setContentView(R.layout.newverifiedlayout);
         initview();
         loadverifiedlist();
-        backbtn = (ImageView) findViewById(R.id.backbtn);
+        backbtn = (RelativeLayout) findViewById(R.id.backbtn);
         backbtn.setOnClickListener(this);
         rv = (RecyclerView) findViewById(R.id.rv);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplication());

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.androidquery.AQuery;
@@ -23,7 +24,7 @@ import org.json.JSONObject;
 public class BusinessInfoActivity extends Activity implements View.OnClickListener {
     TextView bnametxt, jobtxt, enametxt, bmailtxt, bjobtxt, bcartxt;
     AQuery aQuery;
-    ImageView backbtn;
+    RelativeLayout backbtn;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -35,7 +36,7 @@ public class BusinessInfoActivity extends Activity implements View.OnClickListen
         bmailtxt = (TextView) findViewById(R.id.emailtxt);
         bjobtxt = (TextView) findViewById(R.id.jobtxt);
         bcartxt = (TextView) findViewById(R.id.bcartxt);
-        backbtn = (ImageView) findViewById(R.id.backbtn);
+        backbtn = (RelativeLayout) findViewById(R.id.backbtn);
         backbtn.setOnClickListener(this);
         aQuery = new AQuery(this);
         String url = "http://2go.ladesign.tw///api_official/member_business_info?member_id=" + PrefsHelper.setphonenumber(getApplication());
