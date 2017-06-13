@@ -144,7 +144,7 @@ public class IntentService {
         if (registeredVersion != currentVersion) {
             return "";
         }
-        String url = "http://2go.ladesign.tw///api_member/push_key?member_id=" + PrefsHelper.setphonenumber(getActivity()) + "&push_key=" + registrationId;
+        String url = "https://my.here2go.asia///api_member/push_key?member_id=" + PrefsHelper.setphonenumber(getActivity()) + "&push_key=" + registrationId;
 //        if (aQuery != null) {
             aQuery.ajax(url, null, JSONObject.class, new AjaxCallback<JSONObject>() {
                 @Override
@@ -222,7 +222,7 @@ public class IntentService {
             } catch (IOException ex) {
 
             }
-            String url = "http://2go.ladesign.tw///api_member/push_key?member_id=" + PrefsHelper.setphonenumber(getActivity()) + "&push_key=" + regid;
+            String url = "https://my.here2go.asia///api_member/push_key?member_id=" + PrefsHelper.setphonenumber(getActivity()) + "&push_key=" + regid;
             aQuery.ajax(url, null, JSONObject.class, new AjaxCallback<JSONObject>() {
                 @Override
                 public void callback(String url, JSONObject object, AjaxStatus status) {

@@ -210,7 +210,7 @@ public class BookingDetailActivity extends Activity implements View.OnClickListe
                         .setPositiveButton("yes", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                String url = "http://2go.ladesign.tw/api_booking/cancel_order?order_id=" + PrefsHelper.setbookingorderid(getApplication());
+                                String url = "https://my.here2go.asia/api_booking/cancel_order?order_id=" + PrefsHelper.setbookingorderid(getApplication());
                                 aQuery.ajax(url, null, JSONObject.class, new AjaxCallback<JSONObject>() {
                                     @Override
                                     public void callback(String url, JSONObject object, AjaxStatus status) {

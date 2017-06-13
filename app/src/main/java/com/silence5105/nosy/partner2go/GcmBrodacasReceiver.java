@@ -75,7 +75,7 @@ public class GcmBrodacasReceiver extends BroadcastReceiver {
                     public void run() {
 //                 booking = null;
                         try {
-                            URL booking = new URL("http://2go.ladesign.tw///api_booking/get_once");
+                            URL booking = new URL("https://my.here2go.asia///api_booking/get_once");
                             httpURLConnection = (HttpURLConnection) booking.openConnection();
                             httpURLConnection.setRequestMethod("POST");
                             httpURLConnection.setDoOutput(true);

@@ -50,7 +50,7 @@ public class RatFragment extends Fragment implements View.OnClickListener {
     }
 
     public void pushrate() {
-        String url = "http://2go.ladesign.tw///api_partner/score_for_partner?order_id=" + PrefsHelper.setclientorderid(getActivity()) + "&rank=" + rate + "&notice= ";
+        String url = "https://my.here2go.asia///api_partner/score_for_partner?order_id=" + PrefsHelper.setclientorderid(getActivity()) + "&rank=" + rate + "&notice= ";
         System.out.println("ratfragment orderid ===== " + PrefsHelper.setclientorderid(getActivity()));
         aQuery.ajax(url, null, JSONObject.class, new AjaxCallback<JSONObject>() {
             @Override

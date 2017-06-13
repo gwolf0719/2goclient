@@ -56,7 +56,7 @@ public class newPhoneCreateMemberFragment extends Fragment implements View.OnCli
     }
 
     public void memberlistapi() {
-        String url = "http://2go.ladesign.tw///api_member/edit_member_first?member_id=" + PrefsHelper.setphonenumber(getActivity()) + "&email=" + emailedittxt.getText().toString()
+        String url = "https://my.here2go.asia///api_member/edit_member_first?member_id=" + PrefsHelper.setphonenumber(getActivity()) + "&email=" + emailedittxt.getText().toString()
                 + "&name=" + nameedittxt.getText().toString() + "&password=" + apwedittxt.getText().toString();
         aQuery.ajax(url, null, JSONObject.class, new AjaxCallback<JSONObject>() {
             @Override
