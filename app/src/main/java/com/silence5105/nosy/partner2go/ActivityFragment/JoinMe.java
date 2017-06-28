@@ -16,7 +16,7 @@ import com.silence5105.nosy.partner2go.R;
 
 public class JoinMe extends Activity {
     WebView webView;
-    String url = "https://my.here2go.asia///index";
+    String url = "http://2go.ladesign.tw///index";
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

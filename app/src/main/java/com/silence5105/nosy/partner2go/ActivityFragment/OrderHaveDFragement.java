@@ -47,7 +47,7 @@ public class OrderHaveDFragement extends Fragment {
         }
         System.out.println("orderhavedriver ====== : " + PrefsHelper.setcarclass(getActivity()));
         aQuery = new AQuery(getActivity());
-        String driverurl = "https://my.here2go.asia///api_booking/get_once?order_id=" + PrefsHelper.setclientorderid(getActivity());
+        String driverurl = "http://2go.ladesign.tw///api_booking/get_once?order_id=" + PrefsHelper.setclientorderid(getActivity());
         aQuery.ajax(driverurl, null, JSONObject.class, new AjaxCallback<JSONObject>() {
             @Override
             public void callback(String url, JSONObject object, AjaxStatus status) {

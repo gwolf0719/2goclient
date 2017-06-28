@@ -60,7 +60,7 @@ public class newOTPFragment extends Fragment implements View.OnClickListener {
     }
 
     public void otpurl() {
-        String url = "https://my.here2go.asia///api_member/chk_otp?member_id=" + PrefsHelper.setphonenumber(getActivity()) + "&otp=" + otpedittxt.getText().toString();
+        String url = "http://2go.ladesign.tw///api_member/chk_otp?member_id=" + PrefsHelper.setphonenumber(getActivity()) + "&otp=" + otpedittxt.getText().toString();
         aQuery.ajax(url, null, JSONObject.class, new AjaxCallback<JSONObject>() {
             @Override
             public void callback(String url, JSONObject object, AjaxStatus status) {

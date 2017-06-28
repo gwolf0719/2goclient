@@ -20,8 +20,8 @@
 
     <!--api-->
     <!--phonecreatfragment-->
-    <!--https://my.here2go.asia///api_member/register?member_id=-->
-    <string name="phonecreateidapi">https://my.here2go.asia///api_member/register?member_id=</string>
+    <!--http://2go.ladesign.tw///api_member/register?member_id=-->
+    <string name="phonecreateidapi">http://2go.ladesign.tw///api_member/register?member_id=</string>
     <string name="loginapi"></string>
 
 </resources>

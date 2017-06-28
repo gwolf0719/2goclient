@@ -33,7 +33,7 @@
             android:value="@integer/google_play_services_version" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyCUsIl_cWyMdE4uG3j4yHFsUiOb2i-Dj-Q"></meta-data>
+            android:value="AIzaSyC0rvH1WhwoW0E_TtK-olxdjmQAIAlfdUI"></meta-data>
         <!--<receiver android:name=".MainActivity$GcmBrodacasReceiver"-->
 
         <!--<service android:name=".ActivityFragment.Hleperservice"></service>-->
@@ -60,7 +60,7 @@
             android:value="@integer/google_play_services_version" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyCUsIl_cWyMdE4uG3j4yHFsUiOb2i-Dj-Q"></meta-data>
+            android:value="AIzaSyC0rvH1WhwoW0E_TtK-olxdjmQAIAlfdUI"></meta-data>
 
 
         <activity

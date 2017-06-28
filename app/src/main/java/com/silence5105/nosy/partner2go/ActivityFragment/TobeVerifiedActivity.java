@@ -53,7 +53,7 @@ public class TobeVerifiedActivity extends Activity implements View.OnClickListen
         backbtn.setOnClickListener(this);
         System.out.println("TOBEACTIVITY ===== " + PrefsHelper.setlistselect(getApplication()));
         aQuery = new AQuery(this);
-        String url = "https://my.here2go.asia///api_official/pending_review?member_id=" + PrefsHelper.setphonenumber(getApplication());
+        String url = "http://2go.ladesign.tw///api_official/pending_review?member_id=" + PrefsHelper.setphonenumber(getApplication());
         aQuery.ajax(url, null, JSONObject.class, new AjaxCallback<JSONObject>() {
             @Override
             public void callback(String url, JSONObject object, AjaxStatus status) {
@@ -82,7 +82,7 @@ public class TobeVerifiedActivity extends Activity implements View.OnClickListen
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.agreebtn:
-                String url = "https://my.here2go.asia///api_official/review_order?member_id=" + memberid + "&review=" + PrefsHelper.setphonenumber(getApplication()) + "&order_id=" + orderid + "&order_status=5";
+                String url = "http://2go.ladesign.tw///api_official/review_order?member_id=" + memberid + "&review=" + PrefsHelper.setphonenumber(getApplication()) + "&order_id=" + orderid + "&order_status=5";
                 aQuery.ajax(url, null, JSONObject.class, new AjaxCallback<JSONObject>() {
                     @Override
                     public void callback(String url, JSONObject object, AjaxStatus status) {
@@ -97,7 +97,7 @@ public class TobeVerifiedActivity extends Activity implements View.OnClickListen
                 });
                 break;
             case R.id.refusebtn:
-                String url1 = "https://my.here2go.asia///api_official/review_order?member_id=" + memberid + "&review=" + PrefsHelper.setphonenumber(getApplication()) + "&order_id=" + orderid + "&order_status=9";
+                String url1 = "http://2go.ladesign.tw///api_official/review_order?member_id=" + memberid + "&review=" + PrefsHelper.setphonenumber(getApplication()) + "&order_id=" + orderid + "&order_status=9";
                 aQuery.ajax(url1, null, JSONObject.class, new AjaxCallback<JSONObject>() {
                     @Override
                     public void callback(String url, JSONObject object, AjaxStatus status) {

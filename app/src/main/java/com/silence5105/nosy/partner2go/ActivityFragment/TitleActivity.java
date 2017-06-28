@@ -49,7 +49,7 @@ public class TitleActivity extends Activity {
                             if (check.equals("1")) {
                                 if (PrefsHelper.setpushkey(getApplication()) != null) {
 
-                                    String url = "https://my.here2go.asia///api_member/push_key?member_id=" + PrefsHelper.setphonenumber(getApplication()) + "&push_key=" + PrefsHelper.setpushkey(getApplication());
+                                    String url = "http://2go.ladesign.tw///api_member/push_key?member_id=" + PrefsHelper.setphonenumber(getApplication()) + "&push_key=" + PrefsHelper.setpushkey(getApplication());
 //        if (aQuery != null) {
                                     aQuery.ajax(url, null, JSONObject.class, new AjaxCallback<JSONObject>() {
                                         @Override
@@ -118,7 +118,7 @@ public class TitleActivity extends Activity {
                             System.out.println("title activity ======== 1 : ");
                             if (PrefsHelper.setpushkey(getApplication()) != null) {
 
-                                String url = "https://my.here2go.asia///api_member/push_key?member_id=" + PrefsHelper.setphonenumber(getApplication()) + "&push_key=" + PrefsHelper.setpushkey(getApplication());
+                                String url = "http://2go.ladesign.tw///api_member/push_key?member_id=" + PrefsHelper.setphonenumber(getApplication()) + "&push_key=" + PrefsHelper.setpushkey(getApplication());
 //        if (aQuery != null) {
                                 aQuery.ajax(url, null, JSONObject.class, new AjaxCallback<JSONObject>() {
                                     @Override
@@ -161,7 +161,7 @@ public class TitleActivity extends Activity {
                                 System.out.println("titleactivity ====== 2 :");
                                 if (PrefsHelper.setpushkey(getApplication()) != null) {
 
-                                    String url = "https://my.here2go.asia///api_member/push_key?member_id=" + PrefsHelper.setphonenumber(getApplication()) + "&push_key=" + PrefsHelper.setpushkey(getApplication());
+                                    String url = "http://2go.ladesign.tw///api_member/push_key?member_id=" + PrefsHelper.setphonenumber(getApplication()) + "&push_key=" + PrefsHelper.setpushkey(getApplication());
 //        if (aQuery != null) {
                                     aQuery.ajax(url, null, JSONObject.class, new AjaxCallback<JSONObject>() {
                                         @Override

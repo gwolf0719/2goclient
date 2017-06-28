@@ -62,7 +62,7 @@ public class RatdriverActivity extends Activity implements View.OnClickListener 
     }
 
     public void pushrate() {
-        String url = "https://my.here2go.asia///api_partner/score_for_partner?order_id=" + PrefsHelper.setclientorderid(getApplication()) + "&rank=" + rate + "&notice= ";
+        String url = "http://2go.ladesign.tw///api_partner/score_for_partner?order_id=" + PrefsHelper.setclientorderid(getApplication()) + "&rank=" + rate + "&notice= ";
         System.out.println("ratfragment orderid ===== " + PrefsHelper.setclientorderid(getApplication()));
         aQuery.ajax(url, null, JSONObject.class, new AjaxCallback<JSONObject>() {
             @Override
