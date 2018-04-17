@@ -26,6 +26,7 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
 
+
         </activity>
 
         <meta-data
@@ -75,6 +76,7 @@
         <activity
             android:name=".ActivityFragment.Loginactivity"
             android:screenOrientation="portrait" />
+
         <activity
             android:name=".ActivityFragment.CreateUserFragment"
             android:screenOrientation="portrait" />
@@ -147,6 +149,8 @@
         <activity
             android:name=".ActivityFragment.BookingDetailActivity"
             android:screenOrientation="portrait" />
+        <activity android:name=".ActivityFragment.PayDoneActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

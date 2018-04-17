@@ -48,6 +48,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -56,6 +57,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -2327,7 +2329,8 @@ public class MainActivity extends AppCompatActivity
         public ProgressDialog dialog;
         HttpURLConnection httpURLConnection;
         RelativeLayout offciallayout, bookingclayout;
-
+        Spinner sp;
+        ArrayList<String> cashlist = new ArrayList<>();
 
         @Nullable
         @Override
@@ -2340,6 +2343,33 @@ public class MainActivity extends AppCompatActivity
             teks1mbtn.setOnClickListener(this);
             budgetbtn = (LinearLayout) view.findViewById(R.id.buggetbtn);
             budgetbtn.setOnClickListener(this);
+            sp = (Spinner) view.findViewById(R.id.sp);
+            cashlist.add("Cash");
+            cashlist.add("M-Cash");
+            ArrayAdapter<String> starttimelist = new ArrayAdapter<>(getApplication(),
+                    android.R.layout.simple_spinner_dropdown_item,
+                    cashlist);
+            sp.setAdapter(starttimelist);
+            final ImageView cashimg = (ImageView) view.findViewById(R.id.cashimg);
+            sp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    System.out.println("select = : " + parent + " " + view.getId() + " " + position + " " + id);
+                    if (position == 1) {
+                        cashimg.setImageResource(R.mipmap.mcash);
+                        PrefsHelper.getcashtype(getApplication(), "mcash");
+                    }
+                    if (position == 0) {
+                        cashimg.setImageResource(R.mipmap.list_cash);
+                        PrefsHelper.getcashtype(getApplication(), "cash");
+                    }
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
+
+                }
+            });
             budgettxt = (TextView) view.findViewById(R.id.budgettxt);
             teks1mtxt = (TextView) view.findViewById(R.id.teks1mtxt);
             executivetxt = (TextView) view.findViewById(R.id.executivetxt);
@@ -2412,7 +2442,7 @@ public class MainActivity extends AppCompatActivity
                                                 + "&end_location=" + PrefsHelper.setendlocation(getActivity())
                                                 + "&distance=" + PrefsHelper.setkm(getActivity())
                                                 + "&times=" + PrefsHelper.settimes(getActivity())
-                                                + "&payment=cash"
+                                                + "&payment=" + PrefsHelper.setcashtype(getActivity())
                                                 + "&cost=" + PrefsHelper.setcost(getActivity())
                                                 + "&expected_time_onboard=" + PrefsHelper.setalltime(getActivity());
 //                            String testdata = "email=testpppp@gmail.com&class=Budget&start_address=123&end_address=321&start_location=123&end_location=321&distance=1";

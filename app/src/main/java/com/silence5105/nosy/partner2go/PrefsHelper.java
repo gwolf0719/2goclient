@@ -8,6 +8,18 @@ import android.content.SharedPreferences;
  */
 
 public class PrefsHelper {
+    public static void getcashtype(Context context, String cashtype) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("bookingselect", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(PreferenceKeys.CASH.toString(), cashtype);
+        editor.commit();
+    }
+
+    public static String setcashtype(Context context) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("bookingselect", Context.MODE_PRIVATE);
+        return sharedPreferences.getString(PreferenceKeys.CASH.toString(), null);
+    }
+
     public static void getbookingselect(Context context, String bookingselect) {
         SharedPreferences sharedPreferences = context.getSharedPreferences("bookingselect", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -19,6 +31,7 @@ public class PrefsHelper {
         SharedPreferences sharedPreferences = context.getSharedPreferences("bookingselect", Context.MODE_PRIVATE);
         return sharedPreferences.getString(PreferenceKeys.BOOKINGSELECT.toString(), null);
     }
+
     public static void getbookingorderid(Context context, String bookingorderid) {
         SharedPreferences sharedPreferences = context.getSharedPreferences("bookingorderid", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();

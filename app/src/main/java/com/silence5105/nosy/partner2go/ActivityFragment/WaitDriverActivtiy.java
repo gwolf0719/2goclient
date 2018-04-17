@@ -51,6 +51,20 @@ public class WaitDriverActivtiy extends Activity implements View.OnClickListener
         cancelbtn = (RelativeLayout) findViewById(R.id.cancelbtn);
         cancelbtn.setOnClickListener(this);
         faretxt.setText(PrefsHelper.setmenucost(getApplication()));
+        TextView cashtxt = (TextView) findViewById(R.id.cashtxt);
+        ImageView cashimg = (ImageView) findViewById(R.id.cashimg);
+        if (PrefsHelper.setcashtype(getApplication()) != null) {
+            if (PrefsHelper.setcashtype(getApplication()).equals("mcash")) {
+                cashtxt.setText("MCash");
+                cashimg.setImageResource(R.mipmap.mcash);
+            }
+            if (PrefsHelper.setcashtype(getApplication()).equals("cash")) {
+                cashtxt.setText("Cash");
+                cashimg.setImageResource(R.mipmap.list_cash);
+            }
+
+        }
+
         if (PrefsHelper.setcarclass(getApplication()).equals("Teks1m")) {
             teks1mimg.setVisibility(View.VISIBLE);
         }

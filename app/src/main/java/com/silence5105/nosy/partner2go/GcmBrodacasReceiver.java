@@ -8,8 +8,8 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.google.android.gms.gcm.GoogleCloudMessaging;
-import com.silence5105.nosy.partner2go.ActivityFragment.ClientSafelyActivity;
 import com.silence5105.nosy.partner2go.ActivityFragment.OfficleReservationSActivity;
+import com.silence5105.nosy.partner2go.ActivityFragment.PayDoneActivity;
 import com.silence5105.nosy.partner2go.ActivityFragment.newOrderHaveDriverActivity;
 
 import org.json.JSONException;
@@ -200,7 +200,8 @@ public class GcmBrodacasReceiver extends BroadcastReceiver {
 //                    startDriverActivity.ratlayout();
                     Intent intent1 = new Intent();
                     intent1.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    intent1.setClass(context, ClientSafelyActivity.class);
+//                    intent1.setClass(context, ClientSafelyActivity.class);
+                    intent1.setClass(context, PayDoneActivity.class);
                     context.startActivity(intent1);
                 }
                 if (extras.getString("gcm.notification.click_action").equals("9")) {
@@ -229,7 +230,7 @@ public class GcmBrodacasReceiver extends BroadcastReceiver {
                             intent1.setClass(context, MainActivity.class);
                             context.startActivity(intent1);
                         }
-                        if (PrefsHelper.setbookingselect(context).equals("1")){
+                        if (PrefsHelper.setbookingselect(context).equals("1")) {
 
                         }
                     }

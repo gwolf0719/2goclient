@@ -58,14 +58,14 @@ public class Loginactivity extends AppCompatActivity implements View.OnClickList
                         "please wait.", true);
                 dialog.show();
                 PrefsHelper.getmail(getApplication(), mailedittxt.getText().toString());
-                String url = "http://uat.fofo.tw/2go_be/api/member_login?" + "email" + "=" + mailedittxt.getText() + "&" + "password=" + pwedittxt.getText();
-
+                String url = "https://my.here2go.asia/2go_be/api/member_login?" + "email" + "=" + mailedittxt.getText() + "&" + "password=" + pwedittxt.getText();
+//https://my.here2go.asia/
                 aQuery.ajax(url, null, JSONObject.class, new AjaxCallback<JSONObject>() {
                     @Override
                     public void callback(String url, JSONObject object, AjaxStatus status) {
                         super.callback(url, object, status);
 //                            Log.e(Tag, object.toString());
-
+                        System.out.println("url = : " + url);
                         System.out.println(" ---- lighteditfragment ---- object" + object);
                         System.out.print(" ---- lighteditfragment ----- status" + status);
                         try {
