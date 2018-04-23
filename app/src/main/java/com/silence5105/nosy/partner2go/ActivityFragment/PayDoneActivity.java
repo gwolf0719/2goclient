@@ -1,12 +1,14 @@
 package com.silence5105.nosy.partner2go.ActivityFragment;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
+import android.view.KeyEvent;
 import android.webkit.JsPromptResult;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
@@ -16,6 +18,9 @@ import android.widget.Toast;
 import com.silence5105.nosy.partner2go.PrefsHelper;
 import com.silence5105.nosy.partner2go.R;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class PayDoneActivity extends Activity {
     Handler viewhandler = new Handler() {
         @Override
@@ -23,10 +28,10 @@ public class PayDoneActivity extends Activity {
             super.handleMessage(msg);
             switch (msg.what) {
                 case 0:
-                    Toast.makeText(PayDoneActivity.this, "失敗", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(PayDoneActivity.this, "mcash fail", Toast.LENGTH_SHORT).show();
                     break;
                 case 1:
-                    Toast.makeText(PayDoneActivity.this, "成功", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(PayDoneActivity.this, "mcash success", Toast.LENGTH_SHORT).show();
                     break;
             }
         }
@@ -37,7 +42,7 @@ public class PayDoneActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.paydonelayout);
         final WebView webView = (WebView) findViewById(R.id.webview);
-
+        PrefsHelper.getmcashdone(getApplication(),"0");
         String url = "https://my.here2go.asia/api_booking/payment?" + "order_id=" + PrefsHelper.setclientorderid(getApplication());
         System.out.println("url = : " + url);
         webView.setWebChromeClient(new WebChromeClient() {
@@ -63,17 +68,25 @@ public class PayDoneActivity extends Activity {
 //                    Intent mIntent = new Intent(LoginActivity.this, Update.class);
 //                    startActivity(mIntent);
 //                }
-                if (redirected.contains("fail")) {
+                if (redirected.contains("https://my.here2go.asia/mcash_fail?")) {
                     Message message = new Message();
                     message.what = 0;
                     viewhandler.sendMessage(message);
-                    webView.loadUrl(url);
+                    finish();
+                    Intent intent = new Intent();
+                    intent.setClass(PayDoneActivity.this,PayDoneActivity.class);
+                    startActivity(intent);
+//                    webView.loadUrl(url);
                 }
-                if (redirected.contains("success")) {
+                if (redirected.contains("https://my.here2go.asia/mcash_success?")) {
                     Message message = new Message();
                     message.what = 1;
+                    PrefsHelper.getmcashdone(getApplication(),"1");
                     viewhandler.sendMessage(message);
-
+                    Intent intent = new Intent();
+                    intent.setClass(PayDoneActivity.this, ClientSafelyActivity.class);
+                    startActivity(intent);
+                    finish();
 
                 }
             }
@@ -101,6 +114,32 @@ public class PayDoneActivity extends Activity {
 //                }
 //            });
 //        }
+
+
+    }
+
+    private static Boolean isExit = false;
+    private static Boolean hasTask = false;
+
+    Timer timerExit = new Timer();
+    TimerTask task = new TimerTask() {
+
+        @Override
+        public void run() {
+            isExit = false;
+            hasTask = true;
+        }
+    };
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        // 判斷是否按下Back
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+//            relativeLayout.setVisibility(View.INVISIBLE);
+            // 是否要退出
+
+
+        }
+        return false;
     }
 
 

@@ -91,6 +91,7 @@ import com.silence5105.nosy.partner2go.ActivityFragment.Last5minFragment;
 import com.silence5105.nosy.partner2go.ActivityFragment.Loginactivity;
 import com.silence5105.nosy.partner2go.ActivityFragment.NewBookingActivity;
 import com.silence5105.nosy.partner2go.ActivityFragment.OrderHaveDFragement;
+import com.silence5105.nosy.partner2go.ActivityFragment.PayDoneActivity;
 import com.silence5105.nosy.partner2go.ActivityFragment.SettingActivity;
 import com.silence5105.nosy.partner2go.ActivityFragment.VerifiedActivity;
 import com.silence5105.nosy.partner2go.ActivityFragment.WaitDriverActivtiy;
@@ -551,6 +552,14 @@ public class MainActivity extends AppCompatActivity
                 System.out.println("mainactivity 1 ====== : " + PrefsHelper.setdrivername(getApplication()) + " " + PrefsHelper.setrate(getApplication()));
             }
 
+        }
+        if (PrefsHelper.setmcashdone(getApplication()) != null) {
+            if (PrefsHelper.setmcashdone(getApplication()).equals("0")) {
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, PayDoneActivity.class);
+                startActivity(intent);
+                finish();
+            }
         }
 //        PrefsHelper.getbookingselect(getApplication(), 0);
         PrefsHelper.getbookingselect(getApplication(), "0");
@@ -2413,115 +2422,230 @@ public class MainActivity extends AppCompatActivity
         public void onClick(View view) {
             switch (view.getId()) {
                 case R.id.bookingbtn:
-                    dialog = ProgressDialog.show(getActivity(), "",
-                            "please wait.", true);
-                    dialog.show();
-                    if (PrefsHelper.setgoreservatione(getActivity()) != null || PrefsHelper.setgoreservatione(getActivity()) == null) {
+                    if (PrefsHelper.setcashtype(getApplication()).equals("cash")) {
+                        dialog = ProgressDialog.show(getActivity(), "",
+                                "please wait.", true);
+                        dialog.show();
+                        if (PrefsHelper.setgoreservatione(getActivity()) != null || PrefsHelper.setgoreservatione(getActivity()) == null) {
 
-                        if (PrefsHelper.setgoreservatione(getActivity()).equals("0")) {
+                            if (PrefsHelper.setgoreservatione(getActivity()).equals("0")) {
 //                Intent intent = new Intent();
 //                intent.setClass(getActivity(), WaitDriverActivtiy.class);
 //                startActivity(intent);
-                            System.out.println("bookingcarselectfragment ===== " + PrefsHelper.setphonenumber(getActivity()));
-                            new Thread(new Runnable() {
-                                @Override
-                                public void run() {
+                                System.out.println("bookingcarselectfragment ===== " + PrefsHelper.setphonenumber(getActivity()));
+                                new Thread(new Runnable() {
+                                    @Override
+                                    public void run() {
 //                 booking = null;
 
-                                    try {
-                                        URL booking = new URL("https://my.here2go.asia///api_booking/order_create");
-                                        httpURLConnection = (HttpURLConnection) booking.openConnection();
-                                        httpURLConnection.setRequestMethod("POST");
-                                        httpURLConnection.setDoOutput(true);
-                                        httpURLConnection.setDoInput(true);
-                                        String data = "member_id=" + PrefsHelper.setphonenumber(getActivity())
-                                                + "&class=" + PrefsHelper.setcarclass(getActivity())
-                                                + "&start_address=" + PrefsHelper.setstartadress(getActivity())
-                                                + "&end_address=" + PrefsHelper.setendaddress(getActivity())
-                                                + "&start_location=" + PrefsHelper.setstartlocation(getActivity())
-                                                + "&end_location=" + PrefsHelper.setendlocation(getActivity())
-                                                + "&distance=" + PrefsHelper.setkm(getActivity())
-                                                + "&times=" + PrefsHelper.settimes(getActivity())
-                                                + "&payment=" + PrefsHelper.setcashtype(getActivity())
-                                                + "&cost=" + PrefsHelper.setcost(getActivity())
-                                                + "&expected_time_onboard=" + PrefsHelper.setalltime(getActivity());
+                                        try {
+                                            URL booking = new URL("https://my.here2go.asia///api_booking/order_create");
+                                            httpURLConnection = (HttpURLConnection) booking.openConnection();
+                                            httpURLConnection.setRequestMethod("POST");
+                                            httpURLConnection.setDoOutput(true);
+                                            httpURLConnection.setDoInput(true);
+                                            String data = "member_id=" + PrefsHelper.setphonenumber(getActivity())
+                                                    + "&class=" + PrefsHelper.setcarclass(getActivity())
+                                                    + "&start_address=" + PrefsHelper.setstartadress(getActivity())
+                                                    + "&end_address=" + PrefsHelper.setendaddress(getActivity())
+                                                    + "&start_location=" + PrefsHelper.setstartlocation(getActivity())
+                                                    + "&end_location=" + PrefsHelper.setendlocation(getActivity())
+                                                    + "&distance=" + PrefsHelper.setkm(getActivity())
+                                                    + "&times=" + PrefsHelper.settimes(getActivity())
+                                                    + "&payment=" + PrefsHelper.setcashtype(getActivity())
+                                                    + "&cost=" + PrefsHelper.setcost(getActivity())
+                                                    + "&expected_time_onboard=" + PrefsHelper.setalltime(getActivity());
 //                            String testdata = "email=testpppp@gmail.com&class=Budget&start_address=123&end_address=321&start_location=123&end_location=321&distance=1";
-                                        OutputStream outputStream = httpURLConnection.getOutputStream();
-                                        outputStream.write(data.getBytes());
-                                        outputStream.flush();
-                                        outputStream.close();
-                                        int responseCode = httpURLConnection.getResponseCode();
+                                            OutputStream outputStream = httpURLConnection.getOutputStream();
+                                            outputStream.write(data.getBytes());
+                                            outputStream.flush();
+                                            outputStream.close();
+                                            int responseCode = httpURLConnection.getResponseCode();
 //                            String sys_code = httpURLConnection.get;
-                                        System.out.println("mainactivity data ===== : " + data);
-                                        PrefsHelper.getmenucost(getActivity(), faretxt.getText().toString());
-                                        BufferedReader reader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream(), "UTF-8"));
-                                        StringBuilder sb = new StringBuilder();
-                                        String line = null;
-                                        while ((line = reader.readLine()) != null) {
-                                            sb.append(line + "\n");
-                                        }
+                                            System.out.println("mainactivity data ===== : " + data);
+                                            PrefsHelper.getmenucost(getActivity(), faretxt.getText().toString());
+                                            BufferedReader reader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream(), "UTF-8"));
+                                            StringBuilder sb = new StringBuilder();
+                                            String line = null;
+                                            while ((line = reader.readLine()) != null) {
+                                                sb.append(line + "\n");
+                                            }
 
-                                        System.out.println(" ==== responsecode" + sb);
-                                        JSONObject jsonObject = new JSONObject(sb.toString());
-                                        System.out.println("bookingcarselectfragment ===== :" + jsonObject.getString("sys_code").equals("200"));
-                                        if (jsonObject.getString("sys_code").equals("200")) {
+                                            System.out.println(" ==== responsecode" + sb);
+                                            JSONObject jsonObject = new JSONObject(sb.toString());
+                                            System.out.println("bookingcarselectfragment ===== :" + jsonObject.getString("sys_code").equals("200"));
+                                            if (jsonObject.getString("sys_code").equals("200")) {
 //                                showview.setVisibility(View.INVISIBLE);
-                                            PrefsHelper.getclientorderid(getActivity(), jsonObject.getString("order_id").toString());
-                                            new Thread(new Runnable() {
-                                                @Override
-                                                public void run() {
-                                                    try {
-                                                        Thread.sleep(500);
+                                                PrefsHelper.getclientorderid(getActivity(), jsonObject.getString("order_id").toString());
+                                                new Thread(new Runnable() {
+                                                    @Override
+                                                    public void run() {
+                                                        try {
+                                                            Thread.sleep(500);
 
-                                                    } catch (InterruptedException e) {
-                                                        e.printStackTrace();
-                                                    } finally {
-                                                        dialog.dismiss();
-                                                        Message message = new Message();
-                                                        message.what = SHOWVIEWINV;
-                                                        viewhandler.sendMessage(message);
+                                                        } catch (InterruptedException e) {
+                                                            e.printStackTrace();
+                                                        } finally {
+                                                            dialog.dismiss();
+                                                            Message message = new Message();
+                                                            message.what = SHOWVIEWINV;
+                                                            viewhandler.sendMessage(message);
 //
-                                                        Intent intent = new Intent();
-                                                        intent.setClass(getActivity(), WaitDriverActivtiy.class);
-                                                        startActivity(intent);
-                                                        getActivity().finish();
+                                                            Intent intent = new Intent();
+                                                            intent.setClass(getActivity(), WaitDriverActivtiy.class);
+                                                            startActivity(intent);
+                                                            getActivity().finish();
+                                                        }
                                                     }
-                                                }
-                                            }).start();
-                                        } else {
-                                            new Thread(new Runnable() {
-                                                @Override
-                                                public void run() {
-                                                    try {
-                                                        Thread.sleep(500);
+                                                }).start();
+                                            } else {
+                                                new Thread(new Runnable() {
+                                                    @Override
+                                                    public void run() {
+                                                        try {
+                                                            Thread.sleep(500);
 
-                                                    } catch (InterruptedException e) {
-                                                        e.printStackTrace();
-                                                    } finally {
-                                                        dialog.dismiss();
+                                                        } catch (InterruptedException e) {
+                                                            e.printStackTrace();
+                                                        } finally {
+                                                            dialog.dismiss();
+                                                        }
                                                     }
-                                                }
-                                            }).start();
-                                            Looper.prepare();
-                                            Toast.makeText(getActivity(), "sorry, Near no driver.plz change other car.", Toast.LENGTH_SHORT).show();
+                                                }).start();
+                                                Looper.prepare();
+                                                Toast.makeText(getActivity(), "sorry, Near no driver.plz change other car.", Toast.LENGTH_SHORT).show();
 //
 
-                                            Looper.loop();//
+                                                Looper.loop();//
 
 
-                                        }
+                                            }
 //                                        System.out.println(" ==== data : " + "https://my.here2go.asia///api_booking/order_create?" + data);
-                                    } catch (MalformedURLException e) {
-                                        e.printStackTrace();
-                                    } catch (IOException e) {
-                                        e.printStackTrace();
-                                    } catch (JSONException e) {
-                                        e.printStackTrace();
+                                        } catch (MalformedURLException e) {
+                                            e.printStackTrace();
+                                        } catch (IOException e) {
+                                            e.printStackTrace();
+                                        } catch (JSONException e) {
+                                            e.printStackTrace();
+                                        }
                                     }
-                                }
-                            }).start();
+                                }).start();
+                            }
                         }
                     }
+                    if (PrefsHelper.setcashtype(getApplication()).equals("mcash")) {
+
+                        dialog = ProgressDialog.show(getActivity(), "",
+                                "please wait.", true);
+                        dialog.show();
+                        if (PrefsHelper.setgoreservatione(getActivity()) != null || PrefsHelper.setgoreservatione(getActivity()) == null) {
+
+                            if (PrefsHelper.setgoreservatione(getActivity()).equals("0")) {
+//                Intent intent = new Intent();
+//                intent.setClass(getActivity(), WaitDriverActivtiy.class);
+//                startActivity(intent);
+                                System.out.println("bookingcarselectfragment ===== " + PrefsHelper.setphonenumber(getActivity()));
+                                new Thread(new Runnable() {
+                                    @Override
+                                    public void run() {
+//                 booking = null;
+
+                                        try {
+                                            URL booking = new URL("https://my.here2go.asia///api_booking/order_create");
+                                            httpURLConnection = (HttpURLConnection) booking.openConnection();
+                                            httpURLConnection.setRequestMethod("POST");
+                                            httpURLConnection.setDoOutput(true);
+                                            httpURLConnection.setDoInput(true);
+                                            String data = "member_id=" + PrefsHelper.setphonenumber(getActivity())
+                                                    + "&class=" + PrefsHelper.setcarclass(getActivity())
+                                                    + "&start_address=" + PrefsHelper.setstartadress(getActivity())
+                                                    + "&end_address=" + PrefsHelper.setendaddress(getActivity())
+                                                    + "&start_location=" + PrefsHelper.setstartlocation(getActivity())
+                                                    + "&end_location=" + PrefsHelper.setendlocation(getActivity())
+                                                    + "&distance=" + PrefsHelper.setkm(getActivity())
+                                                    + "&times=" + PrefsHelper.settimes(getActivity())
+                                                    + "&payment=" + PrefsHelper.setcashtype(getActivity())
+                                                    + "&cost=" + PrefsHelper.setcost(getActivity())
+                                                    + "&expected_time_onboard=" + PrefsHelper.setalltime(getActivity());
+//                            String testdata = "email=testpppp@gmail.com&class=Budget&start_address=123&end_address=321&start_location=123&end_location=321&distance=1";
+                                            OutputStream outputStream = httpURLConnection.getOutputStream();
+                                            outputStream.write(data.getBytes());
+                                            outputStream.flush();
+                                            outputStream.close();
+                                            int responseCode = httpURLConnection.getResponseCode();
+//                            String sys_code = httpURLConnection.get;
+                                            System.out.println("mainactivity data ===== : " + data);
+                                            PrefsHelper.getmenucost(getActivity(), faretxt.getText().toString());
+                                            BufferedReader reader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream(), "UTF-8"));
+                                            StringBuilder sb = new StringBuilder();
+                                            String line = null;
+                                            while ((line = reader.readLine()) != null) {
+                                                sb.append(line + "\n");
+                                            }
+
+                                            System.out.println(" ==== responsecode" + sb);
+                                            JSONObject jsonObject = new JSONObject(sb.toString());
+                                            System.out.println("bookingcarselectfragment ===== :" + jsonObject.getString("sys_code").equals("200"));
+                                            if (jsonObject.getString("sys_code").equals("200")) {
+//                                showview.setVisibility(View.INVISIBLE);
+                                                PrefsHelper.getclientorderid(getActivity(), jsonObject.getString("order_id").toString());
+                                                new Thread(new Runnable() {
+                                                    @Override
+                                                    public void run() {
+                                                        try {
+                                                            Thread.sleep(500);
+
+                                                        } catch (InterruptedException e) {
+                                                            e.printStackTrace();
+                                                        } finally {
+                                                            dialog.dismiss();
+                                                            Message message = new Message();
+                                                            message.what = SHOWVIEWINV;
+                                                            viewhandler.sendMessage(message);
+//
+                                                            Intent intent = new Intent();
+                                                            intent.setClass(getActivity(), WaitDriverActivtiy.class);
+                                                            startActivity(intent);
+                                                            getActivity().finish();
+                                                        }
+                                                    }
+                                                }).start();
+                                            } else {
+                                                new Thread(new Runnable() {
+                                                    @Override
+                                                    public void run() {
+                                                        try {
+                                                            Thread.sleep(500);
+
+                                                        } catch (InterruptedException e) {
+                                                            e.printStackTrace();
+                                                        } finally {
+                                                            dialog.dismiss();
+                                                        }
+                                                    }
+                                                }).start();
+                                                Looper.prepare();
+                                                Toast.makeText(getActivity(), "sorry, Near no driver.plz change other car.", Toast.LENGTH_SHORT).show();
+//
+
+                                                Looper.loop();//
+
+
+                                            }
+//                                        System.out.println(" ==== data : " + "https://my.here2go.asia///api_booking/order_create?" + data);
+                                        } catch (MalformedURLException e) {
+                                            e.printStackTrace();
+                                        } catch (IOException e) {
+                                            e.printStackTrace();
+                                        } catch (JSONException e) {
+                                            e.printStackTrace();
+                                        }
+                                    }
+                                }).start();
+                            }
+                        }
+                    }
+
                     if (PrefsHelper.setgoreservatione(getActivity()) != null || PrefsHelper.setgoreservatione(getActivity()) == null) {
                         if (PrefsHelper.setgoreservatione(getActivity()).equals("1")) {
                             new Thread(new Runnable() {

@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.google.android.gms.gcm.GoogleCloudMessaging;
+import com.silence5105.nosy.partner2go.ActivityFragment.ClientSafelyActivity;
 import com.silence5105.nosy.partner2go.ActivityFragment.OfficleReservationSActivity;
 import com.silence5105.nosy.partner2go.ActivityFragment.PayDoneActivity;
 import com.silence5105.nosy.partner2go.ActivityFragment.newOrderHaveDriverActivity;
@@ -198,11 +199,21 @@ public class GcmBrodacasReceiver extends BroadcastReceiver {
                     PrefsHelper.gethaved(context, "3");
 //                    StartDriverActivity startDriverActivity = new StartDriverActivity();
 //                    startDriverActivity.ratlayout();
-                    Intent intent1 = new Intent();
-                    intent1.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    if (PrefsHelper.setcashtype(context).equals("cash")) {
+                        Intent intent1 = new Intent();
+                        intent1.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        intent1.setClass(context, ClientSafelyActivity.class);
+//                        intent1.setClass(context, PayDoneActivity.class);
+                        context.startActivity(intent1);
+                    }
+                    if (PrefsHelper.setcashtype(context).equals("mcash")) {
+                        Intent intent1 = new Intent();
+                        intent1.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 //                    intent1.setClass(context, ClientSafelyActivity.class);
-                    intent1.setClass(context, PayDoneActivity.class);
-                    context.startActivity(intent1);
+                        intent1.setClass(context, PayDoneActivity.class);
+                        context.startActivity(intent1);
+                    }
+
                 }
                 if (extras.getString("gcm.notification.click_action").equals("9")) {
 //                    IntentService.sendLocalNotification(context, NOTIFICATION_ID, R.mipmap.ic_launcher_, "乘客", "到達目的地", "", true, PendingIntent.getActivity(context, 0, i, PendingIntent.FLAG_CANCEL_CURRENT));

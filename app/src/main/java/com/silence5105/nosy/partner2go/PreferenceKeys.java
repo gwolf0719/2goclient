@@ -57,5 +57,5 @@ public enum  PreferenceKeys {
     ,BOOKINGTEXINUMBER
     ,BOOKINGORDERID
     ,BOOKINGSELECT
-    ,CASH
+    ,CASH,MCASHDON
 }

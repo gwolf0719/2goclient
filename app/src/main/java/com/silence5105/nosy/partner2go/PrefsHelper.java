@@ -8,6 +8,17 @@ import android.content.SharedPreferences;
  */
 
 public class PrefsHelper {
+    public static void getmcashdone(Context context, String mcashdone) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("bookingselect", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(PreferenceKeys.MCASHDON.toString(), mcashdone);
+        editor.commit();
+    }
+
+    public static String setmcashdone(Context context) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("bookingselect", Context.MODE_PRIVATE);
+        return sharedPreferences.getString(PreferenceKeys.MCASHDON.toString(), null);
+    }
     public static void getcashtype(Context context, String cashtype) {
         SharedPreferences sharedPreferences = context.getSharedPreferences("bookingselect", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();

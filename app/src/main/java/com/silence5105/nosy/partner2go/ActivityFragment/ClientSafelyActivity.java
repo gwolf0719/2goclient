@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -34,6 +35,16 @@ public class ClientSafelyActivity extends Activity implements View.OnClickListen
         startadresstxt.setText(PrefsHelper.setstartadress(getApplication()).toString());
         endadresstxt.setText(PrefsHelper.setendaddress(getApplication()).toString());
         faretxt.setText(PrefsHelper.setmenucost(getApplication()).toString());
+        ImageView cashimg = (ImageView) findViewById(R.id.cashimg);
+        TextView cashtxt = (TextView) findViewById(R.id.cashtxt);
+        if (PrefsHelper.setcashtype(getApplication()).equals("cash")){
+            cashimg.setImageResource(R.mipmap.list_cash);
+            cashtxt.setText("CASH");
+        }
+        if (PrefsHelper.setcashtype(getApplication()).equals("mcash")){
+            cashimg.setImageResource(R.mipmap.mcash);
+            cashtxt.setText("MCASH");
+        }
     }
 
     public void initview() {
