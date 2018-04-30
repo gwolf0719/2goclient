@@ -213,6 +213,11 @@ public class GcmBrodacasReceiver extends BroadcastReceiver {
                         intent1.setClass(context, PayDoneActivity.class);
                         context.startActivity(intent1);
                     }
+                    if (PrefsHelper.setcashtype(context).equals("ambank")){
+                        Intent intent1 = new Intent();
+                        intent1.setClass(context,PayDoneActivity.class);
+                        context.startActivity(intent1);
+                    }
 
                 }
                 if (extras.getString("gcm.notification.click_action").equals("9")) {

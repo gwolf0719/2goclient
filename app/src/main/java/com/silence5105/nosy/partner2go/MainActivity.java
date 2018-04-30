@@ -2354,7 +2354,8 @@ public class MainActivity extends AppCompatActivity
             budgetbtn.setOnClickListener(this);
             sp = (Spinner) view.findViewById(R.id.sp);
             cashlist.add("Cash");
-            cashlist.add("M-Cash");
+            cashlist.add("MCash");
+            cashlist.add("amBank");
             ArrayAdapter<String> starttimelist = new ArrayAdapter<>(getApplication(),
                     android.R.layout.simple_spinner_dropdown_item,
                     cashlist);
@@ -2371,6 +2372,10 @@ public class MainActivity extends AppCompatActivity
                     if (position == 0) {
                         cashimg.setImageResource(R.mipmap.list_cash);
                         PrefsHelper.getcashtype(getApplication(), "cash");
+                    }
+                    if (position == 2) {
+                        cashimg.setImageResource(R.mipmap.list_credit_card);
+                        PrefsHelper.getcashtype(getApplication(), "ambank");
                     }
                 }
 
@@ -2534,7 +2539,6 @@ public class MainActivity extends AppCompatActivity
                         }
                     }
                     if (PrefsHelper.setcashtype(getApplication()).equals("mcash")) {
-
                         dialog = ProgressDialog.show(getActivity(), "",
                                 "please wait.", true);
                         dialog.show();
@@ -2549,7 +2553,116 @@ public class MainActivity extends AppCompatActivity
                                     @Override
                                     public void run() {
 //                 booking = null;
+                                        try {
+                                            URL booking = new URL("https://my.here2go.asia///api_booking/order_create");
+                                            httpURLConnection = (HttpURLConnection) booking.openConnection();
+                                            httpURLConnection.setRequestMethod("POST");
+                                            httpURLConnection.setDoOutput(true);
+                                            httpURLConnection.setDoInput(true);
+                                            String data = "member_id=" + PrefsHelper.setphonenumber(getActivity())
+                                                    + "&class=" + PrefsHelper.setcarclass(getActivity())
+                                                    + "&start_address=" + PrefsHelper.setstartadress(getActivity())
+                                                    + "&end_address=" + PrefsHelper.setendaddress(getActivity())
+                                                    + "&start_location=" + PrefsHelper.setstartlocation(getActivity())
+                                                    + "&end_location=" + PrefsHelper.setendlocation(getActivity())
+                                                    + "&distance=" + PrefsHelper.setkm(getActivity())
+                                                    + "&times=" + PrefsHelper.settimes(getActivity())
+                                                    + "&payment=" + PrefsHelper.setcashtype(getActivity())
+                                                    + "&cost=" + PrefsHelper.setcost(getActivity())
+                                                    + "&expected_time_onboard=" + PrefsHelper.setalltime(getActivity());
+//                            String testdata = "email=testpppp@gmail.com&class=Budget&start_address=123&end_address=321&start_location=123&end_location=321&distance=1";
+                                            OutputStream outputStream = httpURLConnection.getOutputStream();
+                                            outputStream.write(data.getBytes());
+                                            outputStream.flush();
+                                            outputStream.close();
+                                            int responseCode = httpURLConnection.getResponseCode();
+//                            String sys_code = httpURLConnection.get;
+                                            System.out.println("mainactivity data ===== : " + data);
+                                            PrefsHelper.getmenucost(getActivity(), faretxt.getText().toString());
+                                            BufferedReader reader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream(), "UTF-8"));
+                                            StringBuilder sb = new StringBuilder();
+                                            String line = null;
+                                            while ((line = reader.readLine()) != null) {
+                                                sb.append(line + "\n");
+                                            }
 
+                                            System.out.println(" ==== responsecode" + sb);
+                                            JSONObject jsonObject = new JSONObject(sb.toString());
+                                            System.out.println("bookingcarselectfragment ===== :" + jsonObject.getString("sys_code").equals("200"));
+                                            if (jsonObject.getString("sys_code").equals("200")) {
+//                                showview.setVisibility(View.INVISIBLE);
+                                                PrefsHelper.getclientorderid(getActivity(), jsonObject.getString("order_id").toString());
+                                                new Thread(new Runnable() {
+                                                    @Override
+                                                    public void run() {
+                                                        try {
+                                                            Thread.sleep(500);
+
+                                                        } catch (InterruptedException e) {
+                                                            e.printStackTrace();
+                                                        } finally {
+                                                            dialog.dismiss();
+                                                            Message message = new Message();
+                                                            message.what = SHOWVIEWINV;
+                                                            viewhandler.sendMessage(message);
+//
+                                                            Intent intent = new Intent();
+                                                            intent.setClass(getActivity(), WaitDriverActivtiy.class);
+                                                            startActivity(intent);
+                                                            getActivity().finish();
+                                                        }
+                                                    }
+                                                }).start();
+                                            } else {
+                                                new Thread(new Runnable() {
+                                                    @Override
+                                                    public void run() {
+                                                        try {
+                                                            Thread.sleep(500);
+
+                                                        } catch (InterruptedException e) {
+                                                            e.printStackTrace();
+                                                        } finally {
+                                                            dialog.dismiss();
+                                                        }
+                                                    }
+                                                }).start();
+                                                Looper.prepare();
+                                                Toast.makeText(getActivity(), "sorry, Near no driver.plz change other car.", Toast.LENGTH_SHORT).show();
+//
+
+                                                Looper.loop();//
+
+
+                                            }
+//                                        System.out.println(" ==== data : " + "https://my.here2go.asia///api_booking/order_create?" + data);
+                                        } catch (MalformedURLException e) {
+                                            e.printStackTrace();
+                                        } catch (IOException e) {
+                                            e.printStackTrace();
+                                        } catch (JSONException e) {
+                                            e.printStackTrace();
+                                        }
+                                    }
+                                }).start();
+                            }
+                        }
+                    }
+                    if (PrefsHelper.setcashtype(getApplication()).equals("ambank")) {
+                        dialog = ProgressDialog.show(getActivity(), "",
+                                "please wait.", true);
+                        dialog.show();
+                        if (PrefsHelper.setgoreservatione(getActivity()) != null || PrefsHelper.setgoreservatione(getActivity()) == null) {
+
+                            if (PrefsHelper.setgoreservatione(getActivity()).equals("0")) {
+//                Intent intent = new Intent();
+//                intent.setClass(getActivity(), WaitDriverActivtiy.class);
+//                startActivity(intent);
+                                System.out.println("bookingcarselectfragment ===== " + PrefsHelper.setphonenumber(getActivity()));
+                                new Thread(new Runnable() {
+                                    @Override
+                                    public void run() {
+//                 booking = null;
                                         try {
                                             URL booking = new URL("https://my.here2go.asia///api_booking/order_create");
                                             httpURLConnection = (HttpURLConnection) booking.openConnection();

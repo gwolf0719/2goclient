@@ -4,19 +4,27 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.net.http.SslError;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
 import android.view.KeyEvent;
 import android.webkit.JsPromptResult;
+import android.webkit.SslErrorHandler;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
 
+import com.androidquery.AQuery;
+import com.androidquery.callback.AjaxCallback;
+import com.androidquery.callback.AjaxStatus;
 import com.silence5105.nosy.partner2go.PrefsHelper;
 import com.silence5105.nosy.partner2go.R;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -36,15 +44,46 @@ public class PayDoneActivity extends Activity {
             }
         }
     };
+    Handler checkpayment = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            switch (msg.what) {
+                case 0:
+                    String url = "http://my.here2go.asia/api_booking/get_once?order_id=" + PrefsHelper.setorderid(getApplication());
+                    aQuery.ajax(url, null, JSONObject.class, new AjaxCallback<JSONObject>() {
+                        @Override
+                        public void callback(String url, JSONObject object, AjaxStatus status) {
+                            super.callback(url, object, status);
+
+                            try {
+                                System.out.println("obj = : " + object.getJSONObject("order_info").getString("pay_status").toString());
+                                if (object.getJSONObject("order_info").getString("pay_status").equals("2")) {
+                                    Intent intent = new Intent();
+                                    intent.setClass(PayDoneActivity.this, ClientSafelyActivity.class);
+                                    startActivity(intent);
+                                    finish();
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    });
+                    break;
+            }
+        }
+    };
+    AQuery aQuery;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.paydonelayout);
         final WebView webView = (WebView) findViewById(R.id.webview);
-        PrefsHelper.getmcashdone(getApplication(),"0");
+        PrefsHelper.getmcashdone(getApplication(), "0");
         String url = "https://my.here2go.asia/api_booking/payment?" + "order_id=" + PrefsHelper.setclientorderid(getApplication());
         System.out.println("url = : " + url);
+        aQuery = new AQuery(this);
         webView.setWebChromeClient(new WebChromeClient() {
             @Override
             public boolean onJsPrompt(WebView view, String url, String message, String defaultValue, JsPromptResult result) {
@@ -52,7 +91,17 @@ public class PayDoneActivity extends Activity {
                 return super.onJsPrompt(view, url, message, defaultValue, result);
             }
         });
-
+        if (PrefsHelper.setcashtype(getApplication()).equals("ambank")) {
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    Message message = new Message();
+                    message.what = 0;
+                    checkpayment.sendMessage(message);
+                    checkpayment.postDelayed(this, 5000);
+                }
+            }).start();
+        }
         webView.getSettings().setJavaScriptEnabled(true);
         webView.loadUrl(url);
         webView.setWebViewClient(new WebViewClient() {
@@ -68,20 +117,21 @@ public class PayDoneActivity extends Activity {
 //                    Intent mIntent = new Intent(LoginActivity.this, Update.class);
 //                    startActivity(mIntent);
 //                }
+
                 if (redirected.contains("https://my.here2go.asia/mcash_fail?")) {
                     Message message = new Message();
                     message.what = 0;
                     viewhandler.sendMessage(message);
                     finish();
                     Intent intent = new Intent();
-                    intent.setClass(PayDoneActivity.this,PayDoneActivity.class);
+                    intent.setClass(PayDoneActivity.this, PayDoneActivity.class);
                     startActivity(intent);
 //                    webView.loadUrl(url);
                 }
                 if (redirected.contains("https://my.here2go.asia/mcash_success?")) {
                     Message message = new Message();
                     message.what = 1;
-                    PrefsHelper.getmcashdone(getApplication(),"1");
+                    PrefsHelper.getmcashdone(getApplication(), "1");
                     viewhandler.sendMessage(message);
                     Intent intent = new Intent();
                     intent.setClass(PayDoneActivity.this, ClientSafelyActivity.class);
@@ -102,6 +152,12 @@ public class PayDoneActivity extends Activity {
                 view.loadUrl(url);
                 System.out.println("shouldoverrideurlloading = : " + view + " " + url);
                 return true;
+            }
+
+            @Override
+            public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
+                handler.proceed();
+                super.onReceivedSslError(view, handler, error);
             }
         });
 
@@ -130,6 +186,7 @@ public class PayDoneActivity extends Activity {
             hasTask = true;
         }
     };
+
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         // 判斷是否按下Back

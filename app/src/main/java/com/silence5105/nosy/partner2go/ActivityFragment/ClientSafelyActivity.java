@@ -45,6 +45,10 @@ public class ClientSafelyActivity extends Activity implements View.OnClickListen
             cashimg.setImageResource(R.mipmap.mcash);
             cashtxt.setText("MCASH");
         }
+        if (PrefsHelper.setcashtype(getApplication()).equals("ambank")){
+            cashimg.setImageResource(R.mipmap.list_credit_card);
+            cashtxt.setText("amBank");
+        }
     }
 
     public void initview() {

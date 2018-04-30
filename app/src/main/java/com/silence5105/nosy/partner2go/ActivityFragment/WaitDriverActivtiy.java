@@ -62,6 +62,10 @@ public class WaitDriverActivtiy extends Activity implements View.OnClickListener
                 cashtxt.setText("Cash");
                 cashimg.setImageResource(R.mipmap.list_cash);
             }
+            if (PrefsHelper.setcashtype(getApplication()).equals("ambank")){
+                cashtxt.setText("amBank");
+                cashimg.setImageResource(R.mipmap.list_credit_card);
+            }
 
         }
 
