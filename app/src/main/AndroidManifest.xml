@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.silence5105.nosy.partner2go">
+    package="com.nnosy.partner2go">
 
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
@@ -11,7 +11,6 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 
     <application
@@ -21,7 +20,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name="com.nnosy.partner2go.MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
@@ -48,11 +47,11 @@
         <!--</receiver>-->
 
         <receiver
-            android:name=".GcmBrodacasReceiver"
+            android:name="com.nnosy.partner2go.GcmBrodacasReceiver"
             android:permission="com.google.android.c2dm.permission.SEND">
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-                <category android:name="com.silence5105.nosy.partner2go" />
+                <category android:name="com.nnosy.partner2go" />
             </intent-filter>
         </receiver>
 
@@ -65,7 +64,7 @@
 
 
         <activity
-            android:name=".ActivityFragment.TitleActivity"
+            android:name="com.nnosy.partner2go.ActivityFragment.TitleActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -74,83 +73,84 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ActivityFragment.Loginactivity"
+            android:name="com.nnosy.partner2go.ActivityFragment.Loginactivity"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ActivityFragment.CreateUserFragment"
+            android:name="com.nnosy.partner2go.ActivityFragment.CreateUserFragment"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ActivityFragment.OTPActivity"
+            android:name="com.nnosy.partner2go.ActivityFragment.OTPActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ActivityFragment.ForgetPassWordActivity"
+            android:name="com.nnosy.partner2go.ActivityFragment.ForgetPassWordActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ActivityFragment.NewPassWordActivity"
+            android:name="com.nnosy.partner2go.ActivityFragment.NewPassWordActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ActivityFragment.ForgetPWOTPActivity"
-            android:screenOrientation="portrait" />
-
-        <activityr
-            android:name=".ActivityFragment.MyprofileActivity"
+            android:name="com.nnosy.partner2go.ActivityFragment.ForgetPWOTPActivity"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ActivityFragment.FaqsActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".ActivityFragment.OrderHaveDriverActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".ActivityFragment.StartDriverActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".ActivityFragment.NewBookingActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".ActivityFragment.VerifiedActivity"
+            android:name="com.nnosy.partner2go.ActivityFragment.MyprofileActivity"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ActivityFragment.WaitDriverActivtiy"
+            android:name="com.nnosy.partner2go.ActivityFragment.FaqsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ActivityFragment.LoginContainerActivity"
+            android:name="com.nnosy.partner2go.ActivityFragment.OrderHaveDriverActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ActivityFragment.ClientSafelyActivity"
+            android:name="com.nnosy.partner2go.ActivityFragment.StartDriverActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ActivityFragment.RatdriverActivity"
+            android:name="com.nnosy.partner2go.ActivityFragment.NewBookingActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ActivityFragment.newOrderHaveDriverActivity"
+            android:name="com.nnosy.partner2go.ActivityFragment.VerifiedActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.nnosy.partner2go.ActivityFragment.WaitDriverActivtiy"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ActivityFragment.TobeVerifiedActivity"
+            android:name="com.nnosy.partner2go.ActivityFragment.LoginContainerActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ActivityFragment.OfficleReservationSActivity"
+            android:name="com.nnosy.partner2go.ActivityFragment.ClientSafelyActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ActivityFragment.SettingActivity"
+            android:name="com.nnosy.partner2go.ActivityFragment.RatdriverActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ActivityFragment.PWCangeOkActivity"
+            android:name="com.nnosy.partner2go.ActivityFragment.newOrderHaveDriverActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ActivityFragment.BusinessInfoActivity"
+            android:name="com.nnosy.partner2go.ActivityFragment.TobeVerifiedActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ActivityFragment.JoinMe"
+            android:name="com.nnosy.partner2go.ActivityFragment.OfficleReservationSActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ActivityFragment.BookingDetailActivity"
+            android:name="com.nnosy.partner2go.ActivityFragment.SettingActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".ActivityFragment.PayDoneActivity"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.nnosy.partner2go.ActivityFragment.PWCangeOkActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.nnosy.partner2go.ActivityFragment.BusinessInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.nnosy.partner2go.ActivityFragment.JoinMe"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.nnosy.partner2go.ActivityFragment.BookingDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.nnosy.partner2go.ActivityFragment.PayDoneActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

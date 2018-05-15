@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:background="@mipmap/login_bg"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@mipmap/login_bg">
 
     <RelativeLayout
         android:id="@+id/loginbtn"
@@ -14,8 +13,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginLeft="10dp"
-        android:background="@mipmap/button_white"
-        android:layout_marginRight="10dp">
+        android:layout_marginRight="10dp"
+        android:background="@mipmap/button_white">
 
         <TextView
             android:layout_width="wrap_content"
@@ -54,11 +53,11 @@
 
     <ImageView
         android:id="@+id/imageView12"
-        android:layout_marginTop="108dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="108dp"
         android:background="@mipmap/logo" />
 
     <TextView
@@ -80,30 +79,39 @@
         android:layout_below="@+id/textView47"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="38dp"
-        android:layout_marginTop="7dp"
         android:layout_marginRight="38dp"
-        android:textSize="16sp"
+        android:layout_marginTop="7dp"
         android:text="User-friendliness to passengers in \n hailing taxi services."
         android:textAlignment="center"
-        android:textColor="#ffffff" />
+        android:textColor="#ffffff"
+        android:textSize="16sp" />
 
     <ImageView
         android:id="@+id/imageView16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView48"
-        android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
         android:background="@mipmap/line_white" />
 
-
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="2dp"
+        android:layout_marginRight="2dp"
+        android:text="1.6.6.d.5.10"
+        android:textColor="#fafafa"
+        android:textSize="10sp" />
     <!--<TextView-->
-        <!--android:id="@+id/textView49"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_below="@+id/textView48"-->
-        <!--android:layout_centerHorizontal="true"-->
-        <!--android:layout_marginTop="3dp"-->
-        <!--android:textColor="#ffffff"-->
-        <!--android:text="" />-->
+    <!--android:id="@+id/textView49"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_below="@+id/textView48"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:layout_marginTop="3dp"-->
+    <!--android:textColor="#ffffff"-->
+    <!--android:text="" />-->
 </RelativeLayout>

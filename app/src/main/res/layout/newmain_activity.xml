@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="#FAFAFA"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.silence5105.nosy.partner2go.MainActivity">
+    tools:context="com.silence5105.nnosy.partner2go.com.nnosy.partner2go.MainActivity">
 
     <!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
     <!--android:id="@+id/linearlayoout"-->
@@ -244,7 +244,7 @@
             android:background="#ffffff"
             android:orientation="vertical"
             android:visibility="invisible"
-            tools:context="com.silence5105.nosy.partnertogo.ActivityFragment.GoogleTestMap">
+            tools:context="com.silence5105.nnosy.partnertogo.ActivityFragment.GoogleTestMap">
 
             <!--<LinearLayout-->
             <!--android:id="@+id/editlayout"-->

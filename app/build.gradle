@@ -21,11 +21,11 @@ android {
     compileSdkVersion 25
     buildToolsVersion '25.0.0'
     defaultConfig {
-        applicationId "com.silence5105.nosy.partner2go"
+        applicationId "com.nnosy.partner2go"
         minSdkVersion 15
         targetSdkVersion 25
-        versionCode 3
-        versionName "1.6.4.1.r.6.27"
+        versionCode 1
+        versionName "1.6.6.d.5.10"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
     }
