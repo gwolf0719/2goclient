@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.androidquery.AQuery;
 import com.androidquery.callback.AjaxCallback;
 import com.androidquery.callback.AjaxStatus;
+import com.loopj.android.image.SmartImageView;
 import com.nnosy.partner2go.MainActivity;
 import com.nnosy.partner2go.PrefsHelper;
 import com.nnosy.partner2go.R;
@@ -29,6 +30,7 @@ public class RatdriverActivity extends Activity implements View.OnClickListener 
     TextView drivernametxt;
     RelativeLayout ratebtn;
     AQuery aQuery;
+    SmartImageView ratdriverimg;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -41,6 +43,7 @@ public class RatdriverActivity extends Activity implements View.OnClickListener 
                 rate = v;
             }
         });
+        ratdriverimg.setImageUrl(PrefsHelper.setavapic(getApplication()));
     }
 
     private void initview() {
@@ -49,6 +52,7 @@ public class RatdriverActivity extends Activity implements View.OnClickListener 
         ratingBar = (RatingBar) findViewById(R.id.ratingBar);
         ratebtn = (RelativeLayout) findViewById(R.id.ratebtn);
         ratebtn.setOnClickListener(this);
+        ratdriverimg = (SmartImageView) findViewById(R.id.ratdriverimg);
         aQuery = new AQuery(this);
     }
 

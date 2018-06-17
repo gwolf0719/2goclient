@@ -14,6 +14,10 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -49,7 +53,6 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -85,6 +88,7 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
+import com.loopj.android.image.SmartImageView;
 import com.nnosy.partner2go.ActivityFragment.BottomToast;
 import com.nnosy.partner2go.ActivityFragment.FaqsActivity;
 import com.nnosy.partner2go.ActivityFragment.JoinMe;
@@ -121,7 +125,7 @@ import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, OnMapReadyCallback, GoogleMap.OnCameraIdleListener, DirectionFinderListener
-        , GoogleApiClient.OnConnectionFailedListener, View.OnClickListener {
+        , GoogleApiClient.OnConnectionFailedListener, View.OnClickListener, SensorEventListener {
     GoogleMap mmap;
     LinearLayout otwselectlayout;
     LocationManager locationManager;
@@ -139,8 +143,8 @@ public class MainActivity extends AppCompatActivity
     public static final int LOCATION_UPDATE_MIN_DISTANCE = 10;
     public static final int LOCATION_UPDATE_MIN_TIME = 5000;
     private Button checkbtn;
-    private AutoCompleteTextView etOrigin;
-    private AutoCompleteTextView etDestination;
+    private CEdittext etOrigin;
+    private CEdittext etDestination;
     double nowlat;
     TextView vnumbertxt;
     DrawerLayout drawer;
@@ -341,22 +345,24 @@ public class MainActivity extends AppCompatActivity
         }
     };
     private HttpURLConnection httpURLConnection;
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        System.out.println(" MAIN ACTIVITY RESULET ===== : " + requestCode + " " + resultCode + " " + data);
-        super.onActivityResult(requestCode, resultCode, data);
-        Bundle bundle = this.getIntent().getExtras();
-        String teststring = bundle.getString("1");
-        System.out.println(" mainactivity ====== : " + teststring);
-        System.out.println(" MAIN ACTIVITY RESULET ===== : " + requestCode + " " + resultCode + " " + data);
-    }
+    SmartImageView avimg;
+    //    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        System.out.println(" MAIN ACTIVITY RESULET ===== : " + requestCode + " " + resultCode + " " + data);
+//        super.onActivityResult(requestCode, resultCode, data);
+//        Bundle bundle = this.getIntent().getExtras();
+//        String teststring = bundle.getString("1");
+//        System.out.println(" mainactivity ====== : " + teststring);
+//        System.out.println(" MAIN ACTIVITY RESULET ===== : " + requestCode + " " + resultCode + " " + data);
+//    }
+    SmartImageView incaravimg;
 
     public void initview() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         aQuery = new AQuery(this);
-
+        avimg = (SmartImageView) findViewById(R.id.avimg);
+        incaravimg = (SmartImageView) findViewById(R.id.incaravimg);
         menunumberimg = (RelativeLayout) findViewById(R.id.menunumberimg);
         vnumberimg = (RelativeLayout) findViewById(R.id.vnumberimg);
         bottoncontainer = (RelativeLayout) findViewById(R.id.bottoncontainer);
@@ -458,7 +464,7 @@ public class MainActivity extends AppCompatActivity
         dtxt = (TextView) findViewById(R.id.dtxt);
         btnFindPath = (RelativeLayout) findViewById(R.id.btnFindPath);
 //        btnFindPath.setBackgroundResource(R.layout.testbtn);
-        etOrigin = (AutoCompleteTextView) findViewById(R.id.etOrigin);
+        etOrigin = (CEdittext) findViewById(R.id.etOrigin);
 //        etOrigin.setBackgroundResource(R.layout.testedittxt);
         etOrigin.setOnItemClickListener(mAutocompleteClickListener);
         etOrigin.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -468,7 +474,7 @@ public class MainActivity extends AppCompatActivity
                 return false;
             }
         });
-        etDestination = (AutoCompleteTextView) findViewById(R.id.etDestination);
+        etDestination = (CEdittext) findViewById(R.id.etDestination);
         etDestination.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
@@ -635,10 +641,12 @@ public class MainActivity extends AppCompatActivity
         if (PrefsHelper.setpushkey(getApplication()) == null) {
             pushkey();
         }
+        //上車畫面
         if (PrefsHelper.sethaved(getApplication()) != null) {
             if (PrefsHelper.sethaved(getApplication()).equals("1")) {
                 bottoncontainer.setVisibility(View.INVISIBLE);
                 onthewaylayout.setVisibility(View.VISIBLE);
+                avimg.setImageUrl(PrefsHelper.setavapic(getApplication()));
                 otwselectlayout.setVisibility(View.VISIBLE);
                 PrefsHelper.getdriverotw(getApplication(), "1");
                 where2golayout.setVisibility(View.GONE);
@@ -664,7 +672,7 @@ public class MainActivity extends AppCompatActivity
 
             }
         }
-
+        //車上畫面
         if (PrefsHelper.sethaved(getApplication()) != null) {
             if (PrefsHelper.sethaved(getApplication()).equals("2")) {
 //                onthewaylayout.setVisibility(View.VISIBLE);
@@ -675,6 +683,8 @@ public class MainActivity extends AppCompatActivity
 //                rattxt.setText(PrefsHelper.setrate(getApplication()));
 //                dtxt.setText(PrefsHelper.setgotime(getApplication()));
                 PrefsHelper.getdriverotw(getApplication(), "0");
+                avimg.setImage(null);
+                incaravimg.setImageUrl(PrefsHelper.setavapic(getApplication()));
                 icarlayout.setVisibility(View.VISIBLE);
 //                icslectlayout.setVisibility(View.VISIBLE);
                 sosbtn.setVisibility(View.VISIBLE);
@@ -703,6 +713,10 @@ public class MainActivity extends AppCompatActivity
             }
         }
         loadverificationnumberapi();
+
+        sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+        sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION);
+        sensorManager.registerListener(this, sensor, SensorManager.SENSOR_DELAY_NORMAL);
     }
 
 
@@ -732,6 +746,26 @@ public class MainActivity extends AppCompatActivity
         });
 
     }
+
+    @Override
+    public void onSensorChanged(SensorEvent event) {
+        switch (event.sensor.getType()) {
+            case Sensor.TYPE_ORIENTATION:
+                System.out.println("sensor == : " + event.values[0] + "\n" + event.values[1] + "\n" + event.values[2]);
+                break;
+        }
+
+
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
+    }
+
+
+    Sensor sensor;
+    SensorManager sensorManager;
 
     public void showstartlocation() {
         Double slat = Double.valueOf(PrefsHelper.setstartlat(getApplication()));
@@ -1402,6 +1436,7 @@ public class MainActivity extends AppCompatActivity
 
 //        mmap.setMyLocationEnabled(true);
         mmap.getUiSettings().setMyLocationButtonEnabled(true);
+//        mmap.getUiSettings().setRotateGesturesEnabled(false);
         mmap.setOnMyLocationButtonClickListener(new GoogleMap.OnMyLocationButtonClickListener() {
             @Override
             public boolean onMyLocationButtonClick() {
@@ -1682,8 +1717,11 @@ public class MainActivity extends AppCompatActivity
         originMarkers = new ArrayList<>();
         destinationMarkers = new ArrayList<>();
 //        System.out.println(" ===== route1 "+route1+ " route ==== "+route);
-        System.out.println(" ===== route ==== " + route);
+//        System.out.println(" ===== route ==== " + route.toString());
         for (Route route1 : route) {
+            for (int i = 0; i < route.size(); i++) {
+                System.out.println(" route = : " + route.get(i) + "\n" + route1.points.get(i));
+            }
 //            mmap.moveCamera(CameraUpdateFactory.newLatLngZoom(route1.startLocation, 16));
             ((TextView) findViewById(R.id.tvDuration)).setText(route1.duration.text);
             ((TextView) findViewById(R.id.tvDistance)).setText(route1.distance.text);
@@ -1718,7 +1756,7 @@ public class MainActivity extends AppCompatActivity
             PolylineOptions polylineOptions = new PolylineOptions().
                     geodesic(true).
                     color(Color.RED).
-                    width(15);
+                    width(20);
 
             for (int i = 0; i < route1.points.size(); i++)
                 polylineOptions.add(route1.points.get(i));
@@ -2062,6 +2100,7 @@ public class MainActivity extends AppCompatActivity
                 break;
         }
     }
+
 
     public class BookSelectTimeFragment1 extends Fragment implements View.OnClickListener {
         TextView mytxt, dtimetxt, officletxt, oktxt, canceltxt;
@@ -2413,7 +2452,7 @@ public class MainActivity extends AppCompatActivity
                 switch (PrefsHelper.setcarclass(getActivity())) {
                     case "Budget":
                         officialcarimg.setImageDrawable(getResources().getDrawable(R.mipmap.car_img_red));
-                        officialcattxt.setText("BUDGET");
+                            officialcattxt.setText("BUDGET");
                         break;
                     case "Teks1m":
                         officialcarimg.setImageDrawable(getResources().getDrawable(R.mipmap.car_img_golden));
@@ -2467,6 +2506,7 @@ public class MainActivity extends AppCompatActivity
                                                     + "&payment=" + PrefsHelper.setcashtype(getActivity())
                                                     + "&cost=" + PrefsHelper.setcost(getActivity())
                                                     + "&expected_time_onboard=" + PrefsHelper.setalltime(getActivity());
+                                            System.out.println(" booking cost = : " + PrefsHelper.setcost(getApplication()));
 //                            String testdata = "email=testpppp@gmail.com&class=Budget&start_address=123&end_address=321&start_location=123&end_location=321&distance=1";
                                             OutputStream outputStream = httpURLConnection.getOutputStream();
                                             outputStream.write(data.getBytes());
@@ -3121,7 +3161,7 @@ public class MainActivity extends AppCompatActivity
                             try {
 //                            if (object.getString("sys_code").equals("200")) {
                                 faretxt.setText("RM " + object.getJSONObject("price").getString("Teks1m").toString());
-                                PrefsHelper.getcost(getActivity(), object.getJSONObject("price").getString("Budget").toString());
+                                PrefsHelper.getcost(getActivity(), object.getJSONObject("price").getString("Teks1m").toString());
 //                            }
                                 new Thread(new Runnable() {
                                     @Override
@@ -3234,7 +3274,7 @@ public class MainActivity extends AppCompatActivity
                             try {
 //                            if (object.getString("sys_code").equals("200")) {
                                 faretxt.setText("RM " + object.getJSONObject("price").getString("Executive").toString());
-                                PrefsHelper.getcost(getActivity(), object.getJSONObject("price").getString("Budget").toString());
+                                PrefsHelper.getcost(getActivity(), object.getJSONObject("price").getString("Executive").toString());
 //                            }
                                 new Thread(new Runnable() {
                                     @Override

@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.androidquery.AQuery;
 import com.androidquery.callback.AjaxCallback;
 import com.androidquery.callback.AjaxStatus;
+import com.loopj.android.image.SmartImageView;
 import com.nnosy.partner2go.PrefsHelper;
 import com.nnosy.partner2go.R;
 
@@ -26,6 +27,7 @@ public class ClientSafelyActivity extends Activity implements View.OnClickListen
     TextView startadresstxt, endadresstxt, faretxt;
     RelativeLayout savebtn;
     AQuery aQuery;
+    SmartImageView driverimg;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -37,21 +39,23 @@ public class ClientSafelyActivity extends Activity implements View.OnClickListen
         faretxt.setText(PrefsHelper.setmenucost(getApplication()).toString());
         ImageView cashimg = (ImageView) findViewById(R.id.cashimg);
         TextView cashtxt = (TextView) findViewById(R.id.cashtxt);
-        if (PrefsHelper.setcashtype(getApplication()).equals("cash")){
+        driverimg.setImageUrl(PrefsHelper.setavapic(getApplication()));
+        if (PrefsHelper.setcashtype(getApplication()).equals("cash")) {
             cashimg.setImageResource(R.mipmap.list_cash);
             cashtxt.setText("CASH");
         }
-        if (PrefsHelper.setcashtype(getApplication()).equals("mcash")){
+        if (PrefsHelper.setcashtype(getApplication()).equals("mcash")) {
             cashimg.setImageResource(R.mipmap.mcash);
             cashtxt.setText("MCASH");
         }
-        if (PrefsHelper.setcashtype(getApplication()).equals("ambank")){
+        if (PrefsHelper.setcashtype(getApplication()).equals("ambank")) {
             cashimg.setImageResource(R.mipmap.list_credit_card);
             cashtxt.setText("amBank");
         }
     }
 
     public void initview() {
+        driverimg = (SmartImageView) findViewById(R.id.driverimg);
         startadresstxt = (TextView) findViewById(R.id.startadresstxt);
         endadresstxt = (TextView) findViewById(R.id.endadresstxt);
         faretxt = (TextView) findViewById(R.id.faretxt);

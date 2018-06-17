@@ -38,6 +38,7 @@ public class DirectionFinder {
 
     public void execute() throws UnsupportedEncodingException {
         listener.onDirectionFinderStart();
+        System.out.println(" createurl = : " + createUrl().toString());
         new DownloadRawData().execute(createUrl());
     }
 

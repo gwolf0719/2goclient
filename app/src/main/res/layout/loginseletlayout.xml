@@ -6,7 +6,6 @@
 
     <RelativeLayout
         android:id="@+id/loginbtn"
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/createbtn"
@@ -102,7 +101,7 @@
         android:layout_alignParentRight="true"
         android:layout_marginBottom="2dp"
         android:layout_marginRight="2dp"
-        android:text="1.6.6.d.5.10"
+        android:text="1.7.1.d.6.12"
         android:textColor="#fafafa"
         android:textSize="10sp" />
     <!--<TextView-->

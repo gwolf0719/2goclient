@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
     <TextView
         android:id="@+id/textView44"
         android:layout_width="wrap_content"
@@ -42,24 +44,38 @@
         android:background="@mipmap/line_black" />
 
     <TextView
+        android:id="@+id/drivernametxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/imageView19"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="17dp"
         android:text=""
-        android:id="@+id/drivernametxt"
         android:textColor="#000000"
         android:textSize="16sp"
         android:textStyle="bold" />
-    <ImageView
+
+    <RelativeLayout
         android:id="@+id/imageView19"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/imageView15"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="37dp"
-        android:background="@mipmap/driver_cycle_small" />
+        android:layout_marginTop="37dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="@mipmap/driver_cycle_small" />
+
+        <com.loopj.android.image.SmartImageView
+            android:id="@+id/ratdriverimg"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true" />
+    </RelativeLayout>
 
     <!--<ImageView-->
     <!--android:id="@+id/budgetimg"-->
@@ -94,13 +110,13 @@
     <!--android:visibility="invisible" />-->
 
     <RatingBar
+        android:id="@+id/ratingBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/ratingBar"
-        android:layout_marginTop="61dp"
         android:layout_below="@+id/imageView19"
-        android:rating="3"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="61dp"
+        android:rating="3" />
 
     <RelativeLayout
         android:id="@+id/ratebtn"

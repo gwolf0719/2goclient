@@ -41,7 +41,7 @@ public enum  PreferenceKeys {
     ,USERNAME
     ,RESERVATION
     ,BOOKINGTYPE
-
+    ,AVAPIC
     ,BOOKINGSTARTADRESS
     ,BOOKINGENDADRESS
     ,BOOKINGCOST
