@@ -3,6 +3,7 @@ package com.nnosy.partner2go.ActivityFragment;
 import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
@@ -105,6 +106,8 @@ public class TitleActivity extends Activity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.titleactivity);
         initview();
+
+
         aQuery = new AQuery(this);
         System.out.println(" ===== titleactivity ===== :" + PrefsHelper.setautologin(getApplication()));
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
