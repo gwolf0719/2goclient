@@ -8,6 +8,17 @@ import android.content.SharedPreferences;
  */
 
 public class PrefsHelper {
+    public static void getcheckagree(Context context, String checkagree) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("checkagree", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(PreferenceKeys.CHECKAGREE.toString(), checkagree);
+        editor.commit();
+    }
+
+    public static String setcheckagree(Context context) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("checkagree", Context.MODE_PRIVATE);
+        return sharedPreferences.getString(PreferenceKeys.CHECKAGREE.toString(), null);
+    }
     public static void getavapic(Context context, String avapic) {
         SharedPreferences sharedPreferences = context.getSharedPreferences("avapic", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();

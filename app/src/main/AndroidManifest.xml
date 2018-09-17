@@ -76,7 +76,9 @@
         <activity
             android:name="com.nnosy.partner2go.ActivityFragment.Loginactivity"
             android:screenOrientation="portrait" />
-
+        <activity
+            android:name=".ActivityFragment.CheckAgreeActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.nnosy.partner2go.ActivityFragment.CreateUserFragment"
             android:screenOrientation="portrait" />

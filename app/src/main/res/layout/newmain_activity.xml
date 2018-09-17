@@ -160,6 +160,8 @@
         android:name="com.google.android.gms.maps.MapFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+
         <!--<LinearLayout-->
         <!--android:id="@+id/pbookbtn"-->
         <!--android:layout_width="wrap_content"-->
@@ -669,12 +671,23 @@
         android:visibility="gone">
 
         <TextView
+            android:id="@+id/incardtxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="17dp"
+            android:text="1234"
+            android:textColor="#c63725"
+            android:textSize="40sp" />
+
+        <TextView
             android:id="@+id/titletxt1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="23dp"
             android:layout_marginTop="12dp"
-            android:text="Your driver has arrived."
+            android:text="Expected to arrive"
             android:textColor="#c63725"
             android:textSize="16sp" />
 

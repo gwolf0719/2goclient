@@ -44,38 +44,55 @@ public class TitleActivity extends Activity {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    if (PrefsHelper.setautologin(getApplication()) != null) {
-                        String check = PrefsHelper.setautologin(getApplication());
-                        if (check != null) {
-                            if (check.equals("1")) {
-                                if (PrefsHelper.setpushkey(getApplication()) != null) {
+                    if (PrefsHelper.setcheckagree(getApplication()) != null) {
+                        if (PrefsHelper.setcheckagree(getApplication()).equals("1")) {
+                            if (PrefsHelper.setautologin(getApplication()) != null) {
+                                String check = PrefsHelper.setautologin(getApplication());
+                                if (check != null) {
+                                    if (check.equals("1")) {
+                                        if (PrefsHelper.setpushkey(getApplication()) != null) {
 
-                                    String url = "https://my.here2go.asia///api_member/push_key?member_id=" + PrefsHelper.setphonenumber(getApplication()) + "&push_key=" + PrefsHelper.setpushkey(getApplication());
+                                            String url = "https://my.here2go.asia///api_member/push_key?member_id=" + PrefsHelper.setphonenumber(getApplication()) + "&push_key=" + PrefsHelper.setpushkey(getApplication());
 //        if (aQuery != null) {
-                                    aQuery.ajax(url, null, JSONObject.class, new AjaxCallback<JSONObject>() {
-                                        @Override
-                                        public void callback(String url, JSONObject object, AjaxStatus status) {
-                                            super.callback(url, object, status);
+                                            aQuery.ajax(url, null, JSONObject.class, new AjaxCallback<JSONObject>() {
+                                                @Override
+                                                public void callback(String url, JSONObject object, AjaxStatus status) {
+                                                    super.callback(url, object, status);
+
+                                                }
+                                            });
 
                                         }
-                                    });
-
+                                        System.out.println("title activity ==== 1 ");
+                                        Intent i = new Intent();
+                                        i.setClass(TitleActivity.this, MainActivity.class);
+                                        startActivity(i);
+                                        finish();
+                                    }
                                 }
-                                System.out.println("title activity ==== 1 ");
-                                Intent i = new Intent();
-                                i.setClass(TitleActivity.this, MainActivity.class);
-                                startActivity(i);
+
+                            }
+                            if (PrefsHelper.setautologin(getApplicationContext()) == null) {
+                                Intent intent = new Intent();
+                                intent.setClass(TitleActivity.this, LoginContainerActivity.class);
+                                startActivity(intent);
+//                    getActivity().finish();
                                 finish();
                             }
-                        }
 
-                    }
-                    if (PrefsHelper.setautologin(getApplicationContext()) == null) {
-                        Intent intent = new Intent();
-                        intent.setClass(TitleActivity.this, LoginContainerActivity.class);
-                        startActivity(intent);
-//                    getActivity().finish();
+                        } else {
+                            Intent checkagreeintent = new Intent();
+                            checkagreeintent.setClass(TitleActivity.this, CheckAgreeActivity.class);
+                            startActivity(checkagreeintent);
+                            finish();
+
+                        }
+                    } else {
+                        Intent checkagreeintent = new Intent();
+                        checkagreeintent.setClass(TitleActivity.this, CheckAgreeActivity.class);
+                        startActivity(checkagreeintent);
                         finish();
+
                     }
 
 
@@ -158,41 +175,55 @@ public class TitleActivity extends Activity {
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        String check = PrefsHelper.setautologin(getApplication());
-                        if (check != null) {
-                            if (check.equals("1")) {
-                                System.out.println("titleactivity ====== 2 :");
-                                if (PrefsHelper.setpushkey(getApplication()) != null) {
+                        if (PrefsHelper.setcheckagree(getApplication()) != null) {
+                            if (PrefsHelper.setcheckagree(getApplication()).equals("1")) {
+                                if (PrefsHelper.setautologin(getApplication()) != null) {
+                                    String check = PrefsHelper.setautologin(getApplication());
+                                    if (check != null) {
+                                        if (check.equals("1")) {
+                                            if (PrefsHelper.setpushkey(getApplication()) != null) {
 
-                                    String url = "https://my.here2go.asia///api_member/push_key?member_id=" + PrefsHelper.setphonenumber(getApplication()) + "&push_key=" + PrefsHelper.setpushkey(getApplication());
+                                                String url = "https://my.here2go.asia///api_member/push_key?member_id=" + PrefsHelper.setphonenumber(getApplication()) + "&push_key=" + PrefsHelper.setpushkey(getApplication());
 //        if (aQuery != null) {
-                                    aQuery.ajax(url, null, JSONObject.class, new AjaxCallback<JSONObject>() {
-                                        @Override
-                                        public void callback(String url, JSONObject object, AjaxStatus status) {
-                                            super.callback(url, object, status);
+                                                aQuery.ajax(url, null, JSONObject.class, new AjaxCallback<JSONObject>() {
+                                                    @Override
+                                                    public void callback(String url, JSONObject object, AjaxStatus status) {
+                                                        super.callback(url, object, status);
 
+                                                    }
+                                                });
+
+                                            }
+                                            System.out.println("title activity ==== 1 ");
+                                            Intent i = new Intent();
+                                            i.setClass(TitleActivity.this, MainActivity.class);
+                                            startActivity(i);
+                                            finish();
                                         }
-                                    });
+                                    }
 
                                 }
-                                Intent i = new Intent();
-                                i.setClass(TitleActivity.this, MainActivity.class);
-                                startActivity(i);
-                                finish();
-                            }
-                            if (check.equals("0")) {
-                                Intent intent = new Intent();
-                                intent.setClass(TitleActivity.this, LoginContainerActivity.class);
-                                startActivity(intent);
-                                finish();
-                            }
-                        }
-                        if (check == null) {
-                            Intent intent = new Intent();
-                            intent.setClass(TitleActivity.this, LoginContainerActivity.class);
-                            startActivity(intent);
+                                if (PrefsHelper.setautologin(getApplicationContext()) == null) {
+                                    Intent intent = new Intent();
+                                    intent.setClass(TitleActivity.this, LoginContainerActivity.class);
+                                    startActivity(intent);
 //                    getActivity().finish();
+                                    finish();
+                                }
+
+                            } else {
+                                Intent checkagreeintent = new Intent();
+                                checkagreeintent.setClass(TitleActivity.this, CheckAgreeActivity.class);
+                                startActivity(checkagreeintent);
+                                finish();
+
+                            }
+                        } else {
+                            Intent checkagreeintent = new Intent();
+                            checkagreeintent.setClass(TitleActivity.this, CheckAgreeActivity.class);
+                            startActivity(checkagreeintent);
                             finish();
+
                         }
                     }
                 }, 2000);

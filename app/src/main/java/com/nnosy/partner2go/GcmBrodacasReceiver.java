@@ -224,7 +224,7 @@ public class GcmBrodacasReceiver extends BroadcastReceiver {
                         intent2.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         intent2.setClass(context, MainActivity.class);
                         context.startActivity(intent2);
-//                        6/22
+//                        6/22 
                         break;
                     case "8":
                         PrefsHelper.getlast30m(context, "1");

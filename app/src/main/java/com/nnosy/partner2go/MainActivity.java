@@ -24,6 +24,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -47,6 +48,7 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -82,6 +84,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
@@ -90,6 +93,7 @@ import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.loopj.android.image.SmartImageView;
 import com.nnosy.partner2go.ActivityFragment.BottomToast;
+import com.nnosy.partner2go.ActivityFragment.CMapView;
 import com.nnosy.partner2go.ActivityFragment.FaqsActivity;
 import com.nnosy.partner2go.ActivityFragment.JoinMe;
 import com.nnosy.partner2go.ActivityFragment.Last5minFragment;
@@ -167,8 +171,6 @@ public class MainActivity extends AppCompatActivity
     Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
-
-
             switch (msg.what) {
                 case 1:
 //                    System.out.println(" ===== 司機街到");
@@ -337,6 +339,9 @@ public class MainActivity extends AppCompatActivity
                     loaddriverlocation();
                     System.out.println(" mainactivity 222 ==== yes");
                     break;
+                case 3:
+                    checkendlocation();
+                    break;
             }
 
 
@@ -357,10 +362,12 @@ public class MainActivity extends AppCompatActivity
 //    }
     SmartImageView incaravimg;
 
+
     public void initview() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         aQuery = new AQuery(this);
+        incardtxt = (TextView) findViewById(R.id.incardtxt);
         avimg = (SmartImageView) findViewById(R.id.avimg);
         incaravimg = (SmartImageView) findViewById(R.id.incaravimg);
         menunumberimg = (RelativeLayout) findViewById(R.id.menunumberimg);
@@ -455,6 +462,8 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
         MapFragment mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+//        CMapView cMapView = (CMapView) findViewById(R.id.map);
+//        cMapView.ge
 
         checklayout = (LinearLayout) findViewById(R.id.checklayout);
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
@@ -538,7 +547,10 @@ public class MainActivity extends AppCompatActivity
                 sendRequest();
             }
         });
+
+
     }
+
 
     Handler checkviewhandler = new Handler() {
         @Override
@@ -549,6 +561,29 @@ public class MainActivity extends AppCompatActivity
             }
         }
     };
+
+    LatLngBounds.Builder builder = new LatLngBounds.Builder();
+    LatLngBounds bounds;
+
+    //    public void focuslocation() {
+//        LatLng melatlng = new LatLng(nowlat, nowlng);
+////                map.moveCamera(CameraUpdateFactory.newLatLngZoom(melatlng, 18));
+////                LatLng testlatlng = new LatLng(nowlat, nowlng);
+//        builder.include(melatlng);
+//        bounds = builder.build();
+//        CameraPosition oldPos = mmap.getCameraPosition();
+//        CameraPosition pos = CameraPosition.builder(oldPos)
+//                .target(bounds.getCenter())
+////                        .bearing(f)
+//                .tilt(0)
+//                .zoom(18)
+////                .target(bounds.southwest)
+//
+//                .build();
+//        mmap.moveCamera(CameraUpdateFactory.newCameraPosition(pos));
+//        mmap.setPadding(0, 0, 0, 0);
+//    }
+    TextView incardtxt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -602,6 +637,7 @@ public class MainActivity extends AppCompatActivity
                     })
 
                     .show();
+            showdrivertip = true;
             PrefsHelper.getdriverotw(getApplication(), "0");
             PrefsHelper.gethaved(getApplication(), "0");
         }
@@ -640,7 +676,7 @@ public class MainActivity extends AppCompatActivity
                         Message message = new Message();
                         message.what = 2;
                         handler.sendMessage(message);
-                        handler.postDelayed(this, 10000);
+                        handler.postDelayed(this, 20000);
                     }
                 });
 
@@ -659,6 +695,7 @@ public class MainActivity extends AppCompatActivity
 //                dtxt.setText(PrefsHelper.setgotime(getApplication()));
                 PrefsHelper.getdriverotw(getApplication(), "0");
                 avimg.setImage(null);
+                showdrivertip = true;
                 incaravimg.setImageUrl(PrefsHelper.setavapic(getApplication()));
                 icarlayout.setVisibility(View.VISIBLE);
 //                icslectlayout.setVisibility(View.VISIBLE);
@@ -667,6 +704,18 @@ public class MainActivity extends AppCompatActivity
                 iccrate.setText(PrefsHelper.setrate(getApplication()));
                 iccnametxt.setText(PrefsHelper.setdrivername(getApplication()));
                 iccartxt.setText(PrefsHelper.setdrivercarclass(getApplication()) + "．" + PrefsHelper.settextnumber(getApplication()));
+
+                new Handler(Looper.getMainLooper()).post(new Runnable() {
+                    @Override
+                    public void run() {
+//                        loaddriverlocation();
+                        Message message = new Message();
+                        message.what = 3;
+                        handler.sendMessage(message);
+                        handler.postDelayed(this, 20000);
+                    }
+                });
+
             }
         }
 //        bottoncontainer.setVisibility(View.VISIBLE);
@@ -1205,10 +1254,70 @@ public class MainActivity extends AppCompatActivity
                     e.printStackTrace();
                 } catch (JSONException e) {
                     e.printStackTrace();
+                } finally {
+                    //司機距離
+                    if (PrefsHelper.sethaved(getApplication()).equals("1")) {
+                        String url = "https://maps.googleapis.com/maps/api/directions/json?origin=" + PrefsHelper.setdriverlat(getApplication()) + "," + PrefsHelper.setdriverlng(getApplication()) + "&destination=" + String.valueOf(nowlat) + "," + String.valueOf(nowlng) + "&key=AIzaSyAsgVVmdUDxv5fxYUBnas-bDspkiGpJ7JU";
+                        aQuery.ajax(url, null, JSONObject.class, new AjaxCallback<JSONObject>() {
+                            @Override
+                            public void callback(String url, JSONObject object, AjaxStatus status) {
+                                super.callback(url, object, status);
+                                try {
+                                    System.out.println("obj test == : " + object.getJSONArray("routes").getJSONObject(0).getJSONArray("legs").getJSONObject(0).getJSONObject("duration").getString("text"));
+                                    String dstring = object.getJSONArray("routes").getJSONObject(0).getJSONArray("legs").getJSONObject(0).getJSONObject("duration").getString("text");
+                                    dtxt.setText(dstring);
+                                    if (getDistance(nowlat, nowlng, Double.valueOf(PrefsHelper.setdriverlat(getApplication())), Double.valueOf(PrefsHelper.setdriverlng(getApplication()))) < 100) {
+                                        if (showdrivertip == true) {
+                                            new android.app.AlertDialog.Builder(MainActivity.this)
+                                                    .setTitle("your driver has arrived : ")
+//                                                .setNeutralButton("相機", new DialogInterface.OnClickListener() {
+//                                                    @Override
+//                                                    public void onClick(DialogInterface dialog, int which) {
+//
+//
+//                                                    }
+//                                                })
+                                                    .setPositiveButton("confirm", new DialogInterface.OnClickListener() {
+                                                        @Override
+                                                        public void onClick(DialogInterface dialog, int which) {
+                                                            showdrivertip = false;
+                                                        }
+                                                    }).show();
+                                        }
+                                    }
+
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        });
+                    }
                 }
 
             }
         }).start();
+    }
+
+    boolean showdrivertip = true;
+
+    public void checkendlocation() {
+        if (PrefsHelper.sethaved(getApplication()).equals("2")) {
+            String url = "https://maps.googleapis.com/maps/api/directions/json?origin=" + PrefsHelper.setdriverlat(getApplication()) + "," + PrefsHelper.setdriverlng(getApplication()) + "&destination=" + String.valueOf(nowlat) + "," + String.valueOf(nowlng) + "&key=AIzaSyAsgVVmdUDxv5fxYUBnas-bDspkiGpJ7JU";
+            aQuery.ajax(url, null, JSONObject.class, new AjaxCallback<JSONObject>() {
+                @Override
+                public void callback(String url, JSONObject object, AjaxStatus status) {
+                    super.callback(url, object, status);
+                    try {
+                        System.out.println("obj test == : " + object.getJSONArray("routes").getJSONObject(0).getJSONArray("legs").getJSONObject(0).getJSONObject("duration").getString("text"));
+                        String dstring = object.getJSONArray("routes").getJSONObject(0).getJSONArray("legs").getJSONObject(0).getJSONObject("duration").getString("text");
+//                                    dtxt.setText(dstring);
+                        incardtxt.setText(dstring);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+        }
     }
 
     @Override
@@ -1351,6 +1460,7 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
+    boolean focus = true;
     public LocationListener mLocationListener = new LocationListener() {
         @Override
         public void onLocationChanged(Location location) {
@@ -1358,6 +1468,12 @@ public class MainActivity extends AppCompatActivity
 //                Logger.d(String.format("%f, %f", location.getLatitude(), location.getLongitude()));
 //                drawMarker(location);
 //                mLocationManager.removeUpdates(mLocationListener);
+                if (PrefsHelper.sethaved(getApplication()) != null) {
+                    if (focus == true && PrefsHelper.sethaved(getApplication()).equals("2")) {
+                        LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
+                        mmap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 17));
+                    }
+                }
             } else {
 //                Logger.d("Location is null");
             }
@@ -1584,10 +1700,54 @@ public class MainActivity extends AppCompatActivity
         }
         if (PrefsHelper.sethaved(getApplication()) != null) {
             if (PrefsHelper.sethaved(getApplication()).equals("2")) {
+//                LatLng hcmus2 = new LatLng(nowlat, nowlng);
+                mmap.moveCamera(CameraUpdateFactory.newLatLngZoom(hcmus, 17));
                 showendlocation();
             }
         }
 
+    }
+
+    public void loadcarlocation() {
+        String url = "https://my.here2go.asia///api_booking/get_near?lat=" + nowlat + "&lng=" + nowlng;
+        aQuery.ajax(url, null, JSONObject.class, new AjaxCallback<JSONObject>() {
+            @Override
+            public void callback(String url, JSONObject object, AjaxStatus status) {
+
+                System.out.println(" ==== mainactivity car object ==== " + object);
+                try {
+
+                    System.out.println(" ======car  mainactivityobject ==== " + object.getJSONArray("partners").toString());
+
+                    for (int i = 0; i <= object.getJSONArray("partners").length(); i++) {
+                        if (object.getJSONArray("partners").getJSONObject(i).getString("class").equals("Executive")) {
+                            LatLng hcmus = new LatLng(object.getJSONArray("partners").getJSONObject(i).getDouble("lat"), object.getJSONArray("partners").getJSONObject(i).getDouble("lng"));
+                            mmap.addMarker(new MarkerOptions()
+                                    .icon(BitmapDescriptorFactory.fromResource(R.mipmap.car_icon_blue))
+                                    .title(object.getJSONArray("partners").getJSONObject(i).getString("name").toString())
+                                    .position(hcmus));
+                        }
+                        if (object.getJSONArray("partners").getJSONObject(i).getString("class").equals("Teks1m")) {
+                            LatLng hcmus = new LatLng(object.getJSONArray("partners").getJSONObject(i).getDouble("lat"), object.getJSONArray("partners").getJSONObject(i).getDouble("lng"));
+                            mmap.addMarker(new MarkerOptions()
+                                    .icon(BitmapDescriptorFactory.fromResource(R.mipmap.car_icon_golden))
+                                    .title(object.getJSONArray("partners").getJSONObject(i).getString("name").toString())
+                                    .position(hcmus));
+                        }
+                        if (object.getJSONArray("partners").getJSONObject(i).getString("class").equals("Budget")) {
+                            LatLng hcmus = new LatLng(object.getJSONArray("partners").getJSONObject(i).getDouble("lat"), object.getJSONArray("partners").getJSONObject(i).getDouble("lng"));
+                            mmap.addMarker(new MarkerOptions()
+                                    .icon(BitmapDescriptorFactory.fromResource(R.mipmap.car_icon_red))
+                                    .title(object.getJSONArray("partners").getJSONObject(i).getString("name").toString())
+                                    .position(hcmus));
+                        }
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 
     public void mapsetonlongclick() {
@@ -1968,6 +2128,7 @@ public class MainActivity extends AppCompatActivity
             public void callback(String url, JSONObject object, AjaxStatus status) {
                 super.callback(url, object, status);
                 try {
+                    System.out.println("loadverificationnumberapi = : " + object);
                     if (object.getString("sys_code").equals("200")) {
                         if (object.getString("count").equals("0")) {
                             vnumberimg.setVisibility(View.INVISIBLE);
@@ -3432,4 +3593,18 @@ public class MainActivity extends AppCompatActivity
 //    }
 //}
 
+    public static double getDistance(double lat1, double lon1, double lat2, double lon2) {
+        double radLat1 = lat1 * Math.PI / 180;
+        double radLat2 = lat2 * Math.PI / 180;
+        double a = radLat1 - radLat2;
+        double b = lon1 * Math.PI / 180 - lon2 * Math.PI / 180;
+        double s = 2 * Math.asin(Math.sqrt(Math.pow(Math.sin(a / 2), 2)
+                + Math.cos(radLat1) * Math.cos(radLat2)
+                * Math.pow(Math.sin(b / 2), 2)));
+        s = s * 6378137.0;
+        s = Math.round(s * 10000) / 10000;
+
+
+        return s;
+    }
 }
