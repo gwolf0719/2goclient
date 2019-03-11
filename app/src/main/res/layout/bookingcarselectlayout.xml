@@ -124,6 +124,45 @@
                         android:layout_marginTop="6dp"
                         android:background="@mipmap/choose_car" />
                 </LinearLayout>
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+
+                    android:layout_weight="1"
+                    android:background="#B0B0AE">
+                <LinearLayout
+                    android:id="@+id/electricbtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@mipmap/car_img_white" />
+
+                    <TextView
+                        android:id="@+id/electrictxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="ELECTRIC"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="12sp" />
+
+                    <ImageView
+                        android:id="@+id/electricimg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="6dp"
+                        android:background="@mipmap/choose_car" />
+
+                </LinearLayout>
+                </RelativeLayout>
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
@@ -166,33 +205,33 @@
                     android:layout_centerVertical="true"
                     android:layout_marginRight="6dp"
                     android:background="@mipmap/btn_choose_money">
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <ImageView
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="6dp"
-                        android:id="@+id/cashimg" />
+                        android:orientation="horizontal">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="6dp"
+                            android:id="@+id/cashimg" />
 
-                    <!--<TextView-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_centerHorizontal="true"-->
-                    <!--android:layout_centerVertical="true"-->
-                    <!--android:text="CASH"-->
-                    <!--android:textColor="#000000" />-->
-                    <Spinner
-                        android:id="@+id/sp"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="5dp"
-                        android:layout_width="wrap_content"
-                        android:background="@null"
-                        android:layout_height="wrap_content"></Spinner>
-                </LinearLayout>
+                        <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_centerHorizontal="true"-->
+                        <!--android:layout_centerVertical="true"-->
+                        <!--android:text="CASH"-->
+                        <!--android:textColor="#000000" />-->
+                        <Spinner
+                            android:id="@+id/sp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="5dp"
+                            android:layout_width="wrap_content"
+                            android:background="@null"
+                            android:layout_height="wrap_content"></Spinner>
+                    </LinearLayout>
                 </RelativeLayout>
 
 

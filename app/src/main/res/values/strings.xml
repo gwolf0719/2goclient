@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">2GO Passenger</string>
+    <string name="app_name">TaxiGO Passenger</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -20,8 +20,8 @@
 
     <!--api-->
     <!--phonecreatfragment-->
-    <!--https://my.here2go.asia///api_member/register?member_id=-->
-    <string name="phonecreateidapi">https://my.here2go.asia///api_member/register?member_id=</string>
+    <!--https://www.mmas.biz///api_member/register?member_id=-->
+    <string name="phonecreateidapi">https://www.mmas.biz///api_member/register?member_id=</string>
     <string name="loginapi"></string>
 
 </resources>

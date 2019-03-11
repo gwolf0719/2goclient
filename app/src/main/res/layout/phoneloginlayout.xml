@@ -13,29 +13,29 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="108dp"
-        android:textSize="16dp"
         android:text="Please enter your phone number."
-        android:textColor="#ffff" />
+        android:textColor="#ffff"
+        android:textSize="16dp" />
 
     <!--<EditText-->
-        <!--android:id="@+id/phoneedittxt"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!---->
-        <!--android:ems="10"-->
-        <!--android:hint="Phone number"-->
-        <!--android:inputType="number"-->
-        <!--android:text="+886"-->
-        <!--android:textColor="#ffffff" />-->
+    <!--android:id="@+id/phoneedittxt"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!---->
+    <!--android:ems="10"-->
+    <!--android:hint="Phone number"-->
+    <!--android:inputType="number"-->
+    <!--android:text="+886"-->
+    <!--android:textColor="#ffffff" />-->
 
     <LinearLayout
         android:id="@+id/numaberlayout"
-        android:layout_below="@+id/textView29"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="46dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/textView29"
+        android:layout_centerHorizontal="true"
         android:layout_marginLeft="32.3dp"
+        android:layout_marginTop="46dp"
         android:orientation="horizontal">
 
         <ImageView
@@ -67,58 +67,80 @@
             android:textColor="#ffffff"
             android:textColorHint="#b2ffffff" />
     </LinearLayout>
+
     <EditText
         android:id="@+id/pwedittxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:textColor="#ffffff"
-        android:hint="password"
-        android:textColorHint="#b3ffffff"
-        android:inputType="textPassword"
-        android:layout_marginTop="18dp"
+        android:layout_below="@+id/numaberlayout"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/numaberlayout"/>
-<RelativeLayout
-    android:id="@+id/loginbtn"
-    android:layout_width="wrap_content"
-    android:background="@mipmap/button_white"
-    android:layout_height="wrap_content"
-    android:layout_alignParentBottom="true"
-    android:layout_marginBottom="34dp"
-    android:layout_marginLeft="40dp"
-    android:layout_marginRight="40dp"
-    android:layout_centerHorizontal="true">
-    <TextView
+        android:layout_marginTop="18dp"
+        android:ems="10"
+        android:hint="password"
+        android:inputType="textPassword"
+        android:textColor="#ffffff"
+        android:textColorHint="#b3ffffff" />
 
+    <RelativeLayout
+        android:id="@+id/forgetpwbtn"
+        android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="34dp"
+        android:layout_below="@+id/pwedittxt"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="Submit"
-        android:textSize="16dp"
-        android:textColor="#ffffff"
-        />
-</RelativeLayout>
+        android:layout_centerVertical="true">
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="forget password?"
+            android:textColor="#ffffff" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/loginbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="34dp"
+        android:background="@mipmap/button_white">
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="34dp"
+            android:text="Submit"
+            android:textColor="#ffffff"
+            android:textSize="16dp" />
+    </RelativeLayout>
+
     <ImageView
         android:id="@+id/backbtn"
-        android:layout_marginTop="40dp"
-        android:layout_marginLeft="16dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="40dp"
         android:background="@mipmap/arrow_left_white" />
 
     <ImageView
         android:id="@+id/imageView24"
         android:layout_width="wrap_content"
-        android:layout_marginTop="10dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView29"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
         android:background="@mipmap/line_white" />
 
     <!--<TextView-->

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.nnosy.partner2go">
+    package="com.nnosy.taxigoclient">
 
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
-    <uses-permission android:name="android.permission.SEND_SMS" />
+    <!--<uses-permission android:name="android.permission.SEND_SMS" />-->
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -21,7 +21,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.nnosy.partner2go.MainActivity"
+            android:name="com.nnosy.taxigoclient.MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
@@ -34,7 +34,7 @@
             android:value="@integer/google_play_services_version" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyC0rvH1WhwoW0E_TtK-olxdjmQAIAlfdUI"></meta-data>
+            android:value="AIzaSyBBsMP6lNA0gSC9NKtFLqnDh9xItFZUgEY"></meta-data>
         <!--<receiver android:name=".MainActivity$GcmBrodacasReceiver"-->
 
         <!--<service android:name=".ActivityFragment.Hleperservice"></service>-->
@@ -48,7 +48,7 @@
         <!--</receiver>-->
 
         <receiver
-            android:name="com.nnosy.partner2go.GcmBrodacasReceiver"
+            android:name="com.nnosy.taxigoclient.GcmBrodacasReceiver"
             android:permission="com.google.android.c2dm.permission.SEND">
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
@@ -61,11 +61,11 @@
             android:value="@integer/google_play_services_version" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyC0rvH1WhwoW0E_TtK-olxdjmQAIAlfdUI"></meta-data>
+            android:value="AIzaSyBBsMP6lNA0gSC9NKtFLqnDh9xItFZUgEY"></meta-data>
 
 
         <activity
-            android:name="com.nnosy.partner2go.ActivityFragment.TitleActivity"
+            android:name="com.nnosy.taxigoclient.ActivityFragment.TitleActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -74,87 +74,91 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.nnosy.partner2go.ActivityFragment.Loginactivity"
+            android:name="com.nnosy.taxigoclient.ActivityFragment.Loginactivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ActivityFragment.CheckAgreeActivity"
+            android:name="com.nnosy.taxigoclient.ActivityFragment.CheckAgreeActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.nnosy.partner2go.ActivityFragment.CreateUserFragment"
+            android:name="com.nnosy.taxigoclient.ActivityFragment.CreateUserFragment"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.nnosy.partner2go.ActivityFragment.OTPActivity"
+            android:name="com.nnosy.taxigoclient.ActivityFragment.OTPActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.nnosy.partner2go.ActivityFragment.ForgetPassWordActivity"
+            android:name="com.nnosy.taxigoclient.ActivityFragment.ForgetPassWordActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.nnosy.partner2go.ActivityFragment.NewPassWordActivity"
+            android:name="com.nnosy.taxigoclient.ActivityFragment.NewPassWordActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.nnosy.partner2go.ActivityFragment.ForgetPWOTPActivity"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name="com.nnosy.partner2go.ActivityFragment.MyprofileActivity"
+            android:name="com.nnosy.taxigoclient.ActivityFragment.ForgetPWOTPActivity"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name="com.nnosy.partner2go.ActivityFragment.FaqsActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.nnosy.partner2go.ActivityFragment.OrderHaveDriverActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.nnosy.partner2go.ActivityFragment.StartDriverActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.nnosy.partner2go.ActivityFragment.NewBookingActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.nnosy.partner2go.ActivityFragment.VerifiedActivity"
+            android:name="com.nnosy.taxigoclient.ActivityFragment.MyprofileActivity"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name="com.nnosy.partner2go.ActivityFragment.WaitDriverActivtiy"
+            android:name="com.nnosy.taxigoclient.ActivityFragment.FaqsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.nnosy.partner2go.ActivityFragment.LoginContainerActivity"
+            android:name="com.nnosy.taxigoclient.ActivityFragment.OrderHaveDriverActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.nnosy.partner2go.ActivityFragment.ClientSafelyActivity"
+            android:name="com.nnosy.taxigoclient.ActivityFragment.StartDriverActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.nnosy.partner2go.ActivityFragment.RatdriverActivity"
+            android:name="com.nnosy.taxigoclient.ActivityFragment.NewBookingActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.nnosy.partner2go.ActivityFragment.newOrderHaveDriverActivity"
+            android:name="com.nnosy.taxigoclient.ActivityFragment.VerifiedActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.nnosy.taxigoclient.ActivityFragment.WaitDriverActivtiy"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.nnosy.partner2go.ActivityFragment.TobeVerifiedActivity"
+            android:name="com.nnosy.taxigoclient.ActivityFragment.LoginContainerActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.nnosy.partner2go.ActivityFragment.OfficleReservationSActivity"
+            android:name="com.nnosy.taxigoclient.ActivityFragment.ClientSafelyActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.nnosy.partner2go.ActivityFragment.SettingActivity"
+            android:name="com.nnosy.taxigoclient.ActivityFragment.RatdriverActivity"
+            android:windowSoftInputMode="stateHidden|adjustPan"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.nnosy.partner2go.ActivityFragment.PWCangeOkActivity"
+            android:name="com.nnosy.taxigoclient.ActivityFragment.newOrderHaveDriverActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.nnosy.partner2go.ActivityFragment.BusinessInfoActivity"
+            android:name="com.nnosy.taxigoclient.ActivityFragment.TobeVerifiedActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.nnosy.partner2go.ActivityFragment.JoinMe"
+            android:name="com.nnosy.taxigoclient.ActivityFragment.OfficleReservationSActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.nnosy.partner2go.ActivityFragment.BookingDetailActivity"
+            android:name="com.nnosy.taxigoclient.ActivityFragment.SettingActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.nnosy.partner2go.ActivityFragment.PayDoneActivity"
+            android:name="com.nnosy.taxigoclient.ActivityFragment.PWCangeOkActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.nnosy.taxigoclient.ActivityFragment.BusinessInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.nnosy.taxigoclient.ActivityFragment.JoinMe"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.nnosy.taxigoclient.ActivityFragment.BookingDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.nnosy.taxigoclient.ActivityFragment.PayDoneActivity"
             android:screenOrientation="portrait" />
         <!--<activity android:name=".ActivityFragment.PayDoneActivity"-->
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="68a5bdcec2c00cd3c110482cd05579e59ffaec83" />
     </application>
 
 </manifest>

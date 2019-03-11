@@ -6,7 +6,7 @@
             android:id="@+id/payment"
             android:icon="@mipmap/icon_payment"
             android:textSize="16sp"
-            android:title="2Go Payment" />
+            android:title="TaxiGo Payment" />
         <item
             android:id="@+id/mybookings"
             android:icon="@mipmap/icon_booking"
@@ -43,7 +43,7 @@
 
 <item
     android:id="@+id/joinme"
-    android:title="Drive with 2GO"
+    android:title="Drive with TaxiGO"
     android:textSize="16sp"
     android:textColor="#9b9b9b"
     ></item>

@@ -80,7 +80,7 @@
         android:layout_marginLeft="38dp"
         android:layout_marginRight="38dp"
         android:layout_marginTop="7dp"
-        android:text="User-friendliness to passengers in \n hailing taxi services."
+        android:text="A New and Revolutionary Taxi Booking App for Legal Lisence Taxis/Limos only"
         android:textAlignment="center"
         android:textColor="#ffffff"
         android:textSize="16sp" />
@@ -101,7 +101,7 @@
         android:layout_alignParentRight="true"
         android:layout_marginBottom="2dp"
         android:layout_marginRight="2dp"
-        android:text="1.7.4.d.7.18"
+        android:text="1.1.4.2r.190309.001"
         android:textColor="#fafafa"
         android:textSize="10sp" />
     <!--<TextView-->

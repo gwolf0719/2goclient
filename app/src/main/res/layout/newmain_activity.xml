@@ -302,7 +302,7 @@
 
                     android:orientation="vertical">
 
-                    <com.nnosy.partner2go.CEdittext
+                    <com.nnosy.taxigoclient.CEdittext
                         android:id="@+id/etOrigin"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -312,7 +312,7 @@
                         android:hint="pick up"
                         android:singleLine="true" />
 
-                    <com.nnosy.partner2go.CEdittext
+                    <com.nnosy.taxigoclient.CEdittext
                         android:id="@+id/etDestination"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -413,45 +413,71 @@
 
     <!--</RelativeLayout>-->
 
-    <RelativeLayout
+    <android.support.v7.widget.CardView
         android:id="@+id/btnFindPath"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        app:cardBackgroundColor="#C53725"
+        app:cardCornerRadius="5dp"
         android:layout_above="@+id/bottoncontainer"
+        android:layout_marginBottom="16dp"
+
         android:layout_alignParentLeft="true"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="15dp"
-        android:background="@mipmap/button_booking_red"
         android:visibility="invisible">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:layout_centerVertical="true"
+                android:textSize="18sp"
+                android:layout_marginLeft="10dp"
+                android:text="TaxiGO"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="85dp"
-            android:layout_marginTop="6dp"
-            android:text="Personal\nBooking"
-            android:textColor="#ffffff" />
-    </RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="85dp"
+                android:layout_marginTop="6dp"
+                android:text="Personal\nBooking"
+                android:textColor="#ffffff" /></RelativeLayout>
+    </android.support.v7.widget.CardView>
 
-    <RelativeLayout
+    <android.support.v7.widget.CardView
         android:id="@+id/officbtnFindPath"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        app:cardCornerRadius="5dp"
         android:layout_above="@+id/bottoncontainer"
         android:layout_alignParentRight="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
         android:layout_marginRight="15dp"
-        android:background="@mipmap/button_booking_blue"
+        app:cardBackgroundColor="#0255A5"
         android:visibility="invisible">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="85dp"
-            android:layout_marginTop="6dp"
-            android:text="Official\nBooking"
-            android:textColor="#ffffff" />
-    </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:layout_centerVertical="true"
+                android:textSize="18sp"
+                android:layout_marginLeft="10dp"
+                android:text="TaxiGO"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="85dp"
+                android:layout_marginTop="6dp"
+                android:text="Official\nBooking"
+                android:textColor="#ffffff" /></RelativeLayout>
+    </android.support.v7.widget.CardView>
 
     <RelativeLayout
         android:id="@+id/bottoncontainer"
@@ -620,7 +646,7 @@
             android:layout_marginRight="2.5dp"
             android:layout_weight="5"
             android:background="@mipmap/button_driver_message"
-            android:visibility="gone">
+            android:visibility="visible">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -638,8 +664,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
+
+            android:layout_weight="5"
+            android:layout_marginLeft="2.5dp"
+            android:layout_marginRight="16dp"
             android:background="@mipmap/button_driver_message">
 
             <TextView
@@ -783,6 +811,5 @@
 
 
 </RelativeLayout>
-
 
     <!--</RelativeLayout>-->

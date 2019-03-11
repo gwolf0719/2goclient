@@ -60,14 +60,58 @@
         android:layout_marginTop="108dp"
         android:background="@mipmap/logo" />
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="20dp"
+        android:layout_height="150dp">
     <TextView
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#ffffff"
-        android:text="INFOMATION"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:textSize="30sp"/>
+        android:layout_gravity="center"
+        android:text="‘PLEASE READ THESE USER TERMS and CONDITIONS CAREFULLY BEFORE DOWNLOADING OUR APPLICATION’
+‘Terms and Conditions’
+•	Thanks for using TAXI GO mobile application. When you use our services, you are agreeing to our terms and conditions.
+•	These terms and conditions of Service and our privacy policy govern all use of TAXI GO services. The TAXI GO app is owned by CAB MMOBILITY SDN BHD.
+‘Compliance with All Laws, Regulations, Policies and Guideline’
+•	You will refrain from doing anything which we reasonably believe to be disreputable or capable of damaging our reputation;
+•	You will comply with all applicable laws;
+•	User shall not use, and shall not allow any person to use, the Service in any way that violates a state, or local law, regulation, or ordinance, or for any disruptive, tortious, or illegal purpose, including but not limited to harassment, slander, defamation, data theft or inappropriate dissemination, or improper surveillance of any person.
+•	User will provide accurate, complete, and current information to the Service.
+•	User will notify the Service any material change to information User provides, either by updating and correcting the information, or by alerting the Service via the functions of the Service or the email address provided below.
+‘Liability is Limited’
+•	The Service shall not be liable for any damages incurred as a result of any loss, disclosure, or third-party use of information, regardless of whether such disclosure or use is with or without User’s knowledge or consent. The Service shall have no liability for any damages related to: User’s actions or failures to act, the acts or omissions of any third party, including but not limited to any telecommunications service provider, or events or causes beyond the Service’s reasonable control. The Service has no obligations whatever, and shall have no liability to, any third party who is not a User bound by these Terms. Limitations, exclusions, and disclaimers in these Terms shall apply to the maximum extent permitted by applicable law, even if any remedy fails its essential purpose
+•	The Company shall not be liable for any damages resulting from the use of or inability to use the Service (but to the exclusion of death or personal injury), including damages caused by malware, viruses or any incorrectness or incompleteness of the Information or the Service, unless such damage is the result of any willful misconduct or from gross negligence on the part of the Company.
+‘Privacy Policy’
+•	Any information that you provide to the Service is subject to the Service’s Privacy Policy, which governs our collection and use of User information. User understands that through his or her use of its Service, User consents to the collection and use of the information, including the transfer of this information to the Malaysia and/or other countries for storage, processing and use by the Service. The Service may make certain communications to some or all Users, such as service announcements and administrative messages. These communications are considered part of the Service and a User’s account with the Service, and Users are not able to opt out of all of them.
+•	We respect your privacy and recognize the need to protect the personally identifiable information (any information by which you can be identified, such as name, address, and telephone number) you share with us. We would like to assure you that we follow appropriate standards when it comes to protecting your privacy on the Service. There are times when we may collect personal information from you such as name, physical address or telephone number. It is our intent to inform you before we do that and to tell you what we intend to do with the information. Generally, you will have the option not to provide the information, and in the future, you will be able to opt out of certain uses of the information.
+•	You should access our privacy policy regularly to ensure you understand our current policies. If you have any query / doubts, kindly feel free to drop an e-mail at helpdesk@taxigo.com.my
+‘Usernames, Passwords, and Profiles’
+•	If prompted, Users must provide a valid email address to the Service, at which email address the User can receive messages. User must also update the Service if that email address changes. The Service reserves the right to terminate any User account and/or User access to the Service if a valid email is requested but is not provided by the User.
+•	If the Service prompts or allows a User to create a username or profile, Users agree not to pick a username or provide any profile information that would impersonate someone else or that is likely to cause confusion with any other person or entity. The Service reserves the right to cancel a User account or to change a username or profile data at any time. Similarly, if the Service allows comments or user input, or prompts or allows a User to create an avatar or upload a picture, User agrees not to use any image that impersonates some other person or entity, or that is otherwise likely to cause confusion.
+•	You are responsible for protecting your username and password for the Service, and you agree not to disclose it to any third party. We recommend that you use a password that is more than eight characters long. You are responsible for all activity on your account, whether or not you authorized it. You agree to inform us of unauthorized use of your account, by email to helpdesk@taxigo.com.my
+‘Indemnification’
+By accepting these User Terms and Conditions and using the Service, you agree to defend, indemnify and hold harmless the company and its subsidiaries, agents, licensors, managers, and other affiliated companies, and their employees, contractors, agents, officers and directors, from and against any and all claims, damages, obligations, losses, liabilities, costs or debt, and expenses (including but not limited to attorney’s fees) arising from:
+(i)	your use of and access to the TAXI GO Platform, including any data or content transmitted or received by you;
+(ii)	your violation of any term of this Agreement, including without limitation your breach of any of the representations and warranties above;
+(iii)	your violation of any third-party right, including without limitation any right of privacy or intellectual property rights;
+(iv)	your violation of any applicable law, rule or regulation;
+(v)	any claim or damages that arise as a result of any of your User Content or any that is submitted via your account;
+(vi)	any other party’s access and use of the Service with your account.
+‘Disclaimer of Warranties’
+•	The Service maybe subject to limitations, delays, and other problems inherent in the use of the internet and electronic communications. The company shall not be responsible for any delays, delivery failures, loss or other damage resulting from such problems.
+•	User agrees and acknowledges that the company does not warrant that the Service will be uninterrupted, timely, secure, error-free or virus-free, nor does it make any warranty as to the results that may be obtained from use of the Service, and no information, advice or services obtained by the User from the Company or through the service shall create any warranty not expressly stated in this agreement.
+•	The company makes no representation, warranty, or guarantee as to the reliability, timeliness, quality, suitability, availability, accuracy or completeness of the Service.
+"
+
+        />
+    </ScrollView>
 
 
     <!--<TextView-->

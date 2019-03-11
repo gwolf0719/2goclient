@@ -30,5 +30,5 @@
         android:textSize="14sp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:text="© Cab Auto Bus Sdn Bhd" />
+        android:text="© CAB MMOBILITY SDN BHD" />
 </RelativeLayout>
