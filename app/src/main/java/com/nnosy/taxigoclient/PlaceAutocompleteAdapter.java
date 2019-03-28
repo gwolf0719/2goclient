@@ -137,7 +137,11 @@ public class PlaceAutocompleteAdapter extends ArrayAdapter<PlaceAutocompleteAdap
                 AutocompletePrediction prediction = iterator.next();
                 // Get the details of this prediction and copy it into a new PlaceAutocomplete object.
                 resultList.add(new PlaceAutocomplete(prediction.getPlaceId(),
-                        prediction.getFullText(characterStyle)));
+                        prediction.getFullText(null)));
+
+//                System.out.println(" list prediction == : " + prediction.getPlaceId() + " " +
+//                        prediction.getSecondaryText(characterStyle)+" ");
+//                resultList.add(new PlaceAutocomplete(prediction.getPlaceId(),prediction.getSecondaryText(characterStyle)))
 //                etDescription()));
             }
 

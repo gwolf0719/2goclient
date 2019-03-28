@@ -159,8 +159,11 @@ public class MainActivity extends AppCompatActivity
     LinearLayout paymentbtn, mybookingbtn, verificationbtn, helpbtn, settingbtn;
     TextView drivetogobtn, menunumbertxt;
 
+//    private static final LatLngBounds BOUNDS_GREATER_SYDNEY = new LatLngBounds(
+//            new LatLng(-34.041458, 150.790100), new LatLng(-33.682247, 151.383362));
+
     private static final LatLngBounds BOUNDS_GREATER_SYDNEY = new LatLngBounds(
-            new LatLng(-34.041458, 150.790100), new LatLng(-33.682247, 151.383362));
+            new LatLng(0.306955, 99.115286), new LatLng(7.410213, 105.208521));
 
     Handler handler = new Handler() {
         @Override
@@ -1555,7 +1558,7 @@ public class MainActivity extends AppCompatActivity
                     1000, 0, mLocationListener);
             location = locationManager.getLastKnownLocation(LocationManager.PASSIVE_PROVIDER);
         }
-        Geocoder gc = new Geocoder(MainActivity.this, Locale.TRADITIONAL_CHINESE);
+        Geocoder gc = new Geocoder(MainActivity.this, Locale.ENGLISH);
         lstAddress = null;
 
 //        System.out.println("mainactivity getcurrent ===== : " + location.toString() + " " + location);
@@ -1790,7 +1793,7 @@ public class MainActivity extends AppCompatActivity
                 Double lng = latLng.longitude;
                 System.out.println(" ==== longonclicke ===== :" + lat + "   " + lng);
 
-                Geocoder gc = new Geocoder(MainActivity.this, Locale.TRADITIONAL_CHINESE);
+                Geocoder gc = new Geocoder(MainActivity.this, Locale.ENGLISH);
                 List<Address> lstAddress = null;
                 try {
                     lstAddress = gc.getFromLocation(lat, lng, 1);
@@ -2135,14 +2138,15 @@ public class MainActivity extends AppCompatActivity
 //                        place.getWebsiteUri()));
 
                 // Display the third party attributions if set.
-                final CharSequence thirdPartyAttribution = places.getAttributions();
-                if (thirdPartyAttribution == null) {
-//                    mPlaceDetailsAttribution.setVisibility(View.GONE);
-                } else {
-//                    mPlaceDetailsAttribution.setVisibility(View.VISIBLE);
-//                    mPlaceDetailsAttribution.setText(Html.fromHtml(thirdPartyAttribution.toString()));
-                }
-
+//                final CharSequence thirdPartyAttribution = places.getAttributions();
+//                if (thirdPartyAttribution == null) {
+////                    mPlaceDetailsAttribution.setVisibility(View.GONE);
+//                } else {
+////                    mPlaceDetailsAttribution.setVisibility(View.VISIBLE);
+////                    mPlaceDetailsAttribution.setText(Html.fromHtml(thirdPartyAttribution.toString()));
+//                }
+                etDestination.setText(place.getAddress());
+                System.out.println(" plac = : " + place.getAddress());
 //                Log.i(TAG, "Place details received: " + place.getName());
 
                 places.release();
