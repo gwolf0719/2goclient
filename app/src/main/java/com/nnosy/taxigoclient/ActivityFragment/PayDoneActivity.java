@@ -40,11 +40,14 @@ public class PayDoneActivity extends Activity {
                     Toast.makeText(PayDoneActivity.this, "mcash fail", Toast.LENGTH_SHORT).show();
                     break;
                 case 1:
+                    PaymentD();
                     Toast.makeText(PayDoneActivity.this, "success", Toast.LENGTH_SHORT).show();
+
                     break;
             }
         }
     };
+
     Handler checkpayment = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -65,6 +68,7 @@ public class PayDoneActivity extends Activity {
                                     System.out.println("payment = : " + object.getString("pay_status"));
                                     if (object.getString("pay_status").equals("2")) {
                                         if (PrefsHelper.setmcashdone(getApplication()).equals("0")) {
+                                            PaymentD();
                                             Intent intent = new Intent();
                                             intent.setClass(PayDoneActivity.this, ClientSafelyActivity.class);
                                             startActivity(intent);
@@ -250,6 +254,16 @@ public class PayDoneActivity extends Activity {
             }).start();
         }
 
+    }
+    public void PaymentD(){
+            String url = "https://www.mmas.biz/api_booking/payment?order_id=" + PrefsHelper.setorderid(getApplication());
+            aQuery.ajax(url,null,JSONObject.class,new AjaxCallback<JSONObject>(){
+                @Override
+                public void callback(String url, JSONObject object, AjaxStatus status) {
+                    super.callback(url, object, status);
+                    System.out.println(" Client payment obj === : " + object + "\n url == :" + url);
+                }
+            });
     }
 
     private static Boolean isExit = false;

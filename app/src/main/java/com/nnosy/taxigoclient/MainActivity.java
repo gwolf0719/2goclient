@@ -1339,7 +1339,7 @@ public class MainActivity extends AppCompatActivity
                 public void callback(String url, JSONObject object, AjaxStatus status) {
                     super.callback(url, object, status);
                     try {
-                        System.out.println("obj test == : " + object.getJSONArray("routes").getJSONObject(0).getJSONArray("legs").getJSONObject(0).getJSONObject("duration").getString("text"));
+//                        System.out.println("obj test == : " + object.getJSONArray("routes").getJSONObject(0).getJSONArray("legs").getJSONObject(0).getJSONObject("duration").getString("text"));
                         String dstring = object.getJSONArray("routes").getJSONObject(0).getJSONArray("legs").getJSONObject(0).getJSONObject("duration").getString("text");
 //                                    dtxt.setText(dstring);
                         incardtxt.setText(dstring);
