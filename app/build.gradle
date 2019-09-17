@@ -23,19 +23,19 @@ android {
         releasekey {
             keyAlias 'Nosy'
             keyPassword 'j61i6jo3'
-            storeFile file('C:/Users/Nosy/Documents/2goclient/partnertogo.jks')
+            storeFile file('/Users/james/project/taxi_android/2goclient/partnertogo.jks')
             storePassword 'j61i6jo3'
         }
         sining2 {
             keyAlias 'Nosy'
             keyPassword 'j61i6jo3'
-            storeFile file('C:/Users/Nosy/Documents/2goclient/partnertogo.jks')
+            storeFile file('/Users/james/project/taxi_android/2goclient/partnertogo.jks')
             storePassword 'j61i6jo3'
         }
         taxigokey {
             keyAlias 'silence5105'
             keyPassword 'j61i6jo3'
-            storeFile file('C:/Users/nosy/Documents/2goclient/taxigoclientkey.jks')
+            storeFile file('/Users/james/project/taxi_android/2goclient/taxigoclientkey.jks')
             storePassword 'j61i6jo3'
         }
     }
@@ -45,8 +45,8 @@ android {
         applicationId "com.nnosy.taxigoclient"
         minSdkVersion 15
         targetSdkVersion 26
-        versionCode 21
-        versionName "1.1.5.1.r.190331.001"
+        versionCode 23
+        versionName "1.1.5.1.r.190331.002"
 //        versionName "1.1.0.r.181219.001"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true

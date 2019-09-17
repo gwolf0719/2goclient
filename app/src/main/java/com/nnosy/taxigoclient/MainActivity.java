@@ -1824,7 +1824,7 @@ public class MainActivity extends AppCompatActivity
                 try {
                     new DirectionFinder(MainActivity.this, origin, destination).execute();
                 } catch (UnsupportedEncodingException e) {
-                    e.printStackTrace();
+//                    e.printStackTrace();
 //                    Toast.makeText(MainActivity.this, (CharSequence) e,Toast.LENGTH_SHORT).show();
                 }
                 etDestination.setText(returnAddress);
@@ -1891,7 +1891,7 @@ public class MainActivity extends AppCompatActivity
 //            getFragmentManager().beginTransaction().replace(R.id.showview, new BookSelectTimeFragment1()).commit();
 //            new BookingFragment().show(getFragmentManager(), "");
         } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
+//            e.printStackTrace();
         }
 
     }
